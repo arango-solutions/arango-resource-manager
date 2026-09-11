@@ -6,7 +6,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from app.models.common import Protection, ResourceTriple, WorkloadRef
+from app.models.common import Attribution, Protection, ResourceTriple, WorkloadRef
 
 
 class Condition(BaseModel):
@@ -48,6 +48,7 @@ class PodSummary(BaseModel):
 
     containers: list[str] = Field(default_factory=list)
     resources: ResourceTriple = Field(default_factory=ResourceTriple)
+    attribution: Attribution | None = None
 
 
 class PodDetail(PodSummary):
@@ -112,6 +113,8 @@ class ServiceGroup(BaseModel):
     ready_pods: int = 0
     desired_replicas: int = 0
     instances: list[str] = Field(default_factory=list)
+    attribution: Attribution | None = None
+    """Project and database this service serves, rolled up from its pods."""
 
     resources: ResourceTriple = Field(default_factory=ResourceTriple)
 

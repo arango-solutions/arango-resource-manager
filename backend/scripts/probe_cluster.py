@@ -26,11 +26,11 @@ from app.k8s.client import (
     get_clients,
     probe_capabilities,
 )
+from app.services.attribution import DATABASE_KEYS, PROJECT_KEYS
 
 # Fields stripped before a fixture is written: noisy, large, or potentially sensitive.
 _DROP_ANNOTATIONS = {"kubectl.kubernetes.io/last-applied-configuration"}
 _DROP_CONTAINER_FIELDS = (
-    "env",
     "envFrom",
     "volumeMounts",
     "args",
@@ -41,6 +41,11 @@ _DROP_CONTAINER_FIELDS = (
     "lifecycle",
 )
 
+# Environment is consumed by the attribution layer, so it can no longer be
+# dropped wholesale - but it must not be committed wholesale either. Only these
+# keys survive into a fixture, and only their literal values; everything else,
+# including every `valueFrom` reference, is discarded.
+_KEEP_ENV_KEYS = frozenset(PROJECT_KEYS) | frozenset(DATABASE_KEYS)
 
 # Cluster addressing. Nothing in the app reads a pod or host IP, so they are
 # dropped outright. Node names ARE read (a pod summary shows where it runs), so
@@ -81,14 +86,27 @@ def _depersonalize(value: str) -> str:
     return _REGION_RE.sub(lambda m: _pseudonym(m.group(0), "region"), value)
 
 
+def _pseudonym_label(key: str, value: str) -> str:
+    """A stable fake project or database name, shaped like the real one.
+
+    Two services on the same database still share a value here, and two on
+    different databases still differ, so the grouping and conflict paths behave
+    exactly as they do against the live cluster.
+    """
+    prefix = "db" if key in DATABASE_KEYS else "project"
+    return f"{prefix}-{hashlib.sha256(value.encode()).hexdigest()[:6]}"
+
+
 def _scrub(node: Any) -> Any:
     """Strip bloat and literal secrets from a recorded API response, in place.
 
     Fixtures are committed, so they must carry structure without carrying values.
     Container entries are reduced to the fields this app reads (name, image,
-    resources); environment variables, mounts, args and probes are dropped so
-    no literal secret is ever committed. Helm chart payloads and managedFields
-    go too - nothing here reads them and they dominate the size.
+    resources) plus the attribution env allowlist; all other environment
+    variables, mounts, args and probes are dropped so no literal secret is ever
+    committed. Helm chart payloads and managedFields go too - nothing here reads
+    them and they dominate the size. Pod and host IPs go because nothing reads
+    them; node names are pseudonymized by `_scrub_strings` because the app does.
     """
     if isinstance(node, list):
         return [_scrub(item) for item in node]
@@ -108,12 +126,29 @@ def _scrub(node: Any) -> Any:
         for key in _DROP_ANNOTATIONS:
             annotations.pop(key, None)
 
-    # A container entry: keep only what the app reads. Environment variables are
-    # dropped rather than redacted - they can carry credentials and nothing here
-    # consumes them - along with mounts, args and probes, which are pure bulk.
+    # A container entry: keep only what the app reads. Mounts, args and probes
+    # are pure bulk. Environment survives only as the attribution allowlist -
+    # the rest can carry credentials and nothing here consumes it.
     if "resources" in node and "image" in node:
         for key in _DROP_CONTAINER_FIELDS:
             node.pop(key, None)
+        env = node.get("env")
+        if isinstance(env, list):
+            # The values are pseudonymized, not copied. A project name is the
+            # single most identifying string a recording can carry - it is
+            # frequently a customer's name - and the fixtures only need *a*
+            # value to exercise the attribution path, never the real one.
+            kept = [
+                {"name": e["name"], "value": _pseudonym_label(e["name"], e["value"])}
+                for e in env
+                if isinstance(e, dict)
+                and e.get("name") in _KEEP_ENV_KEYS
+                and isinstance(e.get("value"), str)
+            ]
+            if kept:
+                node["env"] = kept
+            else:
+                node.pop("env", None)
 
     return {key: _scrub(value) for key, value in node.items()}
 

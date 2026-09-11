@@ -847,6 +847,16 @@
       "spec": {
         "containers": [
           {
+            "env": [
+              {
+                "name": "GENAI_PROJECT_NAME",
+                "value": "widget-catalog"
+              },
+              {
+                "name": "db_name",
+                "value": "widget_docs"
+              }
+            ],
             "image": "registry.example.com/autograph/service:v0.0.16",
             "imagePullPolicy": "IfNotPresent",
             "name": "grpc-server",
@@ -14330,6 +14340,16 @@
       "spec": {
         "containers": [
           {
+            "env": [
+              {
+                "name": "GENAI_PROJECT_NAME",
+                "value": "widget-catalog"
+              },
+              {
+                "name": "db_name",
+                "value": "widget_docs"
+              }
+            ],
             "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
             "imagePullPolicy": "IfNotPresent",
             "name": "grpc-server",
@@ -14898,6 +14918,12 @@
       "spec": {
         "containers": [
           {
+            "env": [
+              {
+                "name": "db_name",
+                "value": "sample_corpus"
+              }
+            ],
             "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
             "imagePullPolicy": "IfNotPresent",
             "name": "grpc-server",

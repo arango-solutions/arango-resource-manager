@@ -31,6 +31,26 @@ class Protection(BaseModel):
         return self.level is not ProtectionLevel.NORMAL
 
 
+class Attribution(BaseModel):
+    """What an opaque release name is actually for.
+
+    Read from container environment (`GENAI_PROJECT_NAME`, `db_name`), because
+    the platform's generated manifests carry no owner or project metadata.
+    """
+
+    project: str | None = None
+    database: str | None = None
+    source: str | None = None
+    """The container the values were read from."""
+
+    conflict: bool = False
+    """Pods under one service disagreed; the conflicting fields are left None."""
+
+    @property
+    def is_empty(self) -> bool:
+        return not self.project and not self.database
+
+
 class Resources(BaseModel):
     """A CPU/memory pair where None means "not set", distinct from zero."""
 

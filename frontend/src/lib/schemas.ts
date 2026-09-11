@@ -82,6 +82,13 @@ export const containerSchema = z.object({
   resources: resourceTripleSchema,
 })
 
+export const attributionSchema = z.object({
+  project: z.string().nullable(),
+  database: z.string().nullable(),
+  source: z.string().nullable(),
+  conflict: z.boolean(),
+})
+
 export const podDetailSchema = podSchema.extend({
   labels: z.record(z.string(), z.string()),
   container_details: z.array(containerSchema),
@@ -122,6 +129,7 @@ export const serviceSchema = z.object({
   ready_pods: z.number(),
   desired_replicas: z.number(),
   instances: z.array(z.string()),
+  attribution: attributionSchema.nullable(),
   resources: resourceTripleSchema,
   warning_count: z.number(),
   latest_warning: z.string().nullable(),

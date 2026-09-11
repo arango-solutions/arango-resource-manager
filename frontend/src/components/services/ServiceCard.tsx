@@ -30,6 +30,28 @@ export default function ServiceCard({ service }: { service: Service }) {
         </Badge>
       </div>
 
+      {service.attribution && (
+        <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5 text-xs text-muted">
+          {service.attribution.project && (
+            <span className="font-medium text-body">{service.attribution.project}</span>
+          )}
+          {service.attribution.database && (
+            <span className="font-mono">
+              {service.attribution.project ? '· ' : ''}
+              {service.attribution.database}
+            </span>
+          )}
+          {service.attribution.conflict && (
+            <span
+              className="text-pit"
+              title="Pods under this service report different values; the conflicting field is withheld."
+            >
+              · pods disagree
+            </span>
+          )}
+        </p>
+      )}
+
       <div className="mt-2 flex flex-wrap items-center gap-1.5">
         {service.chart_version && (
           <Badge tone="neutral" mono title={`Chart ${service.chart_name ?? ''}`}>

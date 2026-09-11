@@ -35,6 +35,7 @@ from app.models.inventory import (
     WorkloadSummary,
 )
 from app.services import metrics
+from app.services.attribution import attribution_of, merge_attribution
 from app.services.cache import TTLCache
 from app.services.grouping import (
     ARANGO_CLUSTER_KEY,
@@ -171,6 +172,7 @@ def build_pod_summary(
             str(c.get("name", "")) for c in pod.get("spec", {}).get("containers", []) or []
         ],
         resources=_pod_resources(pod, usage),
+        attribution=attribution_of(pod),
     )
 
 
@@ -522,6 +524,7 @@ def _assemble_services(
                 ready_pods=sum(1 for p in member_pods if p.ready),
                 desired_replicas=sum(w.desired_replicas for w in members),
                 instances=sorted({w.name for w in members}),
+                attribution=merge_attribution([p.attribution for p in member_pods]),
                 resources=resources,
                 warning_count=sum(e.count for e in group_warnings),
                 latest_warning=group_warnings[0].message if group_warnings else None,
