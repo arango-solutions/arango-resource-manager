@@ -3,6 +3,7 @@ import type { ZodType } from 'zod'
 
 import {
   clusterInfoSchema,
+  eventSchema,
   overviewSchema,
   resourceReportSchema,
   unboundedSchema,
@@ -78,4 +79,28 @@ export function fetchUnbounded(): Promise<Unbounded[]> {
 
 export function fetchRollup(scope: 'namespace' | 'service' | 'workload'): Promise<ResourceReport[]> {
   return get('/resources/rollup', z.array(resourceReportSchema), { scope })
+}
+
+export function fetchEvents(params?: { service?: string; involved?: string; limit?: number }) {
+  return get('/events', z.array(eventSchema), params)
+}
+
+export interface LogQuery {
+  container?: string
+  tailLines?: number
+  previous?: boolean
+}
+
+/** Logs are plain text, so they bypass the zod boundary the JSON routes use. */
+export async function fetchPodLogs(name: string, query: LogQuery = {}): Promise<string> {
+  const { data } = await http.get(`/pods/${encodeURIComponent(name)}/logs`, {
+    params: {
+      container: query.container,
+      tail_lines: query.tailLines ?? 200,
+      previous: query.previous ?? false,
+    },
+    responseType: 'text',
+    transformResponse: (value) => value,
+  })
+  return String(data)
 }

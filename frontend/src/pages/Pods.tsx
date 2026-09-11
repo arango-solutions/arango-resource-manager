@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 
+import PodDrawer from '@/components/pods/PodDrawer'
 import PodTable from '@/components/pods/PodTable'
 import EmptyState from '@/components/ui/EmptyState'
 import ErrorPanel from '@/components/ui/ErrorPanel'
@@ -12,6 +13,7 @@ type SortKey = NonNullable<PodQuery['sort']>
 export default function Pods() {
   const [sort, setSort] = useState<SortKey>('uptime')
   const [order, setOrder] = useState<'asc' | 'desc'>('desc')
+  const [selected, setSelected] = useState<string | null>(null)
 
   const { data, error, isPending } = useQuery({
     queryKey: ['pods', { sort, order }],
@@ -48,8 +50,16 @@ export default function Pods() {
       {data.length === 0 ? (
         <EmptyState title="No pods in this namespace." />
       ) : (
-        <PodTable pods={data} sort={sort} order={order} onSort={handleSort} />
+        <PodTable
+          pods={data}
+          sort={sort}
+          order={order}
+          onSort={handleSort}
+          onSelect={setSelected}
+        />
       )}
+
+      {selected && <PodDrawer name={selected} onClose={() => setSelected(null)} />}
     </div>
   )
 }

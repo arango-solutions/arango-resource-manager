@@ -13,6 +13,7 @@ type SortKey = NonNullable<PodQuery['sort']>
 
 interface Props {
   pods: Pod[]
+  onSelect?: (name: string) => void
   sort: SortKey
   order: 'asc' | 'desc'
   onSort: (key: SortKey) => void
@@ -29,7 +30,14 @@ const HEADERS: { key: SortKey | null; label: string; align?: string }[] = [
   { key: 'memory', label: 'Memory used / reserved', align: 'text-right' },
 ]
 
-export default function PodTable({ pods, sort, order, onSort, showService = true }: Props) {
+export default function PodTable({
+  pods,
+  sort,
+  order,
+  onSort,
+  showService = true,
+  onSelect,
+}: Props) {
   return (
     // Wide tables scroll inside their own container; the page never scrolls
     // sideways.
@@ -65,7 +73,13 @@ export default function PodTable({ pods, sort, order, onSort, showService = true
         </thead>
         <tbody>
           {pods.map((pod) => (
-            <tr key={pod.name} className="border-b border-line/60 last:border-0 hover:bg-panel/60">
+            <tr
+              key={pod.name}
+              onClick={onSelect ? () => onSelect(pod.name) : undefined}
+              className={`border-b border-line/60 last:border-0 hover:bg-panel/60 ${
+                onSelect ? 'cursor-pointer' : ''
+              }`}
+            >
               <td className="px-3 py-2">
                 <PodStatusPill
                   phase={pod.phase}

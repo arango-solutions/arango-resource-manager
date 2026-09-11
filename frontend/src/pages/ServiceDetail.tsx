@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import ProtectedBadge from '@/components/actions/ProtectedBadge'
 import EventFeed from '@/components/events/EventFeed'
+import PodDrawer from '@/components/pods/PodDrawer'
 import PodTable from '@/components/pods/PodTable'
 import ConditionList from '@/components/services/ConditionList'
 import Badge from '@/components/ui/Badge'
@@ -16,6 +18,7 @@ import type { Workload } from '@/lib/schemas'
 
 export default function ServiceDetail() {
   const { name = '' } = useParams()
+  const [selectedPod, setSelectedPod] = useState<string | null>(null)
   const { data, error, isPending } = useQuery({
     queryKey: ['services', name],
     queryFn: () => fetchService(name),
@@ -101,9 +104,12 @@ export default function ServiceDetail() {
             order="asc"
             onSort={() => undefined}
             showService={false}
+            onSelect={setSelectedPod}
           />
         </section>
       )}
+
+      {selectedPod && <PodDrawer name={selectedPod} onClose={() => setSelectedPod(null)} />}
     </div>
   )
 }
