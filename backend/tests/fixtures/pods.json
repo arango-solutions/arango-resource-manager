@@ -161,7 +161,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -452,20 +452,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.150.63",
-        "podIPs": [
-          {
-            "ip": "10.20.150.63"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -607,7 +595,7 @@
         ],
         "dnsPolicy": "ClusterFirst",
         "enableServiceLinks": true,
-        "nodeName": "ip-10-0-0-107.example.internal",
+        "nodeName": "node-c22156e3.example.internal",
         "nodeSelector": {
           "arangodb.com/role": "platform",
           "arangodb.com/stage": "rnd",
@@ -790,20 +778,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.107",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.107"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.106.155",
-        "podIPs": [
-          {
-            "ip": "10.20.106.155"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -1006,7 +982,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -1336,20 +1312,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.151.18",
-        "podIPs": [
-          {
-            "ip": "10.20.151.18"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -1480,7 +1444,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -1723,20 +1687,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.172.128",
-        "podIPs": [
-          {
-            "ip": "10.20.172.128"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -1879,7 +1831,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -2130,20 +2082,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.227.145",
-        "podIPs": [
-          {
-            "ip": "10.20.227.145"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -2286,7 +2226,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -2537,20 +2477,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.40.87",
-        "podIPs": [
-          {
-            "ip": "10.20.40.87"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -2689,7 +2617,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -2948,20 +2876,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.112.87",
-        "podIPs": [
-          {
-            "ip": "10.20.112.87"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -3100,7 +3016,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -3367,20 +3283,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.152.4",
-        "podIPs": [
-          {
-            "ip": "10.20.152.4"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -3519,7 +3423,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -3778,20 +3682,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.121.182",
-        "podIPs": [
-          {
-            "ip": "10.20.121.182"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -3930,7 +3822,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -4189,20 +4081,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.99.211",
-        "podIPs": [
-          {
-            "ip": "10.20.99.211"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -4341,7 +4221,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -4592,20 +4472,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.162.176",
-        "podIPs": [
-          {
-            "ip": "10.20.162.176"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -4744,7 +4612,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -4995,20 +4863,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.0.102",
-        "podIPs": [
-          {
-            "ip": "10.20.0.102"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -5147,7 +5003,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -5398,20 +5254,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.178.229",
-        "podIPs": [
-          {
-            "ip": "10.20.178.229"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -5550,7 +5394,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -5801,20 +5645,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.204.194",
-        "podIPs": [
-          {
-            "ip": "10.20.204.194"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -5953,7 +5785,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -6220,20 +6052,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.28.118",
-        "podIPs": [
-          {
-            "ip": "10.20.28.118"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -6372,7 +6192,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -6623,20 +6443,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.185.219",
-        "podIPs": [
-          {
-            "ip": "10.20.185.219"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -6775,7 +6583,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7026,20 +6834,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.30.137",
-        "podIPs": [
-          {
-            "ip": "10.20.30.137"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -7178,7 +6974,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7429,20 +7225,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.138.51",
-        "podIPs": [
-          {
-            "ip": "10.20.138.51"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -7581,7 +7365,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7832,20 +7616,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.110.231",
-        "podIPs": [
-          {
-            "ip": "10.20.110.231"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -7984,7 +7756,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -8235,20 +8007,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.125.197",
-        "podIPs": [
-          {
-            "ip": "10.20.125.197"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -8387,7 +8147,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -8638,20 +8398,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.138.180",
-        "podIPs": [
-          {
-            "ip": "10.20.138.180"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -8790,7 +8538,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9041,20 +8789,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.140.195",
-        "podIPs": [
-          {
-            "ip": "10.20.140.195"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -9193,7 +8929,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9444,20 +9180,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.215.200",
-        "podIPs": [
-          {
-            "ip": "10.20.215.200"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -9596,7 +9320,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9847,20 +9571,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.20.213",
-        "podIPs": [
-          {
-            "ip": "10.20.20.213"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -9999,7 +9711,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -10250,20 +9962,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.17.92",
-        "podIPs": [
-          {
-            "ip": "10.20.17.92"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -10402,7 +10102,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -10653,20 +10353,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.179.28",
-        "podIPs": [
-          {
-            "ip": "10.20.179.28"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -10805,7 +10493,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -11056,20 +10744,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.64.113",
-        "podIPs": [
-          {
-            "ip": "10.20.64.113"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -11208,7 +10884,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -11459,20 +11135,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.202.169",
-        "podIPs": [
-          {
-            "ip": "10.20.202.169"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -11611,7 +11275,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -11862,20 +11526,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.204.163",
-        "podIPs": [
-          {
-            "ip": "10.20.204.163"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -12014,7 +11666,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -12265,20 +11917,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.237.194",
-        "podIPs": [
-          {
-            "ip": "10.20.237.194"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -12417,7 +12057,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -12668,20 +12308,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.105.113",
-        "podIPs": [
-          {
-            "ip": "10.20.105.113"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -12820,7 +12448,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -13071,20 +12699,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.30.34",
-        "podIPs": [
-          {
-            "ip": "10.20.30.34"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -13223,7 +12839,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -13474,20 +13090,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.66.213",
-        "podIPs": [
-          {
-            "ip": "10.20.66.213"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -13626,7 +13230,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -13877,20 +13481,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.196.0",
-        "podIPs": [
-          {
-            "ip": "10.20.196.0"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -14029,7 +13621,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -14280,20 +13872,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.49.239",
-        "podIPs": [
-          {
-            "ip": "10.20.49.239"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -14432,7 +14012,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -14683,20 +14263,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.227.238",
-        "podIPs": [
-          {
-            "ip": "10.20.227.238"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -14929,7 +14497,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -15263,20 +14831,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.5.85",
-        "podIPs": [
-          {
-            "ip": "10.20.5.85"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -15509,7 +15065,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -15843,20 +15399,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.109.173",
-        "podIPs": [
-          {
-            "ip": "10.20.109.173"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -16089,7 +15633,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -16431,20 +15975,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.27.79",
-        "podIPs": [
-          {
-            "ip": "10.20.27.79"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -16587,7 +16119,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -16845,20 +16377,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.82.235",
-        "podIPs": [
-          {
-            "ip": "10.20.82.235"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -16989,7 +16509,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -17232,20 +16752,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.124.218",
-        "podIPs": [
-          {
-            "ip": "10.20.124.218"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -17384,7 +16892,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -17626,20 +17134,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.229.185",
-        "podIPs": [
-          {
-            "ip": "10.20.229.185"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -17825,7 +17321,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-100.example.internal",
+        "nodeName": "node-673750e1.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -18064,12 +17560,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.100",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.100"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://d9a584bcf0ffe7646c1f22d89a3927cb0e159cab8b2c5cb05bc7be67fd813aef",
@@ -18184,12 +17674,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.150.254",
-        "podIPs": [
-          {
-            "ip": "10.20.150.254"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -18375,7 +17859,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-43.example.internal",
+        "nodeName": "node-27789edf.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -18614,12 +18098,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.43",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.43"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://35f2ccb44e7728097f07f2f998ea0d01f84bcefbe3d0bf64d345fd1a775b4596",
@@ -18734,12 +18212,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.244.103",
-        "podIPs": [
-          {
-            "ip": "10.20.244.103"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -18926,7 +18398,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-88.example.internal",
+        "nodeName": "node-baa64e5a.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -19165,12 +18637,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.88",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.88"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://a829797d2232d6b77916cd7eec6ade131f2e4696c388570cc2763d8acae5c536",
@@ -19285,12 +18751,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.207.173",
-        "podIPs": [
-          {
-            "ip": "10.20.207.173"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -19459,7 +18919,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-100.example.internal",
+        "nodeName": "node-673750e1.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -19699,12 +19159,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.100",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.100"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://e8834002070eae798a3bf67d82116e355a6f9c593321b6dbbed7fbf715ac015b",
@@ -19780,12 +19234,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.246.4",
-        "podIPs": [
-          {
-            "ip": "10.20.246.4"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -19954,7 +19402,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-43.example.internal",
+        "nodeName": "node-27789edf.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -20194,12 +19642,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.43",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.43"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://4bcdbd6bc142fa665ea92432eb8f5c60eb85e6cf0461b3b67f68569cc63b94c4",
@@ -20275,12 +19717,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.40.63",
-        "podIPs": [
-          {
-            "ip": "10.20.40.63"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -20449,7 +19885,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-88.example.internal",
+        "nodeName": "node-baa64e5a.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -20689,12 +20125,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.88",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.88"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://1d7b31cc7eb7c16ea24e8c10366d14dd88f460f21856d4c9234b90472bb1f156",
@@ -20770,12 +20200,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.79.217",
-        "podIPs": [
-          {
-            "ip": "10.20.79.217"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -20962,7 +20386,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-43.example.internal",
+        "nodeName": "node-27789edf.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -21242,12 +20666,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.43",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.43"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://daacda91d977021b0d5e38f50aa0c6aab14f7bef88ad9873fb512844943174b3",
@@ -21281,12 +20699,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.164.74",
-        "podIPs": [
-          {
-            "ip": "10.20.164.74"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "requests": {
@@ -21469,7 +20881,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-100.example.internal",
+        "nodeName": "node-673750e1.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -21749,12 +21161,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.100",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.100"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://a30d8ab663faccb2f1567dd7148d4ce5f3ff36686bc4ab9c750651025171cf08",
@@ -21788,12 +21194,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.65.83",
-        "podIPs": [
-          {
-            "ip": "10.20.65.83"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "requests": {
@@ -21976,7 +21376,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-88.example.internal",
+        "nodeName": "node-baa64e5a.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -22256,12 +21656,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.88",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.88"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://1ab93bf0cc7fae61a7eb837b42cc05df3b95a58461645b95067c7b6d020f9012",
@@ -22295,12 +21689,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.242.90",
-        "podIPs": [
-          {
-            "ip": "10.20.242.90"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "requests": {
@@ -22430,7 +21818,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-12.example.internal",
+        "nodeName": "node-d45d8fdc.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -22670,20 +22058,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.12",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.12"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.232.218",
-        "podIPs": [
-          {
-            "ip": "10.20.232.218"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -22869,7 +22245,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-100.example.internal",
+        "nodeName": "node-673750e1.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -23111,12 +22487,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.100",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.100"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://2c04ef4679c7bfb6b5b03da1c01853e5b795f1f40a5498706bb347e8c5ccfeb4",
@@ -23231,12 +22601,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.47.207",
-        "podIPs": [
-          {
-            "ip": "10.20.47.207"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -23422,7 +22786,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-88.example.internal",
+        "nodeName": "node-baa64e5a.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -23664,12 +23028,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.88",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.88"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://4a16441864cbae114d5862bf3f42d7218236a6fe602011336957244bc3e2023f",
@@ -23784,12 +23142,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.211.31",
-        "podIPs": [
-          {
-            "ip": "10.20.211.31"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -23975,7 +23327,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-43.example.internal",
+        "nodeName": "node-27789edf.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -24217,12 +23569,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.43",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.43"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://8655b715603328bc54dd0b236c837f56ca48b4d353f4a5523a2dfca80c1b82d1",
@@ -24337,12 +23683,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.207.99",
-        "podIPs": [
-          {
-            "ip": "10.20.207.99"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -24519,7 +23859,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -24803,20 +24143,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.148.27",
-        "podIPs": [
-          {
-            "ip": "10.20.148.27"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -24942,7 +24270,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -25177,20 +24505,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.64.242",
-        "podIPs": [
-          {
-            "ip": "10.20.64.242"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -25363,7 +24679,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -25595,12 +24911,6 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "initContainerStatuses": [
           {
             "containerID": "containerd://0cdb7f6914b0a6ac6976f1a4b3cd7f6951aa6e99e67bcf0882681974b1ef710b",
@@ -25634,12 +24944,6 @@
         ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.22.205",
-        "podIPs": [
-          {
-            "ip": "10.20.22.205"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {
@@ -25771,7 +25075,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-0-234.example.internal",
+        "nodeName": "node-bdb35593.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -26027,20 +25331,8 @@
             }
           }
         ],
-        "hostIP": "10.0.0.234",
-        "hostIPs": [
-          {
-            "ip": "10.0.0.234"
-          }
-        ],
         "observedGeneration": 1,
         "phase": "Running",
-        "podIP": "10.20.66.116",
-        "podIPs": [
-          {
-            "ip": "10.20.66.116"
-          }
-        ],
         "qosClass": "Burstable",
         "resources": {
           "limits": {

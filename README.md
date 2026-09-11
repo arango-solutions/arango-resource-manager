@@ -60,6 +60,35 @@ count so it can be restored. Deleting a pod is offered too, but it does not stop
 anything — the ReplicaSet replaces it within a second, and the UI says so at the
 point of decision.
 
+## Recording fixtures without publishing your cluster
+
+The test suite runs against fixtures recorded from a real Platform namespace, and
+this repository is public. Both stay true because anonymization happens at record
+time and is enforced by the build, not by remembering to clean up afterwards.
+
+`make probe-dump` writes fixtures that carry structure without carrying identity:
+
+| | |
+|---|---|
+| Environment variables | Dropped, except the two attribution keys — whose **values are pseudonymized** |
+| Pod and host IPs | Dropped; nothing in the app reads them |
+| Node names, regions, zones | Pseudonymized, because the app does read them |
+| Helm chart payloads, `managedFields` | Stripped |
+
+Pseudonyms are deterministic, so distinctness survives: two services on one
+database still share a value, two zones remain two zones, and re-recording the
+same cluster produces the same names — a `probe-dump` shows an honest diff
+instead of churn.
+
+`tests/test_fixture_privacy.py` is the gate. It fails the build on a cloud
+hostname, region, availability zone, private address, ARN, instance id or email
+reaching a fixture. When it fires, fix the probe so the next recording is clean
+at the source — editing the fixture by hand only survives until someone re-records.
+
+Connecting to your own cluster needs no repo changes at all: set
+`ARM_KUBECONFIG`, `ARM_KUBE_CONTEXT` and `ARM_NAMESPACE` in `backend/.env`,
+which is git-ignored.
+
 ## Actions
 
 Four actions, each planned before it runs:

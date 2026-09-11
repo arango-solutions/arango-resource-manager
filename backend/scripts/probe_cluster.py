@@ -10,7 +10,9 @@ responses into tests/fixtures/ so the unit tests can run with no cluster access.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -40,6 +42,45 @@ _DROP_CONTAINER_FIELDS = (
 )
 
 
+# Cluster addressing. Nothing in the app reads a pod or host IP, so they are
+# dropped outright. Node names ARE read (a pod summary shows where it runs), so
+# they are pseudonymized instead of dropped.
+_DROP_ADDRESS_FIELDS = ("podIP", "podIPs", "hostIP", "hostIPs")
+
+# `ip-10-0-0-170.example.internal` and friends: the cloud provider encodes the
+# private address into the node name, so the name itself is VPC topology.
+_NODE_NAME_RE = re.compile(r"\bip(?:-\d{1,3}){4}\b")
+
+# Node topology labels: `topology.kubernetes.io/region` and `/zone` say where in
+# the world the cluster runs. The zone pattern is listed first because a zone is
+# a region plus a letter, and the region pattern would otherwise claim its prefix.
+_ZONE_RE = re.compile(r"\b(?:us|eu|ap|sa|ca|me|af)-[a-z]+-\d[a-z]\b")
+_REGION_RE = re.compile(r"\b(?:us|eu|ap|sa|ca|me|af)-[a-z]+-\d\b")
+
+
+def _pseudonym(original: str, prefix: str = "node") -> str:
+    """A stable fake name for a real one.
+
+    Deterministic on purpose: re-recording the same cluster produces identical
+    fixtures, so a `probe-dump` shows a small honest diff rather than churning
+    every node name and burying the real change.
+    """
+    digest = hashlib.sha256(original.encode()).hexdigest()[:8]
+    return f"{prefix}-{digest}"
+
+
+def _depersonalize(value: str) -> str:
+    """Rewrite every identifying token in one string, most specific first.
+
+    Distinctness is preserved throughout: two pods on one node still share a
+    node name, two zones remain two zones. The topology the scheduler cares
+    about survives; the topology that says whose cluster this is does not.
+    """
+    value = _NODE_NAME_RE.sub(lambda m: _pseudonym(m.group(0), "node"), value)
+    value = _ZONE_RE.sub(lambda m: _pseudonym(m.group(0), "zone"), value)
+    return _REGION_RE.sub(lambda m: _pseudonym(m.group(0), "region"), value)
+
+
 def _scrub(node: Any) -> Any:
     """Strip bloat and literal secrets from a recorded API response, in place.
 
@@ -59,6 +100,9 @@ def _scrub(node: Any) -> Any:
     if isinstance(node.get("definition"), str) and len(node["definition"]) > 256:
         node["definition"] = "<stripped>"
 
+    for key in _DROP_ADDRESS_FIELDS:
+        node.pop(key, None)
+
     annotations = node.get("annotations")
     if isinstance(annotations, dict):
         for key in _DROP_ANNOTATIONS:
@@ -74,13 +118,32 @@ def _scrub(node: Any) -> Any:
     return {key: _scrub(value) for key, value in node.items()}
 
 
+def _scrub_strings(node: Any) -> Any:
+    """Second pass: rewrite identifying strings wherever they appear.
+
+    A node name reaches a fixture by at least three routes - `spec.nodeName`, a
+    PVC's `volume.kubernetes.io/selected-node` annotation, and ArangoDeployment
+    status - so this walks values rather than enumerating paths. Enumerating
+    paths is how the last one gets missed.
+    """
+    if isinstance(node, list):
+        return [_scrub_strings(item) for item in node]
+    if isinstance(node, dict):
+        return {key: _scrub_strings(value) for key, value in node.items()}
+    if isinstance(node, str):
+        return _depersonalize(node)
+    return node
+
+
 FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures"
 
 
 def _write(name: str, payload: Any) -> None:
     FIXTURES.mkdir(parents=True, exist_ok=True)
     path = FIXTURES / f"{name}.json"
-    path.write_text(json.dumps(_scrub(payload), indent=2, sort_keys=True, default=str))
+    path.write_text(
+        json.dumps(_scrub_strings(_scrub(payload)), indent=2, sort_keys=True, default=str)
+    )
     print(f"  wrote {path.relative_to(FIXTURES.parent.parent)}")
 
 
