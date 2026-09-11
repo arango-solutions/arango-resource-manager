@@ -10,6 +10,7 @@ The shapes below are trimmed copies of what the live namespace returns.
 
 from __future__ import annotations
 
+import json
 from typing import Any
 
 from app.config import Settings
@@ -416,11 +417,16 @@ def test_the_primary_container_wins_when_two_disagree() -> None:
 
 
 def test_the_probe_records_only_allowlisted_literal_env() -> None:
-    """A recorded fixture must carry the pairing key and nothing else."""
+    """A recorded fixture must carry the pairing key and nothing else.
+
+    The allowlisted *names* survive; their values are pseudonymized, because a
+    project name is frequently a customer's name and a fixture only needs a
+    value to exercise the pairing.
+    """
     workload = deployment(
         "arangodb-graphrag-retriever-tl1bq",
         RETRIEVER,
-        env(GENAI_PROJECT_NAME="sec_filings_v2", db_name="sec_filings", OPENAI_API_KEY="sk-secret"),
+        env(GENAI_PROJECT_NAME="acme_reports", db_name="acme", OPENAI_API_KEY="sk-secret"),
     )
     workload["spec"]["template"]["spec"]["containers"][0]["env"].append(
         {
@@ -431,9 +437,36 @@ def test_the_probe_records_only_allowlisted_literal_env() -> None:
 
     scrubbed = _scrub(workload)
     containers = scrubbed["spec"]["template"]["spec"]["containers"]
-    assert containers[0]["env"] == [
-        {"name": "GENAI_PROJECT_NAME", "value": "sec_filings_v2"},
-        {"name": "db_name", "value": "sec_filings"},
-    ]
+    recorded = containers[0]["env"]
+    assert [e["name"] for e in recorded] == ["GENAI_PROJECT_NAME", "db_name"]
+    assert recorded[0]["value"].startswith("project-")
+    assert recorded[1]["value"].startswith("db-")
+    assert "acme" not in json.dumps(scrubbed), "a real value reached the fixture"
     # The proxy container's only variable is not allowlisted, so env goes entirely.
     assert "env" not in containers[1]
+
+
+def test_pseudonyms_are_stable_and_distinct() -> None:
+    """Two projects on one database must still share that database's value.
+
+    Determinism is what keeps the pairing logic meaningful after a recording:
+    the composite key still merges what belongs together and separates what
+    does not, without any real name surviving.
+    """
+    first = _scrub(
+        deployment(
+            "arangodb-autograph-aaaaa", AUTOGRAPH, env(GENAI_PROJECT_NAME="a", db_name="shared")
+        )
+    )
+    second = _scrub(
+        deployment(
+            "arangodb-autograph-bbbbb", AUTOGRAPH, env(GENAI_PROJECT_NAME="b", db_name="shared")
+        )
+    )
+
+    def values(w: dict[str, Any]) -> dict[str, str]:
+        containers = w["spec"]["template"]["spec"]["containers"]
+        return {e["name"]: e["value"] for e in containers[0]["env"]}
+
+    assert values(first)["db_name"] == values(second)["db_name"], "same database, same pseudonym"
+    assert values(first)["GENAI_PROJECT_NAME"] != values(second)["GENAI_PROJECT_NAME"]
