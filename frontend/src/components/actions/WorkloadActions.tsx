@@ -3,7 +3,9 @@ import { Minus, Plus, Power, RotateCw } from 'lucide-react'
 import { useState } from 'react'
 
 import ActionDialog from '@/components/actions/ActionDialog'
+import Tooltip from '@/components/ui/Tooltip'
 import { restartWorkload, scaleWorkload, stopWorkload } from '@/lib/api'
+import { formatCpu, formatMemory } from '@/lib/format'
 import type { Workload } from '@/lib/schemas'
 
 type Open = 'scale' | 'stop' | 'restart' | null
@@ -23,7 +25,15 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
   if (workload.protection.level === 'protected') return null
 
   const disabled = readOnly
-  const hint = readOnly ? 'This instance is read-only (ARM_READ_ONLY).' : undefined
+  const hint = readOnly ? 'Read-only mode is on (ARM_READ_ONLY). No action will run.' : undefined
+
+  // What stopping this would hand back to the pool. It is the reason to do it,
+  // so it belongs on the button rather than one page deeper.
+  const frees = `${formatCpu(workload.resources.requests.cpu_cores)} · ${formatMemory(
+    workload.resources.requests.memory_bytes
+  )}`
+  const alreadyStopped = workload.desired_replicas === 0
+  const stopHint = hint ?? (alreadyStopped ? 'Already at 0 replicas.' : `Scale to 0 — frees ${frees}`)
 
   function done() {
     setOpen(null)
@@ -36,6 +46,7 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
         <Step
           icon={<Minus size={11} />}
           label="one fewer replica"
+          hint={hint ?? (workload.desired_replicas <= 0 ? 'Already at 0 replicas.' : 'One fewer replica')}
           disabled={disabled || target <= 0}
           onClick={() => {
             setTarget(Math.max(0, target - 1))
@@ -46,6 +57,7 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
         <Step
           icon={<Plus size={11} />}
           label="one more replica"
+          hint={hint ?? 'One more replica'}
           disabled={disabled}
           onClick={() => {
             setTarget(target + 1)
@@ -57,15 +69,15 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
       <IconButton
         icon={<RotateCw size={12} />}
         label="Rolling restart"
-        title={hint ?? 'Replace pods gradually'}
+        title={hint ?? 'Rolling restart — replaces pods one at a time, no downtime'}
         disabled={disabled}
         onClick={() => setOpen('restart')}
       />
       <IconButton
         icon={<Power size={12} />}
         label="Stop"
-        title={hint ?? 'Scale to 0 replicas'}
-        disabled={disabled || workload.desired_replicas === 0}
+        title={stopHint}
+        disabled={disabled || alreadyStopped}
         danger
         onClick={() => setOpen('stop')}
       />
@@ -114,25 +126,28 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
 function Step({
   icon,
   label,
+  hint,
   disabled,
   onClick,
 }: {
   icon: React.ReactNode
   label: string
+  hint?: string
   disabled: boolean
   onClick: () => void
 }) {
   return (
-    <button
-      type="button"
-      aria-label={label}
-      title={label}
-      disabled={disabled}
-      onClick={onClick}
-      className="px-1.5 py-1 text-muted hover:text-arango disabled:cursor-not-allowed disabled:opacity-30"
-    >
-      {icon}
-    </button>
+    <Tooltip label={hint ?? label}>
+      <button
+        type="button"
+        aria-label={label}
+        disabled={disabled}
+        onClick={onClick}
+        className="px-1.5 py-1 text-muted hover:text-arango disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        {icon}
+      </button>
+    </Tooltip>
   )
 }
 
@@ -152,17 +167,18 @@ function IconButton({
   onClick: () => void
 }) {
   return (
-    <button
-      type="button"
-      aria-label={label}
-      title={title ?? label}
-      disabled={disabled}
-      onClick={onClick}
-      className={`rounded border border-line bg-cream px-1.5 py-1 disabled:cursor-not-allowed disabled:opacity-30 ${
-        danger ? 'text-muted hover:text-danger' : 'text-muted hover:text-arango'
-      }`}
-    >
-      {icon}
-    </button>
+    <Tooltip label={title ?? label}>
+      <button
+        type="button"
+        aria-label={label}
+        disabled={disabled}
+        onClick={onClick}
+        className={`rounded border border-line bg-cream px-1.5 py-1 disabled:cursor-not-allowed disabled:opacity-30 ${
+          danger ? 'text-muted hover:text-danger' : 'text-muted hover:text-arango'
+        }`}
+      >
+        {icon}
+      </button>
+    </Tooltip>
   )
 }

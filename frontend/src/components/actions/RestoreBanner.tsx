@@ -3,6 +3,7 @@ import { Undo2 } from 'lucide-react'
 import { useState } from 'react'
 
 import ActionDialog from '@/components/actions/ActionDialog'
+import Tooltip from '@/components/ui/Tooltip'
 import { restoreWorkload } from '@/lib/api'
 import type { Stopped } from '@/lib/schemas'
 
@@ -34,16 +35,25 @@ export default function RestoreBanner({ kind, name, record, readOnly }: Props) {
           <>Stopped, but not by this tool — the previous replica count is unknown.</>
         )}
       </span>
-      <button
-        type="button"
-        disabled={readOnly}
-        onClick={() => setOpen(true)}
-        title={readOnly ? 'This instance is read-only (ARM_READ_ONLY).' : undefined}
-        className="ml-auto inline-flex items-center gap-1 rounded bg-arango px-2 py-1 text-[11px] font-medium text-white hover:bg-arango-hover disabled:cursor-not-allowed disabled:opacity-40"
+      <Tooltip
+        label={
+          readOnly
+            ? 'Read-only mode is on (ARM_READ_ONLY). No action will run.'
+            : record
+              ? `Scale back to ${record.previous_replicas}, the count recorded when it was stopped`
+              : 'Scale back to 1 — the previous count was not recorded, so it is a guess'
+        }
       >
-        <Undo2 size={11} aria-hidden />
-        Restore to {record?.previous_replicas ?? 1}
-      </button>
+        <button
+          type="button"
+          disabled={readOnly}
+          onClick={() => setOpen(true)}
+          className="ml-auto inline-flex items-center gap-1 rounded bg-arango px-2 py-1 text-[11px] font-medium text-white hover:bg-arango-hover disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Undo2 size={11} aria-hidden />
+          Restore to {record?.previous_replicas ?? 1}
+        </button>
+      </Tooltip>
 
       {open && (
         <ActionDialog

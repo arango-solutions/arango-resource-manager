@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
 import pytest
+
+from app.config import Settings, get_settings
 
 FIXTURE_DIR = Path(__file__).parent / "fixtures"
 
@@ -49,3 +52,23 @@ def arango_deployment() -> dict[str, Any]:
     if not items:
         pytest.skip("no ArangoDeployment recorded")
     return items[0]
+
+
+@pytest.fixture(autouse=True)
+def _ignore_developer_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Tests must not inherit the developer's `.env`.
+
+    `Settings` reads `.env` by default, so a local file setting
+    `ARM_READ_ONLY=false` — which is exactly what you set to try an action
+    against a real cluster — silently turns the safety assertions into
+    assertions about your laptop. CI has no `.env`, so the suite stays green
+    there and the coverage quietly disappears for whoever is actually using
+    the tool. Pinning it off makes the suite say the same thing everywhere.
+    """
+    monkeypatch.setitem(Settings.model_config, "env_file", None)
+    for key in list(os.environ):
+        if key.startswith("ARM_"):
+            monkeypatch.delenv(key, raising=False)
+    get_settings.cache_clear()
+    yield
+    get_settings.cache_clear()
