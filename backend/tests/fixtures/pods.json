@@ -161,7 +161,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -607,7 +607,7 @@
         ],
         "dnsPolicy": "ClusterFirst",
         "enableServiceLinks": true,
-        "nodeName": "ip-10-0-100-107.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-107.example.internal",
         "nodeSelector": {
           "arangodb.com/role": "platform",
           "arangodb.com/stage": "rnd",
@@ -1006,7 +1006,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -1480,7 +1480,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -1879,7 +1879,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -2286,7 +2286,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -2689,7 +2689,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -3100,7 +3100,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -3519,7 +3519,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -3930,7 +3930,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -4341,7 +4341,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -4744,7 +4744,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -5147,7 +5147,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -5550,7 +5550,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -5953,7 +5953,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -6372,7 +6372,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -6775,7 +6775,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7178,7 +7178,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7581,7 +7581,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -7984,7 +7984,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -8387,7 +8387,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -8790,7 +8790,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9193,7 +9193,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9596,7 +9596,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -9999,7 +9999,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -10402,7 +10402,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -10805,7 +10805,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -11208,7 +11208,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -11611,7 +11611,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -12014,7 +12014,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -12417,7 +12417,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -12820,7 +12820,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -13223,7 +13223,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -13626,7 +13626,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -14029,7 +14029,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -14432,7 +14432,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -14929,7 +14929,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -15509,7 +15509,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -16089,7 +16089,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -16587,7 +16587,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -16989,7 +16989,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -17384,7 +17384,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -17825,7 +17825,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-100.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-100.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -18375,7 +18375,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-43.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-43.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -18926,7 +18926,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-88.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-88.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -19459,7 +19459,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-100.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-100.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -19954,7 +19954,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-43.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-43.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -20449,7 +20449,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-88.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-88.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -20962,7 +20962,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-43.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-43.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -21469,7 +21469,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-100.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-100.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -21976,7 +21976,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-88.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-88.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -22430,7 +22430,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-12.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-12.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -22869,7 +22869,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-100.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-100.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -23422,7 +23422,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-88.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-88.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -23975,7 +23975,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-43.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-43.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -24519,7 +24519,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -24942,7 +24942,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -25363,7 +25363,7 @@
             "terminationMessagePolicy": "File"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",
@@ -25771,7 +25771,7 @@
             "name": "deployment-rlm"
           }
         ],
-        "nodeName": "ip-10-0-100-234.example-region.compute.internal",
+        "nodeName": "ip-10-0-0-234.example.internal",
         "nodeSelector": {
           "arangodb.com/name": "example-cluster",
           "arangodb.com/role": "platform",

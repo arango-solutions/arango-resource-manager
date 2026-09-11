@@ -8,8 +8,8 @@ breaking the database.
 ## Why
 
 A Platform namespace accumulates a lot of workloads, and nothing short of
-`kubectl` will tell you what is in there. A live namespace measured during
-design showed the problem plainly:
+`kubectl` will tell you what is in there. A recorded Platform namespace measured
+during design showed the problem plainly:
 
 | | |
 |---|---|
@@ -95,3 +95,7 @@ that records what it was asked to do. `ARM_READ_ONLY` remains `true`.
 
 Later: Prometheus history and sparklines, idle-workload detection, right-sizing
 recommendations, a PVC panel, and bulk operations.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).

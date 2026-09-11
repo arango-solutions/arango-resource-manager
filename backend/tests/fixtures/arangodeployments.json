@@ -899,7 +899,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:26:03Z",
                   "lastUpdateTime": "2026-09-08T02:26:03Z",
-                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-100.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -994,7 +994,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:30:00Z",
                   "lastUpdateTime": "2026-09-08T02:30:00Z",
-                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-43.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1089,7 +1089,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:19:41Z",
                   "lastUpdateTime": "2026-09-08T02:19:41Z",
-                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-88.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1192,7 +1192,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:27:09Z",
                   "lastUpdateTime": "2026-09-08T02:27:09Z",
-                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-100.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1289,7 +1289,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:31:22Z",
                   "lastUpdateTime": "2026-09-08T02:31:22Z",
-                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-43.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1393,7 +1393,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:20:36Z",
                   "lastUpdateTime": "2026-09-08T02:20:36Z",
-                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-88.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1493,7 +1493,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:27:35Z",
                   "lastUpdateTime": "2026-09-08T02:27:35Z",
-                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-100.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1610,7 +1610,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:21:05Z",
                   "lastUpdateTime": "2026-09-08T02:21:05Z",
-                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-88.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1727,7 +1727,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:32:05Z",
                   "lastUpdateTime": "2026-09-08T02:32:05Z",
-                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-43.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1831,7 +1831,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:30:00Z",
                   "lastUpdateTime": "2026-09-08T02:30:00Z",
-                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-43.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -1929,7 +1929,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:25:18Z",
                   "lastUpdateTime": "2026-09-08T02:25:18Z",
-                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-100.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"
@@ -2027,7 +2027,7 @@
                 {
                   "lastTransitionTime": "2026-09-08T02:19:11Z",
                   "lastUpdateTime": "2026-09-08T02:19:11Z",
-                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "message": "Assigned to node ip-10-0-0-88.example.internal",
                   "reason": "Pod is scheduled",
                   "status": "True",
                   "type": "Scheduled"

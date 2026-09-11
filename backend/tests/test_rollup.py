@@ -1,4 +1,4 @@
-"""Capacity arithmetic, against the real namespace.
+"""Capacity arithmetic, against the recorded fixtures.
 
 The central risk here is presenting a policy number as though it were capacity.
 Several of these tests exist purely to stop that.

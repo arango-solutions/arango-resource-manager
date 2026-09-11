@@ -8,7 +8,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-170.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-170.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -65,7 +65,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-227.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-227.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -122,7 +122,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-160.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-160.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -179,7 +179,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-170.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-170.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -236,7 +236,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-227.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-227.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -293,7 +293,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-160.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-160.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T13:29:05+00:00",
@@ -349,7 +349,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-10.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T19:29:47+00:00",
@@ -399,7 +399,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-10.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T19:30:49+00:00",
@@ -449,7 +449,7 @@
           "pv.kubernetes.io/bind-completed": "yes",
           "pv.kubernetes.io/bound-by-controller": "yes",
           "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
-          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/selected-node": "ip-10-0-0-10.example.internal",
           "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
         },
         "creationTimestamp": "2026-09-02T19:30:31+00:00",

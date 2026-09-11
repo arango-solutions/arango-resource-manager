@@ -1,4 +1,4 @@
-"""Grouping, asserted against the real namespace recorded in tests/fixtures.
+"""Grouping, asserted against the recorded fixtures.
 
 These are the guard rails for the whole app: if grouping is wrong, every
 number and every action button is attached to the wrong thing.

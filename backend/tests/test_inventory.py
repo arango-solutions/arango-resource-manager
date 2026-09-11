@@ -1,4 +1,4 @@
-"""The snapshot, asserted against the real namespace in tests/fixtures.
+"""The snapshot, asserted against the recorded fixtures.
 
 These are the Phase 1 acceptance criteria from the plan, written as tests.
 """
