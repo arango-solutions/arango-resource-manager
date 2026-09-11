@@ -100,5 +100,18 @@ def get_usage(clients: KubeClients) -> UsageMap:
     return _usage_cache.get(clients)
 
 
+def invalidate() -> None:
+    """Drop the cached sample, mirroring `inventory.invalidate()`.
+
+    Usage is cached and deliberately sticky - a blip keeps serving the last
+    good sample - which is right in production and wrong in a test, where a
+    sample left behind by an earlier case would be indistinguishable from one
+    this case actually fetched.
+    """
+    _usage_cache._cache.invalidate()
+    _usage_cache._last_good = {}
+    _usage_cache.available = True
+
+
 def is_available() -> bool:
     return _usage_cache.available

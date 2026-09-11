@@ -1,4 +1,4 @@
-.PHONY: install lint typecheck test check run probe
+.PHONY: install lint typecheck test smoke check run probe
 
 install:
 	uv sync
@@ -16,7 +16,11 @@ typecheck:
 test:
 	uv run pytest
 
-check: lint typecheck test
+# The assembled app, served from fixtures: boots, routes answer, data is real.
+smoke:
+	uv run pytest tests/test_smoke.py -q
+
+check: lint typecheck test smoke
 
 run:
 	uv run uvicorn app.main:app --reload

@@ -17,8 +17,15 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync
-      # Runs entirely against recorded fixtures: no cluster access required.
-      - run: make check
+      # All four run entirely against recorded fixtures: no cluster required.
+      - name: Lint
+        run: make lint
+      - name: Typecheck
+        run: make typecheck
+      - name: Tests
+        run: make test
+      - name: Smoke test
+        run: make smoke
 
   frontend:
     runs-on: ubuntu-latest
