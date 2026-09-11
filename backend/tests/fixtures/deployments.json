@@ -1,0 +1,2956 @@
+{
+  "apiVersion": "apps/v1",
+  "items": [
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arango-control-plane",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:59+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arango-control-plane",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arango-control-plane",
+          "helm.sh/chart": "arango-control-plane-v0.0.23",
+          "release": "arango-control-plane",
+          "type": "deployment"
+        },
+        "name": "arango-control-plane",
+        "namespace": "example-platform",
+        "resourceVersion": "3341111703",
+        "uid": "f564d352-2559-494d-a9cf-4ab7af039c26"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arango-control-plane",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arango-control-plane",
+            "release": "arango-control-plane",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "profiles.arangodb.com/profiles": ""
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arango-control-plane",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arango-control-plane",
+              "helm.sh/chart": "arango-control-plane-v0.0.23",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arango-control-plane",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": true,
+            "containers": [
+              {
+                "image": "registry.example.com/arango-control-plane/service:v0.0.23",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "proxy-service-http",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "registry.example.com/arango-control-plane/service:v0.0.23",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "python-service-grpc",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "serviceAccount": "arango-control-plane",
+            "serviceAccountName": "arango-control-plane",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:59+00:00",
+            "lastUpdateTime": "2026-09-02T19:36:11+00:00",
+            "message": "ReplicaSet \"arango-control-plane-569d579d45\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:19:55+00:00",
+            "lastUpdateTime": "2026-09-08T02:19:55+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "operator",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T13:23:07+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "operator",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "kube-arangodb",
+          "helm.sh/chart": "kube-arangodb-1.4.5",
+          "release": "operator"
+        },
+        "name": "arango-operator-operator",
+        "namespace": "example-platform",
+        "resourceVersion": "3341201969",
+        "uid": "eaf16b98-e7c5-43d3-8ac4-f176db7ba1cb"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "operator",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "kube-arangodb",
+            "release": "operator"
+          }
+        },
+        "strategy": {
+          "type": "Recreate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "platform.arangodb.com/port": "8528",
+              "platform.arangodb.com/scheme": "https",
+              "platform.arangodb.com/scrape": "true"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "operator",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "kube-arangodb",
+              "helm.sh/chart": "kube-arangodb-1.4.5",
+              "release": "operator"
+            }
+          },
+          "spec": {
+            "affinity": {
+              "nodeAffinity": {
+                "requiredDuringSchedulingIgnoredDuringExecution": {
+                  "nodeSelectorTerms": [
+                    {
+                      "matchExpressions": [
+                        {
+                          "key": "kubernetes.io/arch",
+                          "operator": "In",
+                          "values": [
+                            "amd64"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "podAntiAffinity": {
+                "preferredDuringSchedulingIgnoredDuringExecution": [
+                  {
+                    "podAffinityTerm": {
+                      "labelSelector": {
+                        "matchExpressions": [
+                          {
+                            "key": "app.kubernetes.io/name",
+                            "operator": "In",
+                            "values": [
+                              "kube-arangodb"
+                            ]
+                          },
+                          {
+                            "key": "app.kubernetes.io/instance",
+                            "operator": "In",
+                            "values": [
+                              "operator"
+                            ]
+                          }
+                        ]
+                      },
+                      "topologyKey": "kubernetes.io/hostname"
+                    },
+                    "weight": 100
+                  }
+                ]
+              }
+            },
+            "automountServiceAccountToken": true,
+            "containers": [
+              {
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/kube-arangodb-enterprise:1.4.5",
+                "imagePullPolicy": "Always",
+                "name": "operator",
+                "ports": [
+                  {
+                    "containerPort": 8528,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "privileged": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "components"
+            },
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "serviceAccount": "arango-operator-operator",
+            "serviceAccountName": "arango-operator-operator",
+            "terminationGracePeriodSeconds": 30,
+            "tolerations": [
+              {
+                "effect": "NoExecute",
+                "key": "node.kubernetes.io/unreachable",
+                "operator": "Exists",
+                "tolerationSeconds": 5
+              },
+              {
+                "effect": "NoExecute",
+                "key": "node.kubernetes.io/not-ready",
+                "operator": "Exists",
+                "tolerationSeconds": 5
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "kubernetes.io/arch",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/components",
+                "operator": "Exists"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T13:23:07+00:00",
+            "lastUpdateTime": "2026-09-07T12:43:46+00:00",
+            "message": "ReplicaSet \"arango-operator-operator-57c86d9f64\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:27:14+00:00",
+            "lastUpdateTime": "2026-09-08T02:27:14+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "arangodb-autograph-q5qy2",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T20:20:06+00:00",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-autograph-q5qy2",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-autograph",
+          "app.kubernetes.io/version": "v0.0.16",
+          "helm.sh/chart": "arangodb-autograph-v0.0.16",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-autograph-q5qy2",
+          "type": "deployment"
+        },
+        "name": "arangodb-autograph-q5qy2",
+        "namespace": "example-platform",
+        "resourceVersion": "3341117187",
+        "uid": "07391836-99bc-44b3-b5e9-060c9eaf2b64"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-autograph-q5qy2",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-autograph",
+            "release": "arangodb-autograph-q5qy2",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/fps-recovery": "52475146e1ff72ffc9d6c6d454c39dbf146964b275a4e30380ac1484142ea6a0",
+              "checksum/otel-collector-config": "715f1e420f92ff05d2f5c5fecd6852e16de9a4bb5ad689094aed5ce032e53909",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8889",
+              "platform.arangodb.com/scheme": "http",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "resource.opentelemetry.io/service.namespace": "deployment"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-autograph-q5qy2",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-autograph",
+              "app.kubernetes.io/version": "v0.0.16",
+              "helm.sh/chart": "arangodb-autograph-v0.0.16",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-autograph-q5qy2",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/autograph/service:v0.0.16",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grpc-server",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "registry.example.com/autograph/service:v0.0.16",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "proxy-server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "registry.example.com/autograph/opentelemetry-collector-contrib:v0.0.16",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "otel-collector",
+                "ports": [
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8889,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8888,
+                    "name": "self-metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 13133,
+                    "name": "otel-health",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "arangodb-autograph-q5qy2-otel-collector"
+                },
+                "name": "otel-collector-config"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T20:20:06+00:00",
+            "lastUpdateTime": "2026-09-02T20:20:31+00:00",
+            "message": "ReplicaSet \"arangodb-autograph-q5qy2-7b97fcc46\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:29+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:29+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-core-ui",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:25+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-core-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-core-ui",
+          "helm.sh/chart": "arangodb-core-ui-v1.5.0",
+          "release": "arangodb-core-ui",
+          "type": "deployment"
+        },
+        "name": "arangodb-core-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3341114274",
+        "uid": "4321c6ac-eea4-46e2-8971-27e8a9b89ff3"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-core-ui",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-core-ui",
+            "release": "arangodb-core-ui",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-core-ui",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-core-ui",
+              "helm.sh/chart": "arangodb-core-ui-v1.5.0",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-core-ui",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/platform-ui/core-ui:v1.5.0",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "ui",
+                "ports": [
+                  {
+                    "containerPort": 443,
+                    "name": "server",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "arangodb-core-ui",
+            "serviceAccountName": "arangodb-core-ui",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              },
+              {
+                "emptyDir": {},
+                "name": "caddy-data"
+              },
+              {
+                "emptyDir": {},
+                "name": "caddy-config"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:25+00:00",
+            "lastUpdateTime": "2026-09-02T19:34:22+00:00",
+            "message": "ReplicaSet \"arangodb-core-ui-5756446486\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:11+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:11+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-file-parser",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:01+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "api",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "release": "arangodb-file-parser"
+        },
+        "name": "arangodb-file-parser-api",
+        "namespace": "example-platform",
+        "resourceVersion": "3341259467",
+        "uid": "b47e2ba4-96f0-4963-bdef-a6664ba32772"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-file-parser",
+            "component": "api"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "46a9a5c398839266304a1e3322999f3c68f13eaa08520713580ac0e8a50921b0",
+              "core.shutdown.arangodb.com/api": "wait",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8000",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "prometheus.io/path": "/metrics",
+              "prometheus.io/port": "8000",
+              "prometheus.io/scrape": "true"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-file-parser",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-file-parser",
+              "component": "api",
+              "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/shutdown": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-file-parser"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/file-parser/service-api:v0.1.3",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "api",
+                "ports": [
+                  {
+                    "containerPort": 8000,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "1Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "arangodb-file-parser",
+            "serviceAccountName": "arangodb-file-parser",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01+00:00",
+            "lastUpdateTime": "2026-09-02T19:35:08+00:00",
+            "message": "ReplicaSet \"arangodb-file-parser-api-68595cdc98\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:31:34+00:00",
+            "lastUpdateTime": "2026-09-08T02:31:34+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-file-parser",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:01+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "orchestrator",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "release": "arangodb-file-parser"
+        },
+        "name": "arangodb-file-parser-orchestrator",
+        "namespace": "example-platform",
+        "resourceVersion": "3341118946",
+        "uid": "44e292d9-8ac9-4da2-a9c1-95b9a7a62d93"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-file-parser",
+            "component": "orchestrator"
+          }
+        },
+        "strategy": {
+          "type": "Recreate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "46a9a5c398839266304a1e3322999f3c68f13eaa08520713580ac0e8a50921b0",
+              "core.shutdown.arangodb.com/orchestrator": "wait",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8080",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "prometheus.io/path": "/metrics",
+              "prometheus.io/port": "8080",
+              "prometheus.io/scrape": "true"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-file-parser",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-file-parser",
+              "component": "orchestrator",
+              "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/shutdown": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-file-parser"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/file-parser/service-orchestrator:v0.1.3",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "orchestrator",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "1Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "arangodb-file-parser",
+            "serviceAccountName": "arangodb-file-parser",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01+00:00",
+            "lastUpdateTime": "2026-09-02T19:35:25+00:00",
+            "message": "ReplicaSet \"arangodb-file-parser-orchestrator-7df877d956\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:40+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:40+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-file-parser",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:01+00:00",
+        "generation": 5,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "release": "arangodb-file-parser"
+        },
+        "name": "arangodb-file-parser-worker-default",
+        "namespace": "example-platform",
+        "resourceVersion": "3341259485",
+        "uid": "0ecb6e88-9c9b-4f94-9635-caebde6ef4c7"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 5,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-file-parser",
+            "component": "worker-default"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "46a9a5c398839266304a1e3322999f3c68f13eaa08520713580ac0e8a50921b0",
+              "core.shutdown.arangodb.com/worker": "wait",
+              "profiles.arangodb.com/profiles": ""
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-file-parser",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-file-parser",
+              "component": "worker-default",
+              "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/shutdown": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-file-parser"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/file-parser/service-worker-default:v0.1.3",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "worker",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "1500m",
+                    "ephemeral-storage": "2Gi",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "500m",
+                    "ephemeral-storage": "1Gi",
+                    "memory": "1Gi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "arangodb-file-parser",
+            "serviceAccountName": "arangodb-file-parser",
+            "terminationGracePeriodSeconds": 90,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "scratch"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 5,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01+00:00",
+            "lastUpdateTime": "2026-09-02T19:35:58+00:00",
+            "message": "ReplicaSet \"arangodb-file-parser-worker-default-64c9fbb446\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:27:18+00:00",
+            "lastUpdateTime": "2026-09-08T02:27:18+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 5,
+        "readyReplicas": 5,
+        "replicas": 5,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 5
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-file-parser",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:01+00:00",
+        "generation": 8,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "release": "arangodb-file-parser"
+        },
+        "name": "arangodb-file-parser-worker-pdf",
+        "namespace": "example-platform",
+        "resourceVersion": "3341259738",
+        "uid": "b6dbe310-1b5b-443b-bd54-c9a4d67d67f4"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 25,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-file-parser",
+            "component": "worker-pdf"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "46a9a5c398839266304a1e3322999f3c68f13eaa08520713580ac0e8a50921b0",
+              "core.shutdown.arangodb.com/worker": "wait",
+              "profiles.arangodb.com/profiles": ""
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-file-parser",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-file-parser",
+              "component": "worker-pdf",
+              "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/shutdown": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-file-parser"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/file-parser/service-worker-pdf:v0.1.3",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "worker",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "4",
+                    "ephemeral-storage": "4Gi",
+                    "memory": "6Gi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "ephemeral-storage": "2Gi",
+                    "memory": "4Gi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "arangodb-file-parser",
+            "serviceAccountName": "arangodb-file-parser",
+            "terminationGracePeriodSeconds": 660,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "scratch"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 25,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01+00:00",
+            "lastUpdateTime": "2026-09-02T19:36:06+00:00",
+            "message": "ReplicaSet \"arangodb-file-parser-worker-pdf-6f4b78bdbb\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:27:17+00:00",
+            "lastUpdateTime": "2026-09-08T02:27:17+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 8,
+        "readyReplicas": 25,
+        "replicas": 25,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 25
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-icnn5",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-08T23:50:52+00:00",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-icnn5",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-icnn5",
+        "namespace": "example-platform",
+        "resourceVersion": "3345354475",
+        "uid": "a53cffd8-c24f-4e9b-b5ab-556ab73ef892"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+            "release": "arangodb-graphrag-retriever-icnn5",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/otel-collector-config": "833bc1a347638c72904aa23a43d8e3fbe48c3fcea9723080cc854a02849e6319",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8889",
+              "platform.arangodb.com/scheme": "http",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "resource.opentelemetry.io/service.namespace": "deployment"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+              "app.kubernetes.io/version": "v0.0.20-g1209f92",
+              "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-graphrag-retriever-icnn5",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grpc-server",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8090,
+                    "name": "citation-http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "proxy-server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/opentelemetry-collector-contrib:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "otel-collector",
+                "ports": [
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8889,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8888,
+                    "name": "self-metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 13133,
+                    "name": "otel-health",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "arangodb-graphrag-retriever-icnn5-otel-collector"
+                },
+                "name": "otel-collector-config"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-grpc-server"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-proxy-server"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-08T23:51:20+00:00",
+            "lastUpdateTime": "2026-09-08T23:51:20+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52+00:00",
+            "lastUpdateTime": "2026-09-08T23:51:20+00:00",
+            "message": "ReplicaSet \"arangodb-graphrag-retriever-icnn5-66979d55cf\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rcnr8",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-09T15:23:16+00:00",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-rcnr8",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-rcnr8",
+        "namespace": "example-platform",
+        "resourceVersion": "3348782956",
+        "uid": "51fdf84f-6d31-4bb2-b8d7-2ff1ae16657f"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+            "release": "arangodb-graphrag-retriever-rcnr8",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/otel-collector-config": "45f3606712ec208a083818a027e1dffe1f71295225cfbf3bfa7db1e8ac766452",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8889",
+              "platform.arangodb.com/scheme": "http",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "resource.opentelemetry.io/service.namespace": "deployment"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+              "app.kubernetes.io/version": "v0.0.20-g1209f92",
+              "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-graphrag-retriever-rcnr8",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grpc-server",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8090,
+                    "name": "citation-http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "proxy-server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/opentelemetry-collector-contrib:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "otel-collector",
+                "ports": [
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8889,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8888,
+                    "name": "self-metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 13133,
+                    "name": "otel-health",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "arangodb-graphrag-retriever-rcnr8-otel-collector"
+                },
+                "name": "otel-collector-config"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-grpc-server"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-proxy-server"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-09T15:23:29+00:00",
+            "lastUpdateTime": "2026-09-09T15:23:29+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16+00:00",
+            "lastUpdateTime": "2026-09-09T15:23:29+00:00",
+            "message": "ReplicaSet \"arangodb-graphrag-retriever-rcnr8-7ccd9dc846\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rqngl",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-07T10:48:48+00:00",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-rqngl",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-rqngl",
+        "namespace": "example-platform",
+        "resourceVersion": "3341118370",
+        "uid": "01cdf34b-1645-43da-84a5-1f045eca93de"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+            "release": "arangodb-graphrag-retriever-rqngl",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/otel-collector-config": "c83cd3cbfe06e69c2d9c7c7cb2a0d70990bed5ba05aef796fe4b8777c83dca92",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8889",
+              "platform.arangodb.com/scheme": "http",
+              "platform.arangodb.com/scrape": "true",
+              "profiles.arangodb.com/profiles": "",
+              "resource.opentelemetry.io/service.namespace": "deployment"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+              "app.kubernetes.io/version": "v0.0.20-g1209f92",
+              "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-graphrag-retriever-rqngl",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grpc-server",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8090,
+                    "name": "citation-http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/service:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "proxy-server",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "dev.registry.example.com/graphrag-retriever/opentelemetry-collector-contrib:v0.0.20-g1209f92",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "otel-collector",
+                "ports": [
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8889,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8888,
+                    "name": "self-metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 13133,
+                    "name": "otel-health",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "arangodb-graphrag-retriever-rqngl-otel-collector"
+                },
+                "name": "otel-collector-config"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-grpc-server"
+              },
+              {
+                "emptyDir": {},
+                "name": "tmp-proxy-server"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-07T10:48:48+00:00",
+            "lastUpdateTime": "2026-09-07T10:49:14+00:00",
+            "message": "ReplicaSet \"arangodb-graphrag-retriever-rqngl-8cd8776bc\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:36+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:36+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-platform-ui",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:48+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui",
+          "helm.sh/chart": "arangodb-platform-ui-v1.5.1-39e3579",
+          "release": "arangodb-platform-ui",
+          "type": "deployment"
+        },
+        "name": "arangodb-platform-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3341112503",
+        "uid": "4ce8bad3-cb0f-43d4-ab92-8b081d7564d8"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-platform-ui",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-platform-ui",
+            "release": "arangodb-platform-ui",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-platform-ui",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-platform-ui",
+              "helm.sh/chart": "arangodb-platform-ui-v1.5.1-39e3579",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-platform-ui",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "dev.registry.example.com/platform-ui/ui:v1.5.1-39e3579",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "ui",
+                "ports": [
+                  {
+                    "containerPort": 443,
+                    "name": "server",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "500m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000
+            },
+            "serviceAccount": "arangodb-platform-ui",
+            "serviceAccountName": "arangodb-platform-ui",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              },
+              {
+                "emptyDir": {},
+                "name": "caddy-data"
+              },
+              {
+                "emptyDir": {},
+                "name": "caddy-config"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:48+00:00",
+            "lastUpdateTime": "2026-09-02T19:34:24+00:00",
+            "message": "ReplicaSet \"arangodb-platform-ui-595bc64f9c\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:01+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:01+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "arangodb-platform-ui-server",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:48+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui-server",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui-server",
+          "helm.sh/chart": "arangodb-platform-ui-server-v1.5.1",
+          "release": "arangodb-platform-ui-server",
+          "type": "deployment"
+        },
+        "name": "arangodb-platform-ui-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3341112268",
+        "uid": "370dd616-e437-4766-97e2-fb4a775ed892"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-platform-ui-server",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-platform-ui-server",
+            "release": "arangodb-platform-ui-server",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-platform-ui-server",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-platform-ui-server",
+              "helm.sh/chart": "arangodb-platform-ui-server-v1.5.1",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-platform-ui-server",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/platform-ui/server:v1.5.1",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "server",
+                "ports": [
+                  {
+                    "containerPort": 3001,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1001,
+              "runAsNonRoot": true,
+              "runAsUser": 1001
+            },
+            "serviceAccount": "arangodb-platform-ui-server",
+            "serviceAccountName": "arangodb-platform-ui-server",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:48+00:00",
+            "lastUpdateTime": "2026-09-02T19:34:19+00:00",
+            "message": "ReplicaSet \"arangodb-platform-ui-server-59b9bb65bc\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:00+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:00+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "file-manager",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:50+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "file-manager",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "file-manager",
+          "app.kubernetes.io/version": "v0.0.22",
+          "helm.sh/chart": "file-manager-v0.0.22",
+          "release": "file-manager",
+          "type": "deployment"
+        },
+        "name": "file-manager",
+        "namespace": "example-platform",
+        "resourceVersion": "3341116748",
+        "uid": "b1d370d3-b7d7-4c4b-9623-eb115a6835ab"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "file-manager",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "file-manager",
+            "release": "file-manager",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/otel-collector-config": "89ff01b535d4bb1fd7d826d8a1372a7d4b0e42cdd3538d31259cf1f5a255ce30",
+              "platform.arangodb.com/path": "/metrics",
+              "platform.arangodb.com/port": "8889",
+              "platform.arangodb.com/scheme": "http",
+              "platform.arangodb.com/scrape": "true",
+              "resource.opentelemetry.io/service.namespace": "deployment"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "file-manager",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "file-manager",
+              "app.kubernetes.io/version": "v0.0.22",
+              "helm.sh/chart": "file-manager-v0.0.22",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v1",
+              "integration.profiles.arangodb.com/meta": "v1",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "file-manager",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/file-manager/service:v0.0.22",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "file-manager",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "registry.example.com/file-manager/opentelemetry-collector-contrib:v0.0.22",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "otel-collector",
+                "ports": [
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8889,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 8888,
+                    "name": "self-metrics",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 13133,
+                    "name": "otel-health",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "200m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "file-manager",
+            "serviceAccountName": "file-manager",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "file-manager-otel-collector"
+                },
+                "name": "otel-collector-config"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:50+00:00",
+            "lastUpdateTime": "2026-09-02T19:34:40+00:00",
+            "message": "ReplicaSet \"file-manager-bd7c6c854\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:27+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:27+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "meta.helm.sh/release-name": "mlflow-artifact-repository",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:46+00:00",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "mlflow-artifact-repository",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "mlflow-artifact-repository",
+          "helm.sh/chart": "mlflow-artifact-repository-v0.0.14",
+          "release": "mlflow-artifact-repository",
+          "type": "deployment"
+        },
+        "name": "mlflow-artifact-repository",
+        "namespace": "example-platform",
+        "resourceVersion": "3341111733",
+        "uid": "2d253bdc-3e73-4ed8-ac09-194bbe6e570c"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "mlflow-artifact-repository",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "mlflow-artifact-repository",
+            "release": "mlflow-artifact-repository",
+            "type": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "profiles.arangodb.com/profiles": ""
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "mlflow-artifact-repository",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "mlflow-artifact-repository",
+              "helm.sh/chart": "mlflow-artifact-repository-v0.0.14",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "mlflow-artifact-repository",
+              "type": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/mlflow-artifact-repository/service:v0.0.14",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "mlflow-artifact-repository",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "6Gi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "mlflow-artifact-repository",
+            "serviceAccountName": "mlflow-artifact-repository",
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:47+00:00",
+            "lastUpdateTime": "2026-09-02T19:31:24+00:00",
+            "message": "ReplicaSet \"mlflow-artifact-repository-6f54997d47\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:19:56+00:00",
+            "lastUpdateTime": "2026-09-08T02:19:56+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "platform-monitoring-grafana",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:50+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "platform-monitoring-grafana",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-grafana",
+          "app.kubernetes.io/version": "13.1.4",
+          "helm.sh/chart": "platform-monitoring-grafana-v0.0.8",
+          "profiles.arangodb.com/deployment": "deployment"
+        },
+        "name": "platform-monitoring-grafana",
+        "namespace": "example-platform",
+        "resourceVersion": "3341119396",
+        "uid": "dfd592b4-3fd5-41ae-bc39-69d0f9f5805e"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "platform-monitoring-grafana",
+            "app.kubernetes.io/name": "platform-monitoring-grafana",
+            "profiles.arangodb.com/deployment": "deployment"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "b1c08876cfbe4af90c09231637394528afdc26558b8a50a03c19495b3fa509c2",
+              "checksum/sc-dashboard-provider-config": "e70bf6a851099d385178a76de9757bb0bef8299da6d8443602590e44f05fdf24",
+              "checksum/secret": "52d40fa4af5b7e43394e60a274b205eb75a1e360cb87a15354b061af1dfc8495",
+              "kubectl.kubernetes.io/default-container": "platform-monitoring-grafana"
+            },
+            "labels": {
+              "app.kubernetes.io/instance": "platform-monitoring-grafana",
+              "app.kubernetes.io/name": "platform-monitoring-grafana",
+              "app.kubernetes.io/version": "13.1.4",
+              "helm.sh/chart": "platform-monitoring-grafana-v0.0.8",
+              "profiles.arangodb.com/deployment": "deployment"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": true,
+            "containers": [
+              {
+                "image": "registry.example.com/platform-monitoring/grafana:v0.0.8",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grafana",
+                "ports": [
+                  {
+                    "containerPort": 3000,
+                    "name": "grafana",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 9094,
+                    "name": "gossip-tcp",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 9094,
+                    "name": "gossip-udp",
+                    "protocol": "UDP"
+                  },
+                  {
+                    "containerPort": 6060,
+                    "name": "profiling",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {},
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "seccompProfile": {
+                    "type": "RuntimeDefault"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "enableServiceLinks": true,
+            "initContainers": [
+              {
+                "image": "registry.example.com/platform-monitoring/grafana:v0.0.8",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "init-chown-data",
+                "resources": {},
+                "securityContext": {
+                  "capabilities": {
+                    "add": [
+                      "CHOWN"
+                    ],
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": false,
+                  "runAsNonRoot": false,
+                  "runAsUser": 0,
+                  "seccompProfile": {
+                    "type": "RuntimeDefault"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 472,
+              "runAsGroup": 472,
+              "runAsNonRoot": true,
+              "runAsUser": 472
+            },
+            "serviceAccount": "platform-monitoring-grafana",
+            "serviceAccountName": "platform-monitoring-grafana",
+            "shareProcessNamespace": false,
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "platform-monitoring-grafana"
+                },
+                "name": "config"
+              },
+              {
+                "name": "storage",
+                "persistentVolumeClaim": {
+                  "claimName": "platform-monitoring-grafana"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:50+00:00",
+            "lastUpdateTime": "2026-09-02T19:36:16+00:00",
+            "message": "ReplicaSet \"platform-monitoring-grafana-786774bd69\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:20:42+00:00",
+            "lastUpdateTime": "2026-09-08T02:20:42+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "meta.helm.sh/release-name": "platform-monitoring-prometheus",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:34+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/component": "server",
+          "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-prometheus",
+          "app.kubernetes.io/part-of": "platform-monitoring-prometheus",
+          "app.kubernetes.io/version": "v3.14.0",
+          "helm.sh/chart": "platform-monitoring-prometheus-v0.0.8",
+          "profiles.arangodb.com/deployment": "deployment"
+        },
+        "name": "platform-monitoring-prometheus-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3341123320",
+        "uid": "13f931b7-4d2f-4b6a-bd48-35a26205ddb0"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/component": "server",
+            "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+            "app.kubernetes.io/name": "platform-monitoring-prometheus",
+            "profiles.arangodb.com/deployment": "deployment"
+          }
+        },
+        "strategy": {
+          "type": "Recreate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/component": "server",
+              "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+              "app.kubernetes.io/name": "platform-monitoring-prometheus",
+              "app.kubernetes.io/part-of": "platform-monitoring-prometheus",
+              "app.kubernetes.io/version": "v3.14.0",
+              "helm.sh/chart": "platform-monitoring-prometheus-v0.0.8",
+              "profiles.arangodb.com/deployment": "deployment"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/platform-monitoring/prometheus-config-reloader:v0.0.8",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "platform-monitoring-prometheus-server-configmap-reload",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              },
+              {
+                "image": "registry.example.com/platform-monitoring/prometheus:v0.0.8",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "platform-monitoring-prometheus-server",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "enableServiceLinks": true,
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 65534,
+              "runAsGroup": 65534,
+              "runAsNonRoot": true,
+              "runAsUser": 65534
+            },
+            "serviceAccount": "platform-monitoring-prometheus-server",
+            "serviceAccountName": "platform-monitoring-prometheus-server",
+            "terminationGracePeriodSeconds": 300,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "platform-monitoring-prometheus-server"
+                },
+                "name": "config-volume"
+              },
+              {
+                "name": "storage-volume",
+                "persistentVolumeClaim": {
+                  "claimName": "platform-monitoring-prometheus-server"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:34+00:00",
+            "lastUpdateTime": "2026-09-02T19:35:20+00:00",
+            "message": "ReplicaSet \"platform-monitoring-prometheus-server-5d5b5bd86d\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:21:07+00:00",
+            "lastUpdateTime": "2026-09-08T02:21:07+00:00",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    }
+  ],
+  "kind": "DeploymentList",
+  "metadata": {
+    "resourceVersion": "3358149469"
+  }
+}

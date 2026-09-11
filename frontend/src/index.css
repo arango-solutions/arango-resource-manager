@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/* The avocado palette: skin, a flesh ramp from core to pale, pit brown, cream. */
+@theme {
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Courier New', ui-monospace, monospace;
+
+  --color-skin: #1b2a1d;
+  --color-skin-soft: #2f4530;
+
+  --color-arango: #006532;
+  --color-arango-hover: #005329;
+  --color-flesh-deep: #4a7c3f;
+  --color-flesh: #8fae52;
+  --color-flesh-light: #c3d68c;
+  --color-flesh-pale: #eef3dc;
+
+  --color-pit: #9c6239;
+  --color-pit-light: #e8d5c0;
+
+  --color-cream: #fbfaf4;
+  --color-panel: #f4f6ec;
+  --color-line: #e2e6d4;
+  --color-body: #282828;
+  --color-muted: #9a9a9a;
+  --color-danger: #da1a20;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

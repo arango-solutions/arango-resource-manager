@@ -1,0 +1,2157 @@
+{
+  "apiVersion": "database.arangodb.com/v1",
+  "items": [
+    {
+      "apiVersion": "database.arangodb.com/v1",
+      "kind": "ArangoDeployment",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "deployment",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T13:27:33Z",
+        "finalizers": [
+          "database.arangodb.com/remove-child-finalizers"
+        ],
+        "generation": 118456,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "name": "deployment",
+        "namespace": "example-platform",
+        "resourceVersion": "3358149565",
+        "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+      },
+      "spec": {
+        "agents": {
+          "args": [
+            "--server.session-timeout=3600"
+          ],
+          "count": 3,
+          "nodeSelector": {
+            "arangodb.com/name": "example-cluster",
+            "arangodb.com/role": "platform",
+            "arangodb.com/stage": "rnd",
+            "arangodb.com/type": "core"
+          },
+          "resources": {},
+          "securityContext": {
+            "dropAllCapabilities": false
+          },
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "role.arangodb.com/platform",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "stage.arangodb.com/rnd",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "type.arangodb.com/core",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "name.arangodb.com/example-cluster",
+              "operator": "Exists"
+            }
+          ],
+          "volumeClaimTemplate": {
+            "metadata": {},
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "8Gi"
+                }
+              },
+              "volumeMode": "Filesystem"
+            },
+            "status": {}
+          }
+        },
+        "auth": {
+          "jwtSecretName": "deployment-jwt"
+        },
+        "bootstrap": {
+          "passwordSecretNames": {
+            "root": "root-password"
+          }
+        },
+        "chaos": {
+          "interval": 60000000000,
+          "kill-pod-probability": 50
+        },
+        "coordinators": {
+          "args": [
+            "--server.session-timeout=3600",
+            "--experimental-vector-index=true"
+          ],
+          "count": 3,
+          "nodeSelector": {
+            "arangodb.com/name": "example-cluster",
+            "arangodb.com/role": "platform",
+            "arangodb.com/stage": "rnd",
+            "arangodb.com/type": "core"
+          },
+          "resources": {},
+          "securityContext": {
+            "dropAllCapabilities": false
+          },
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "role.arangodb.com/platform",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "stage.arangodb.com/rnd",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "type.arangodb.com/core",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "name.arangodb.com/example-cluster",
+              "operator": "Exists"
+            }
+          ]
+        },
+        "dbservers": {
+          "args": [
+            "--server.session-timeout=3600",
+            "--experimental-vector-index=true"
+          ],
+          "count": 3,
+          "nodeSelector": {
+            "arangodb.com/name": "example-cluster",
+            "arangodb.com/role": "platform",
+            "arangodb.com/stage": "rnd",
+            "arangodb.com/type": "core"
+          },
+          "resources": {},
+          "securityContext": {
+            "dropAllCapabilities": false
+          },
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "role.arangodb.com/platform",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "stage.arangodb.com/rnd",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "type.arangodb.com/core",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "name.arangodb.com/example-cluster",
+              "operator": "Exists"
+            }
+          ],
+          "volumeClaimTemplate": {
+            "metadata": {},
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "320Gi"
+                }
+              },
+              "storageClassName": "managed-gp3-dp60",
+              "volumeMode": "Filesystem"
+            },
+            "status": {}
+          }
+        },
+        "environment": "Production",
+        "externalAccess": {
+          "managedServiceNames": [
+            "external-access"
+          ],
+          "type": "Managed"
+        },
+        "gateway": {
+          "dynamic": true,
+          "enabled": true
+        },
+        "gateways": {
+          "count": 3,
+          "nodeSelector": {
+            "arangodb.com/name": "example-cluster",
+            "arangodb.com/role": "platform",
+            "arangodb.com/stage": "rnd",
+            "arangodb.com/type": "core"
+          },
+          "resources": {},
+          "securityContext": {
+            "dropAllCapabilities": false
+          },
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "role.arangodb.com/platform",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "stage.arangodb.com/rnd",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "type.arangodb.com/core",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "name.arangodb.com/example-cluster",
+              "operator": "Exists"
+            }
+          ]
+        },
+        "id": {
+          "nodeSelector": {
+            "arangodb.com/name": "example-cluster",
+            "arangodb.com/role": "platform",
+            "arangodb.com/stage": "rnd",
+            "arangodb.com/type": "core"
+          },
+          "tolerations": [
+            {
+              "effect": "NoSchedule",
+              "key": "role.arangodb.com/platform",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "stage.arangodb.com/rnd",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "type.arangodb.com/core",
+              "operator": "Exists"
+            },
+            {
+              "effect": "NoSchedule",
+              "key": "name.arangodb.com/example-cluster",
+              "operator": "Exists"
+            }
+          ]
+        },
+        "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+        "imageDiscoveryMode": "direct",
+        "imagePullPolicy": "Always",
+        "integration": {
+          "sidecar": {
+            "resources": {
+              "limits": {
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            }
+          }
+        },
+        "license": {
+          "secretName": "license"
+        },
+        "lifecycle": {
+          "resources": {}
+        },
+        "metrics": {
+          "authentication": {
+            "jwtTokenSecretName": "deployment-exporter-jwt-token"
+          },
+          "enabled": true,
+          "resources": {},
+          "tls": false
+        },
+        "mode": "Cluster",
+        "restoreFrom": "restore-backup",
+        "rocksdb": {
+          "encryption": {}
+        },
+        "single": {
+          "resources": {},
+          "volumeClaimTemplate": {
+            "metadata": {},
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "8Gi"
+                }
+              },
+              "volumeMode": "Filesystem"
+            },
+            "status": {}
+          }
+        },
+        "storageEngine": "RocksDB",
+        "sync": {
+          "auth": {
+            "clientCASecretName": "deployment-sync-client-auth-ca",
+            "jwtSecretName": "deployment-sync-jwt"
+          },
+          "externalAccess": {},
+          "monitoring": {
+            "tokenSecretName": "deployment-sync-mt"
+          },
+          "tls": {
+            "caSecretName": "deployment-sync-ca",
+            "ttl": "2610h"
+          }
+        },
+        "syncmasters": {
+          "count": 0,
+          "resources": {}
+        },
+        "syncworkers": {
+          "count": 0,
+          "resources": {}
+        },
+        "tls": {
+          "caSecretName": "deployment-ca",
+          "sni": {
+            "mapping": {
+              "sni-secret": [
+                "cluster.example.com",
+                "cluster.example.net",
+                "cluster.example.org"
+              ]
+            }
+          },
+          "ttl": "2610h"
+        },
+        "topology": {
+          "enabled": true,
+          "zones": 1
+        }
+      },
+      "status": {
+        "accepted-spec": {
+          "agents": {
+            "args": [
+              "--server.session-timeout=3600"
+            ],
+            "count": 3,
+            "nodeSelector": {
+              "arangodb.com/name": "example-cluster",
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "core"
+            },
+            "resources": {},
+            "securityContext": {
+              "dropAllCapabilities": false
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/core",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "name.arangodb.com/example-cluster",
+                "operator": "Exists"
+              }
+            ],
+            "volumeClaimTemplate": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "accessModes": [
+                  "ReadWriteOnce"
+                ],
+                "resources": {
+                  "requests": {
+                    "storage": "8Gi"
+                  }
+                },
+                "volumeMode": "Filesystem"
+              },
+              "status": {}
+            }
+          },
+          "auth": {
+            "jwtSecretName": "deployment-jwt"
+          },
+          "bootstrap": {
+            "passwordSecretNames": {
+              "root": "root-password"
+            }
+          },
+          "chaos": {
+            "interval": 60000000000,
+            "kill-pod-probability": 50
+          },
+          "coordinators": {
+            "args": [
+              "--server.session-timeout=3600",
+              "--experimental-vector-index=true"
+            ],
+            "count": 3,
+            "nodeSelector": {
+              "arangodb.com/name": "example-cluster",
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "core"
+            },
+            "resources": {},
+            "securityContext": {
+              "dropAllCapabilities": false
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/core",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "name.arangodb.com/example-cluster",
+                "operator": "Exists"
+              }
+            ]
+          },
+          "dbservers": {
+            "args": [
+              "--server.session-timeout=3600",
+              "--experimental-vector-index=true"
+            ],
+            "count": 3,
+            "nodeSelector": {
+              "arangodb.com/name": "example-cluster",
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "core"
+            },
+            "resources": {},
+            "securityContext": {
+              "dropAllCapabilities": false
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/core",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "name.arangodb.com/example-cluster",
+                "operator": "Exists"
+              }
+            ],
+            "volumeClaimTemplate": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "accessModes": [
+                  "ReadWriteOnce"
+                ],
+                "resources": {
+                  "requests": {
+                    "storage": "320Gi"
+                  }
+                },
+                "storageClassName": "managed-gp3-dp60",
+                "volumeMode": "Filesystem"
+              },
+              "status": {}
+            }
+          },
+          "environment": "Production",
+          "externalAccess": {
+            "managedServiceNames": [
+              "external-access"
+            ],
+            "type": "Managed"
+          },
+          "gateway": {
+            "dynamic": true,
+            "enabled": true
+          },
+          "gateways": {
+            "count": 3,
+            "nodeSelector": {
+              "arangodb.com/name": "example-cluster",
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "core"
+            },
+            "resources": {},
+            "securityContext": {
+              "dropAllCapabilities": false
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/core",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "name.arangodb.com/example-cluster",
+                "operator": "Exists"
+              }
+            ]
+          },
+          "id": {
+            "nodeSelector": {
+              "arangodb.com/name": "example-cluster",
+              "arangodb.com/role": "platform",
+              "arangodb.com/stage": "rnd",
+              "arangodb.com/type": "core"
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "role.arangodb.com/platform",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "stage.arangodb.com/rnd",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "type.arangodb.com/core",
+                "operator": "Exists"
+              },
+              {
+                "effect": "NoSchedule",
+                "key": "name.arangodb.com/example-cluster",
+                "operator": "Exists"
+              }
+            ]
+          },
+          "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+          "imageDiscoveryMode": "direct",
+          "imagePullPolicy": "Always",
+          "integration": {
+            "sidecar": {
+              "resources": {
+                "limits": {
+                  "memory": "512Mi"
+                },
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "256Mi"
+                }
+              }
+            }
+          },
+          "license": {
+            "secretName": "license"
+          },
+          "lifecycle": {
+            "resources": {}
+          },
+          "metrics": {
+            "authentication": {
+              "jwtTokenSecretName": "deployment-exporter-jwt-token"
+            },
+            "enabled": true,
+            "resources": {},
+            "tls": false
+          },
+          "mode": "Cluster",
+          "restoreFrom": "restore-backup",
+          "rocksdb": {
+            "encryption": {}
+          },
+          "single": {
+            "resources": {},
+            "volumeClaimTemplate": {
+              "metadata": {
+                "creationTimestamp": null
+              },
+              "spec": {
+                "accessModes": [
+                  "ReadWriteOnce"
+                ],
+                "resources": {
+                  "requests": {
+                    "storage": "8Gi"
+                  }
+                },
+                "volumeMode": "Filesystem"
+              },
+              "status": {}
+            }
+          },
+          "storageEngine": "RocksDB",
+          "sync": {
+            "auth": {
+              "clientCASecretName": "deployment-sync-client-auth-ca",
+              "jwtSecretName": "deployment-sync-jwt"
+            },
+            "externalAccess": {},
+            "image": null,
+            "monitoring": {
+              "tokenSecretName": "deployment-sync-mt"
+            },
+            "tls": {
+              "caSecretName": "deployment-sync-ca",
+              "ttl": "2610h"
+            }
+          },
+          "syncmasters": {
+            "count": 0,
+            "resources": {}
+          },
+          "syncworkers": {
+            "count": 0,
+            "resources": {}
+          },
+          "tls": {
+            "caSecretName": "deployment-ca",
+            "sni": {
+              "mapping": {
+                "sni-secret": [
+                  "cluster.example.com",
+                  "cluster.example.net",
+                  "cluster.example.org"
+                ]
+              }
+            },
+            "ttl": "2610h"
+          },
+          "topology": {
+            "enabled": true,
+            "zones": 1
+          }
+        },
+        "acceptedSpecVersion": "17656412d8f4852277d885e22e461fd287cfa29958e8235287b5220d1a4b9b89",
+        "agency": {
+          "ids": [
+            "AGNT-ubzoakj2",
+            "AGNT-uirc1h2y",
+            "AGNT-lvgxckvp"
+          ],
+          "size": 3
+        },
+        "agents": {},
+        "appliedVersion": "17656412d8f4852277d885e22e461fd287cfa29958e8235287b5220d1a4b9b89",
+        "arangodb-images": [
+          {
+            "arangodb-version": "3.12.9",
+            "enterprise": true,
+            "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+            "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+          },
+          {
+            "arangodb-version": "3.12.11",
+            "enterprise": true,
+            "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+            "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+          }
+        ],
+        "backoff": {
+          "check": "2026-09-11T15:09:31Z",
+          "license": "2026-09-11T15:09:01Z",
+          "syncRBACPermissions": "2026-09-11T15:08:26Z",
+          "timezone": "2026-09-11T15:08:25Z"
+        },
+        "conditions": [
+          {
+            "hash": "7a2ae0586610169a5a8e7469fbe9b0e15641b794c2e21c3417020bcbb605c5b1",
+            "lastTransitionTime": "2026-09-02T13:48:15Z",
+            "lastUpdateTime": "2026-09-02T13:48:15Z",
+            "message": "Spec Object accepted",
+            "reason": "Spec Accepted",
+            "status": "True",
+            "type": "SpecAccepted"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:27:35Z",
+            "lastUpdateTime": "2026-09-02T13:27:35Z",
+            "message": "Profiles  Ready",
+            "reason": "Profiles ready",
+            "status": "True",
+            "type": "ProfilesReady"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T02:32:33Z",
+            "lastUpdateTime": "2026-09-08T02:32:33Z",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:29:05Z",
+            "lastUpdateTime": "2026-09-02T13:29:05Z",
+            "message": "Storage Ready",
+            "reason": "Storage Ready",
+            "status": "True",
+            "type": "StorageReady"
+          },
+          {
+            "hash": "2fa003a0420127aeabfe40a88f0aecef051c5a25e954e4f09646549a033e1c7e",
+            "lastTransitionTime": "2026-09-10T13:57:35Z",
+            "lastUpdateTime": "2026-09-10T13:57:35Z",
+            "message": "Gateway Config Propagated",
+            "reason": "Gateway Config Propagated",
+            "status": "True",
+            "type": "GatewayConfig"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:29:21Z",
+            "lastUpdateTime": "2026-09-02T13:29:21Z",
+            "reason": "Deployment is Topology Aware",
+            "status": "True",
+            "type": "TopologyAware"
+          },
+          {
+            "lastTransitionTime": "2026-09-11T14:46:59Z",
+            "lastUpdateTime": "2026-09-11T14:46:59Z",
+            "reason": "ArangoDB is reachable",
+            "status": "True",
+            "type": "Reachable"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:31:24Z",
+            "lastUpdateTime": "2026-09-02T13:31:24Z",
+            "message": "The bootstrap process has been completed successfully",
+            "reason": "Bootstrap successful",
+            "status": "True",
+            "type": "BootstrapCompleted"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:31:24Z",
+            "lastUpdateTime": "2026-09-02T13:31:24Z",
+            "message": "The bootstrap process has been completed successfully",
+            "reason": "Bootstrap successful",
+            "status": "True",
+            "type": "BootstrapSucceded"
+          },
+          {
+            "hash": "17656412d8f4852277d885e22e461fd287cfa29958e8235287b5220d1a4b9b89",
+            "lastTransitionTime": "2026-09-11T15:08:31Z",
+            "lastUpdateTime": "2026-09-11T15:08:31Z",
+            "message": "There are pending operations in plan or members are in restart process",
+            "reason": "Plan is not empty",
+            "status": "False",
+            "type": "UpToDate"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T13:31:25Z",
+            "lastUpdateTime": "2026-09-02T13:31:25Z",
+            "message": "Spec is Propagated",
+            "reason": "Spec is Propagated",
+            "status": "True",
+            "type": "SpecPropagated"
+          },
+          {
+            "hash": "6b418b5789a9ca6f1a9d74b8861e135dd207a29d2dd4b8e310b491a17c694e29",
+            "lastTransitionTime": "2026-09-11T14:38:53Z",
+            "lastUpdateTime": "2026-09-11T14:38:53Z",
+            "reason": "License UpToDate",
+            "status": "True",
+            "type": "LicenseSet"
+          }
+        ],
+        "coordinators": {},
+        "current-image": {
+          "arangodb-version": "3.12.11",
+          "enterprise": true,
+          "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+          "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+        },
+        "dbservers": {},
+        "exporterServiceName": "deployment-exporter",
+        "gateways": {},
+        "hashes": {
+          "jwt": {
+            "active": "sha256:14cbe292d827b04cd6e1ed13258cabb203941715830917c65a55bf3adee90827",
+            "propagated": true
+          },
+          "rocksDBEncryption": {},
+          "tls": {
+            "ca": "sha256:0eeb002d6200589de5ad22787172aeae4a3d4012faeff3055340ccfaa26737d9",
+            "propagated": true,
+            "truststore": [
+              "sha256:0eeb002d6200589de5ad22787172aeae4a3d4012faeff3055340ccfaa26737d9"
+            ]
+          }
+        },
+        "highPriorityPlan": [
+          {
+            "creationTime": "2026-09-11T15:08:31Z",
+            "group": "agent",
+            "id": "K0UKoL5nN5iGMrLV",
+            "memberID": "AGNT-ubzoakj2",
+            "reason": "Sync Status of ArangoMember",
+            "type": "MemberStatusSync"
+          }
+        ],
+        "license": {
+          "expires": "2026-09-11T17:38:23Z",
+          "hash": "6b418b5789a9ca6f1a9d74b8861e135dd207a29d2dd4b8e310b491a17c694e29",
+          "id": "7c31c3ba-970f-40b5-ab15-4870b8c07425",
+          "inputHash": "a4bec1ad475897bc996d00c31e0f9b8e146e92b06a408360951dec602aa9b4ba",
+          "mode": "api",
+          "regenerate": "2026-09-11T16:38:24Z"
+        },
+        "members": {
+          "agents": [
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:00Z",
+                  "lastUpdateTime": "2026-09-08T02:26:00Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:04:58Z",
+                  "lastUpdateTime": "2026-09-11T15:04:58Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:27Z",
+                  "lastUpdateTime": "2026-09-08T02:26:27Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:27Z",
+                  "lastUpdateTime": "2026-09-08T02:26:27Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:03Z",
+                  "lastUpdateTime": "2026-09-08T02:26:03Z",
+                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:27Z",
+                  "lastUpdateTime": "2026-09-08T02:26:27Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:26:27Z",
+                  "lastUpdateTime": "2026-09-08T02:26:27Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "AGNT-lvgxckvp",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-agent-lvgxckvp"
+              },
+              "persistentVolumeClaimName": "deployment-agent-lvgxckvp",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-agnt-lvgxckvp-2523f2",
+                "specVersion": "4c336cf8a913c8abdf7b35bc71e8325ec94db5d39eec8e911718aead244f3d77",
+                "uid": "476199ad-ebb4-4870-9537-fb71bd1f925d"
+              },
+              "podName": "deployment-agnt-lvgxckvp-2523f2",
+              "podSpecVersion": "4c336cf8a913c8abdf7b35bc71e8325ec94db5d39eec8e911718aead244f3d77",
+              "podUID": "476199ad-ebb4-4870-9537-fb71bd1f925d",
+              "recent-terminations": null,
+              "rid": "626acef5-ae10-459b-af87-c9fe7254e0c7",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "021fb383-266a-483b-9acd-9ad81cdfce9c"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:29:55Z",
+                  "lastUpdateTime": "2026-09-08T02:29:55Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:08:31Z",
+                  "lastUpdateTime": "2026-09-11T15:08:31Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:50Z",
+                  "lastUpdateTime": "2026-09-08T02:30:50Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:50Z",
+                  "lastUpdateTime": "2026-09-08T02:30:50Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:00Z",
+                  "lastUpdateTime": "2026-09-08T02:30:00Z",
+                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:50Z",
+                  "lastUpdateTime": "2026-09-08T02:30:50Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:50Z",
+                  "lastUpdateTime": "2026-09-08T02:30:50Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "AGNT-ubzoakj2",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-agent-ubzoakj2"
+              },
+              "persistentVolumeClaimName": "deployment-agent-ubzoakj2",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-agnt-ubzoakj2-2523f2",
+                "specVersion": "294d67a0e87259e97bfed53105a50fe3145eed976f917efca5b9f8cd4c767bc3",
+                "uid": "2acd55a2-6818-49fc-b3e9-73c117906aaf"
+              },
+              "podName": "deployment-agnt-ubzoakj2-2523f2",
+              "podSpecVersion": "294d67a0e87259e97bfed53105a50fe3145eed976f917efca5b9f8cd4c767bc3",
+              "podUID": "2acd55a2-6818-49fc-b3e9-73c117906aaf",
+              "recent-terminations": null,
+              "rid": "58af8d44-9caa-44e7-9e03-41326bf5a7dc",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "f205ced9-12b2-4f86-b7ee-cd69c1646855"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:38Z",
+                  "lastUpdateTime": "2026-09-08T02:19:38Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:06:29Z",
+                  "lastUpdateTime": "2026-09-11T15:06:29Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:04Z",
+                  "lastUpdateTime": "2026-09-08T02:20:04Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:04Z",
+                  "lastUpdateTime": "2026-09-08T02:20:04Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:41Z",
+                  "lastUpdateTime": "2026-09-08T02:19:41Z",
+                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:04Z",
+                  "lastUpdateTime": "2026-09-08T02:20:04Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:04Z",
+                  "lastUpdateTime": "2026-09-08T02:20:04Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "AGNT-uirc1h2y",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-agent-uirc1h2y"
+              },
+              "persistentVolumeClaimName": "deployment-agent-uirc1h2y",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-agnt-uirc1h2y-2523f2",
+                "specVersion": "294873b3c1e3b7a2ca25a109c18cf0f956130eb182612d87268481b4fc58b5b8",
+                "uid": "881bc542-5994-45ce-952c-4021b0cf7fbb"
+              },
+              "podName": "deployment-agnt-uirc1h2y-2523f2",
+              "podSpecVersion": "294873b3c1e3b7a2ca25a109c18cf0f956130eb182612d87268481b4fc58b5b8",
+              "podUID": "881bc542-5994-45ce-952c-4021b0cf7fbb",
+              "recent-terminations": null,
+              "rid": "7b93d992-1959-4fe5-9f27-3ee9b6a6fc08",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "0b973475-d2aa-49eb-85cf-22d50c8a83a7"
+            }
+          ],
+          "coordinators": [
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:07Z",
+                  "lastUpdateTime": "2026-09-08T02:27:07Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:05:06Z",
+                  "lastUpdateTime": "2026-09-11T15:05:06Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:14Z",
+                  "lastUpdateTime": "2026-09-08T02:27:14Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:14Z",
+                  "lastUpdateTime": "2026-09-08T02:27:14Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:09Z",
+                  "lastUpdateTime": "2026-09-08T02:27:09Z",
+                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:13Z",
+                  "lastUpdateTime": "2026-09-08T02:27:13Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:14Z",
+                  "lastUpdateTime": "2026-09-08T02:27:14Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "CRDN-ix08uoq3",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-crdn-ix08uoq3-2523f2",
+                "specVersion": "2ac1505e7987462a8b28906298ddc95b39926614bc46e68221ae9c852d96de2e",
+                "uid": "9f79827d-7dad-4f71-a315-9091d2ef1223"
+              },
+              "podName": "deployment-crdn-ix08uoq3-2523f2",
+              "podSpecVersion": "2ac1505e7987462a8b28906298ddc95b39926614bc46e68221ae9c852d96de2e",
+              "podUID": "9f79827d-7dad-4f71-a315-9091d2ef1223",
+              "recent-terminations": null,
+              "rid": "014e0ec8-8417-486c-bfb3-0a3613d46eeb",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "3bdea460-c229-4af9-95b4-8cc5169eba59"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:20Z",
+                  "lastUpdateTime": "2026-09-08T02:31:20Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:03:29Z",
+                  "lastUpdateTime": "2026-09-11T15:03:29Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:37Z",
+                  "lastUpdateTime": "2026-09-08T02:31:37Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:37Z",
+                  "lastUpdateTime": "2026-09-08T02:31:37Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:22Z",
+                  "lastUpdateTime": "2026-09-08T02:31:22Z",
+                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:26Z",
+                  "lastUpdateTime": "2026-09-08T02:31:26Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:31:37Z",
+                  "lastUpdateTime": "2026-09-08T02:31:37Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "CRDN-pqrm2x0c",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-crdn-pqrm2x0c-2523f2",
+                "specVersion": "4d83f9c195347b06719209ff75985809e196f07d4c3d0894c110ab644bc1e4c6",
+                "uid": "74039b28-dd84-42bd-9541-cec636272d87"
+              },
+              "podName": "deployment-crdn-pqrm2x0c-2523f2",
+              "podSpecVersion": "4d83f9c195347b06719209ff75985809e196f07d4c3d0894c110ab644bc1e4c6",
+              "podUID": "74039b28-dd84-42bd-9541-cec636272d87",
+              "recent-terminations": null,
+              "rid": "279e9873-a6b0-446b-b769-c9e25204920b",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "9e3c9bf8-397d-4aa8-9977-21b2b2ad1bd0"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:31Z",
+                  "lastUpdateTime": "2026-09-08T02:20:31Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T14:56:51Z",
+                  "lastUpdateTime": "2026-09-11T14:56:51Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:36Z",
+                  "lastUpdateTime": "2026-09-08T02:20:36Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:42Z",
+                  "lastUpdateTime": "2026-09-08T02:20:42Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:42Z",
+                  "lastUpdateTime": "2026-09-08T02:20:42Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:36Z",
+                  "lastUpdateTime": "2026-09-08T02:20:36Z",
+                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:20:42Z",
+                  "lastUpdateTime": "2026-09-08T02:20:42Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "CRDN-trrwfyqf",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-crdn-trrwfyqf-2523f2",
+                "specVersion": "895cad530730a5b4fcc952c7b1144438f9d12395f235463f4f07f2f150f0bd12",
+                "uid": "a11c1597-8cf7-4145-aff8-9fb860a36a4a"
+              },
+              "podName": "deployment-crdn-trrwfyqf-2523f2",
+              "podSpecVersion": "895cad530730a5b4fcc952c7b1144438f9d12395f235463f4f07f2f150f0bd12",
+              "podUID": "a11c1597-8cf7-4145-aff8-9fb860a36a4a",
+              "recent-terminations": null,
+              "rid": "4be02176-5a40-4f04-b30f-49b5ec1c1662",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "de04ad20-f41d-4bd3-a0c8-b70f10e15fb4"
+            }
+          ],
+          "dbservers": [
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-07T14:48:16Z",
+                  "lastUpdateTime": "2026-09-08T02:32:33Z",
+                  "message": "Server with 23 shard leaders assigned",
+                  "reason": "Shard Leaders Assigned",
+                  "status": "True",
+                  "type": "DBServerWithDataLeader"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:35Z",
+                  "lastUpdateTime": "2026-09-08T02:27:35Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:05:05Z",
+                  "lastUpdateTime": "2026-09-11T15:05:05Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:28:15Z",
+                  "lastUpdateTime": "2026-09-08T02:28:15Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:28:15Z",
+                  "lastUpdateTime": "2026-09-08T02:28:15Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:27:35Z",
+                  "lastUpdateTime": "2026-09-08T02:27:35Z",
+                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:28:09Z",
+                  "lastUpdateTime": "2026-09-08T02:28:09Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:28:15Z",
+                  "lastUpdateTime": "2026-09-08T02:28:15Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:08:32Z",
+                  "lastUpdateTime": "2026-09-11T15:08:32Z",
+                  "message": "Server with 78 shards assigned",
+                  "reason": "Shards Assigned",
+                  "status": "True",
+                  "type": "DBServerWithData"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "PRMR-4phvn6ha",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-dbserver-4phvn6ha"
+              },
+              "persistentVolumeClaimName": "deployment-dbserver-4phvn6ha",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-prmr-4phvn6ha-2523f2",
+                "specVersion": "5b03ae0380a276fd407e75271b04d8dbc65f2e6219317b248e49201ca9c162f4",
+                "uid": "8dde0b40-cebe-4a7b-a9b8-6b86ce2beff2"
+              },
+              "podName": "deployment-prmr-4phvn6ha-2523f2",
+              "podSpecVersion": "5b03ae0380a276fd407e75271b04d8dbc65f2e6219317b248e49201ca9c162f4",
+              "podUID": "8dde0b40-cebe-4a7b-a9b8-6b86ce2beff2",
+              "recent-terminations": null,
+              "rid": "7a643af2-69bf-411c-b494-f6fc08baf43f",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "10f3db0e-0e9f-4e6b-a446-dbaf2637bc4b"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-07T14:48:16Z",
+                  "lastUpdateTime": "2026-09-08T02:21:35Z",
+                  "message": "Server with 52 shard leaders assigned",
+                  "reason": "Shard Leaders Assigned",
+                  "status": "True",
+                  "type": "DBServerWithDataLeader"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:05Z",
+                  "lastUpdateTime": "2026-09-08T02:21:05Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T14:57:36Z",
+                  "lastUpdateTime": "2026-09-11T14:57:36Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:25Z",
+                  "lastUpdateTime": "2026-09-08T02:21:25Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:25Z",
+                  "lastUpdateTime": "2026-09-08T02:21:25Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:05Z",
+                  "lastUpdateTime": "2026-09-08T02:21:05Z",
+                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:20Z",
+                  "lastUpdateTime": "2026-09-08T02:21:20Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:21:25Z",
+                  "lastUpdateTime": "2026-09-08T02:21:25Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:08:32Z",
+                  "lastUpdateTime": "2026-09-11T15:08:32Z",
+                  "message": "Server with 52 shards assigned",
+                  "reason": "Shards Assigned",
+                  "status": "True",
+                  "type": "DBServerWithData"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "PRMR-uypvvvkd",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-dbserver-uypvvvkd"
+              },
+              "persistentVolumeClaimName": "deployment-dbserver-uypvvvkd",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-prmr-uypvvvkd-2523f2",
+                "specVersion": "d44ee641b7ddae069f9f7cd25ffaf3cf038bed4bc03946594ccfba802a635d1d",
+                "uid": "d503c020-591e-45aa-9f86-141f62c5dc5f"
+              },
+              "podName": "deployment-prmr-uypvvvkd-2523f2",
+              "podSpecVersion": "d44ee641b7ddae069f9f7cd25ffaf3cf038bed4bc03946594ccfba802a635d1d",
+              "podUID": "d503c020-591e-45aa-9f86-141f62c5dc5f",
+              "recent-terminations": null,
+              "rid": "a9891d45-021f-414e-91ec-2f81eec24d94",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "56a36edf-c2c6-42b1-bcc5-36c5d231bf7b"
+            },
+            {
+              "arango-version": "3.12.11",
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-02T13:30:57Z",
+                  "lastUpdateTime": "2026-09-02T13:30:57Z",
+                  "status": "True",
+                  "type": "MemberOfCluster"
+                },
+                {
+                  "lastTransitionTime": "2026-09-07T14:48:16Z",
+                  "lastUpdateTime": "2026-09-08T02:32:33Z",
+                  "message": "Server with 76 shard leaders assigned",
+                  "reason": "Shard Leaders Assigned",
+                  "status": "True",
+                  "type": "DBServerWithDataLeader"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:05Z",
+                  "lastUpdateTime": "2026-09-08T02:32:05Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T14:57:07Z",
+                  "lastUpdateTime": "2026-09-11T14:57:07Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:33Z",
+                  "lastUpdateTime": "2026-09-08T02:32:33Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:33Z",
+                  "lastUpdateTime": "2026-09-08T02:32:33Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:05Z",
+                  "lastUpdateTime": "2026-09-08T02:32:05Z",
+                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:31Z",
+                  "lastUpdateTime": "2026-09-08T02:32:31Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:32:33Z",
+                  "lastUpdateTime": "2026-09-08T02:32:33Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:08:32Z",
+                  "lastUpdateTime": "2026-09-11T15:08:32Z",
+                  "message": "Server with 106 shards assigned",
+                  "reason": "Shards Assigned",
+                  "status": "True",
+                  "type": "DBServerWithData"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "PRMR-vspmihs0",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7",
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "persistentVolumeClaim": {
+                "name": "deployment-dbserver-vspmihs0"
+              },
+              "persistentVolumeClaimName": "deployment-dbserver-vspmihs0",
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-prmr-vspmihs0-2523f2",
+                "specVersion": "549bce7a03563a21d14b43ddca74c495719aab5996b42dc0d48335ccfc284d5f",
+                "uid": "f2b788e9-404f-44ed-b257-6bc5252b206c"
+              },
+              "podName": "deployment-prmr-vspmihs0-2523f2",
+              "podSpecVersion": "549bce7a03563a21d14b43ddca74c495719aab5996b42dc0d48335ccfc284d5f",
+              "podUID": "f2b788e9-404f-44ed-b257-6bc5252b206c",
+              "recent-terminations": null,
+              "rid": "d604e778-4008-485e-8867-1f863402da3c",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "b8e5b566-4b18-4fc0-9319-7b7324467c4f"
+            }
+          ],
+          "gateways": [
+            {
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:29:18Z",
+                  "lastUpdateTime": "2026-09-08T02:29:18Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:01:48Z",
+                  "lastUpdateTime": "2026-09-11T15:01:48Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:15Z",
+                  "lastUpdateTime": "2026-09-08T02:30:15Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:15Z",
+                  "lastUpdateTime": "2026-09-08T02:30:15Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:00Z",
+                  "lastUpdateTime": "2026-09-08T02:30:00Z",
+                  "message": "Assigned to node ip-10-0-100-43.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "hash": "2fa003a0420127aeabfe40a88f0aecef051c5a25e954e4f09646549a033e1c7e",
+                  "lastTransitionTime": "2026-09-11T14:56:24Z",
+                  "lastUpdateTime": "2026-09-11T14:56:24Z",
+                  "message": "Config Present",
+                  "reason": "Config Present",
+                  "status": "True",
+                  "type": "GatewayConfig"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:12Z",
+                  "lastUpdateTime": "2026-09-08T02:30:12Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:30:15Z",
+                  "lastUpdateTime": "2026-09-08T02:30:15Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "GWAY-cjgdgyxg",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-gway-cjgdgyxg-56e79a",
+                "specVersion": "0da3c04826400ecafb38a96c9880c198ef81aca8e52a2a0b0c8e8e5dca1f824f",
+                "uid": "644753fb-4835-407d-98d8-603727804f34"
+              },
+              "podName": "deployment-gway-cjgdgyxg-56e79a",
+              "podSpecVersion": "0da3c04826400ecafb38a96c9880c198ef81aca8e52a2a0b0c8e8e5dca1f824f",
+              "podUID": "644753fb-4835-407d-98d8-603727804f34",
+              "recent-terminations": null,
+              "rid": "901fcba6-7336-48ff-98a3-6336e14b3044",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "bd673f81-f7f8-4951-84d9-f40776009506"
+            },
+            {
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:17Z",
+                  "lastUpdateTime": "2026-09-08T02:25:17Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:00:18Z",
+                  "lastUpdateTime": "2026-09-11T15:00:18Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:31Z",
+                  "lastUpdateTime": "2026-09-08T02:25:31Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:31Z",
+                  "lastUpdateTime": "2026-09-08T02:25:31Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:18Z",
+                  "lastUpdateTime": "2026-09-08T02:25:18Z",
+                  "message": "Assigned to node ip-10-0-100-100.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:31Z",
+                  "lastUpdateTime": "2026-09-08T02:25:31Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:25:31Z",
+                  "lastUpdateTime": "2026-09-08T02:25:31Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                },
+                {
+                  "hash": "2fa003a0420127aeabfe40a88f0aecef051c5a25e954e4f09646549a033e1c7e",
+                  "lastTransitionTime": "2026-09-11T14:59:38Z",
+                  "lastUpdateTime": "2026-09-11T14:59:38Z",
+                  "message": "Config Present",
+                  "reason": "Config Present",
+                  "status": "True",
+                  "type": "GatewayConfig"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "GWAY-gobrau8k",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-gway-gobrau8k-56e79a",
+                "specVersion": "9f33804716ac2f59acac7c5d02b3f2531ed5f258955cd10c4fd7330e3fda36a4",
+                "uid": "9dee7fab-e605-479f-afae-4e90033518af"
+              },
+              "podName": "deployment-gway-gobrau8k-56e79a",
+              "podSpecVersion": "9f33804716ac2f59acac7c5d02b3f2531ed5f258955cd10c4fd7330e3fda36a4",
+              "podUID": "9dee7fab-e605-479f-afae-4e90033518af",
+              "recent-terminations": null,
+              "rid": "ad083b8f-4362-40ab-b5ee-c9adb0a45729",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "c86bbde1-f618-4537-b6ce-fc34038c457f"
+            },
+            {
+              "architecture": "amd64",
+              "cid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438",
+              "conditions": [
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:06Z",
+                  "lastUpdateTime": "2026-09-08T02:19:06Z",
+                  "message": "Topology Aware",
+                  "reason": "Topology Aware",
+                  "status": "True",
+                  "type": "TopologyAware"
+                },
+                {
+                  "lastTransitionTime": "2026-09-11T15:03:46Z",
+                  "lastUpdateTime": "2026-09-11T15:03:46Z",
+                  "reason": "ArangoDB is reachable",
+                  "status": "True",
+                  "type": "Reachable"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:18Z",
+                  "lastUpdateTime": "2026-09-08T02:19:18Z",
+                  "reason": "Pod Ready",
+                  "status": "True",
+                  "type": "Ready"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:18Z",
+                  "lastUpdateTime": "2026-09-08T02:19:18Z",
+                  "reason": "Pod Serving",
+                  "status": "True",
+                  "type": "Serving"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:11Z",
+                  "lastUpdateTime": "2026-09-08T02:19:11Z",
+                  "message": "Assigned to node ip-10-0-100-88.example-region.compute.internal",
+                  "reason": "Pod is scheduled",
+                  "status": "True",
+                  "type": "Scheduled"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:18Z",
+                  "lastUpdateTime": "2026-09-08T02:19:18Z",
+                  "reason": "Core Pod Container started",
+                  "status": "True",
+                  "type": "Active"
+                },
+                {
+                  "lastTransitionTime": "2026-09-08T02:19:18Z",
+                  "lastUpdateTime": "2026-09-08T02:19:18Z",
+                  "reason": "Pod Started",
+                  "status": "True",
+                  "type": "Started"
+                },
+                {
+                  "hash": "2fa003a0420127aeabfe40a88f0aecef051c5a25e954e4f09646549a033e1c7e",
+                  "lastTransitionTime": "2026-09-11T14:53:08Z",
+                  "lastUpdateTime": "2026-09-11T14:53:08Z",
+                  "message": "Config Present",
+                  "reason": "Config Present",
+                  "status": "True",
+                  "type": "GatewayConfig"
+                }
+              ],
+              "created-at": "2026-09-02T13:29:04Z",
+              "id": "GWAY-ukjpsqnv",
+              "image": {
+                "arangodb-version": "3.12.11",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.11",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:6d152b137ab7bfd6ced25254c022458c75d9882ffc157fae8e81939d6d4603b7"
+              },
+              "initialized": true,
+              "old-image": {
+                "arangodb-version": "3.12.9",
+                "enterprise": true,
+                "image": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise:3.12.9.1",
+                "image-id": "public.ecr.aws/arangodb-ci/release/cache/arangodb/enterprise@sha256:7e4964280b9fe27197899412b12382c7645fa09238f0c2951208b790a34ff781"
+              },
+              "phase": "Created",
+              "pod": {
+                "name": "deployment-gway-ukjpsqnv-56e79a",
+                "specVersion": "1e7335a0aa052e7b45da80debc401aeb055870abb1f4d55f6b2417f1330c7544",
+                "uid": "beabf3b9-55e6-464f-8ab7-d35799b06ac7"
+              },
+              "podName": "deployment-gway-ukjpsqnv-56e79a",
+              "podSpecVersion": "1e7335a0aa052e7b45da80debc401aeb055870abb1f4d55f6b2417f1330c7544",
+              "podUID": "beabf3b9-55e6-464f-8ab7-d35799b06ac7",
+              "recent-terminations": null,
+              "rid": "14a7d2a7-d8c1-4a82-84e1-6af065f752c3",
+              "topology": {
+                "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+                "label": "example-zone-a",
+                "rack": 0
+              },
+              "uid": "45270b70-2b03-45ca-9bb4-3cf1c8a258d9"
+            }
+          ]
+        },
+        "phase": "Running",
+        "plan": [
+          {
+            "creationTime": "2026-09-11T15:08:31Z",
+            "id": "cmXt8twWTqVzwhCN",
+            "type": "Idle"
+          }
+        ],
+        "restore": {
+          "requestedFrom": "restore-backup",
+          "state": "Restored"
+        },
+        "secret-hashes": {
+          "auth-jwt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "users": {
+            "root": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        },
+        "serviceName": "deployment",
+        "topology": {
+          "id": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "label": "topology.kubernetes.io/zone",
+          "size": 1,
+          "zones": [
+            {
+              "id": 0,
+              "labels": [
+                "example-zone-a"
+              ],
+              "members": {
+                "agnt": [
+                  "AGNT-lvgxckvp",
+                  "AGNT-ubzoakj2",
+                  "AGNT-uirc1h2y"
+                ],
+                "crdn": [
+                  "CRDN-ix08uoq3",
+                  "CRDN-pqrm2x0c",
+                  "CRDN-trrwfyqf"
+                ],
+                "gway": [
+                  "GWAY-cjgdgyxg",
+                  "GWAY-gobrau8k",
+                  "GWAY-ukjpsqnv"
+                ],
+                "prmr": [
+                  "PRMR-4phvn6ha",
+                  "PRMR-uypvvvkd",
+                  "PRMR-vspmihs0"
+                ]
+              }
+            }
+          ]
+        },
+        "version": "1.2.8.1"
+      }
+    }
+  ],
+  "kind": "ArangoDeploymentList",
+  "metadata": {
+    "continue": "",
+    "resourceVersion": "3358149565"
+  }
+}

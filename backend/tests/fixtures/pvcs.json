@@ -1,0 +1,501 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-170.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "agent"
+        },
+        "name": "deployment-agent-lvgxckvp",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322717698",
+        "uid": "a7178f4f-0902-4e7f-a26c-916ab795101c"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "8Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-a7178f4f-0902-4e7f-a26c-916ab795101c"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "8Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-227.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "agent"
+        },
+        "name": "deployment-agent-ubzoakj2",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322725564",
+        "uid": "4a3513c1-ad3a-4846-881e-bbcd91750f2c"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "8Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-4a3513c1-ad3a-4846-881e-bbcd91750f2c"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "8Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-160.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "agent"
+        },
+        "name": "deployment-agent-uirc1h2y",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322726136",
+        "uid": "f1571be4-8f8d-4578-9b5e-058fe05c985a"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "8Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-f1571be4-8f8d-4578-9b5e-058fe05c985a"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "8Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-170.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "dbserver"
+        },
+        "name": "deployment-dbserver-4phvn6ha",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322718181",
+        "uid": "619c938b-d2e7-463d-b001-8738bc46722a"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "320Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp60",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-619c938b-d2e7-463d-b001-8738bc46722a"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "320Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-227.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "dbserver"
+        },
+        "name": "deployment-dbserver-uypvvvkd",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322725559",
+        "uid": "f1f196a6-532c-4738-8280-83c0837626aa"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "320Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp60",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-f1f196a6-532c-4738-8280-83c0837626aa"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "320Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "database.arangodb.com/enforce-anti-affinity": "true",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-160.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T13:29:05+00:00",
+        "finalizers": [
+          "pvc.database.arangodb.com/member-exists",
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "role": "dbserver"
+        },
+        "name": "deployment-dbserver-vspmihs0",
+        "namespace": "example-platform",
+        "ownerReferences": [
+          {
+            "apiVersion": "database.arangodb.com/v1",
+            "controller": true,
+            "kind": "ArangoDeployment",
+            "name": "deployment",
+            "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+          }
+        ],
+        "resourceVersion": "3322726141",
+        "uid": "92eae64b-4030-4d6f-b8f0-b2cb0868d4d9"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "320Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp60",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-92eae64b-4030-4d6f-b8f0-b2cb0868d4d9"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "320Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T19:29:47+00:00",
+        "finalizers": [
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-mlflow",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-mlflow",
+          "release": "arangodb-mlflow",
+          "type": "statefulset"
+        },
+        "name": "mlflow-storage-arangodb-mlflow-0",
+        "namespace": "example-platform",
+        "resourceVersion": "3323334845",
+        "uid": "7e3a382f-eaa5-46e1-9b09-c5dcdad45b9e"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-7e3a382f-eaa5-46e1-9b09-c5dcdad45b9e"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "platform-monitoring-grafana",
+          "meta.helm.sh/release-namespace": "example-platform",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T19:30:49+00:00",
+        "finalizers": [
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app.kubernetes.io/instance": "platform-monitoring-grafana",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-grafana",
+          "app.kubernetes.io/version": "13.1.4",
+          "helm.sh/chart": "platform-monitoring-grafana-v0.0.8"
+        },
+        "name": "platform-monitoring-grafana",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340037",
+        "uid": "9d46dae8-68f2-4b4f-9936-18d6dd462a5c"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-9d46dae8-68f2-4b4f-9936-18d6dd462a5c"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "phase": "Bound"
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "platform-monitoring-prometheus",
+          "meta.helm.sh/release-namespace": "example-platform",
+          "pv.kubernetes.io/bind-completed": "yes",
+          "pv.kubernetes.io/bound-by-controller": "yes",
+          "volume.beta.kubernetes.io/storage-provisioner": "ebs.csi.aws.com",
+          "volume.kubernetes.io/selected-node": "ip-10-0-100-10.example-region.compute.internal",
+          "volume.kubernetes.io/storage-provisioner": "ebs.csi.aws.com"
+        },
+        "creationTimestamp": "2026-09-02T19:30:31+00:00",
+        "finalizers": [
+          "kubernetes.io/pvc-protection"
+        ],
+        "labels": {
+          "app.kubernetes.io/component": "server",
+          "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-prometheus",
+          "app.kubernetes.io/part-of": "platform-monitoring-prometheus",
+          "app.kubernetes.io/version": "v3.14.0",
+          "helm.sh/chart": "platform-monitoring-prometheus-v0.0.8"
+        },
+        "name": "platform-monitoring-prometheus-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338928",
+        "uid": "ebba0b90-b770-4973-b480-dbab2515bd35"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "8Gi"
+          }
+        },
+        "storageClassName": "managed-gp3-dp30",
+        "volumeMode": "Filesystem",
+        "volumeName": "pvc-ebba0b90-b770-4973-b480-dbab2515bd35"
+      },
+      "status": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "8Gi"
+        },
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "PersistentVolumeClaimList",
+  "metadata": {
+    "resourceVersion": "3358149521"
+  }
+}

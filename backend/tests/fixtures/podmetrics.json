@@ -1,0 +1,2512 @@
+{
+  "apiVersion": "metrics.k8s.io/v1beta1",
+  "items": [
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "140071n",
+            "memory": "21828Ki"
+          }
+        },
+        {
+          "name": "proxy-service-http",
+          "usage": {
+            "cpu": "77725n",
+            "memory": "8040Ki"
+          }
+        },
+        {
+          "name": "python-service-grpc",
+          "usage": {
+            "cpu": "162162n",
+            "memory": "36604Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arango-control-plane",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arango-control-plane",
+          "helm.sh/chart": "arango-control-plane-v0.0.23",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "569d579d45",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arango-control-plane",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arango-control-plane-569d579d45-cltm4",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:55Z",
+      "window": "15.949s"
+    },
+    {
+      "containers": [
+        {
+          "name": "operator",
+          "usage": {
+            "cpu": "216365671n",
+            "memory": "328620Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "operator",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "kube-arangodb",
+          "backup/role": "leader",
+          "helm.sh/chart": "kube-arangodb-1.4.5",
+          "networking/role": "leader",
+          "platform/role": "leader",
+          "pod-template-hash": "57c86d9f64",
+          "release": "operator",
+          "role": "leader",
+          "scheduler/role": "leader",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arango-operator-operator-57c86d9f64-2t4xv",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "12.823s"
+    },
+    {
+      "containers": [
+        {
+          "name": "otel-collector",
+          "usage": {
+            "cpu": "1300561n",
+            "memory": "35116Ki"
+          }
+        },
+        {
+          "name": "proxy-server",
+          "usage": {
+            "cpu": "0",
+            "memory": "6404Ki"
+          }
+        },
+        {
+          "name": "grpc-server",
+          "usage": {
+            "cpu": "412902n",
+            "memory": "138532Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "191487n",
+            "memory": "20596Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-autograph-q5qy2",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-autograph",
+          "app.kubernetes.io/version": "v0.0.16",
+          "helm.sh/chart": "arangodb-autograph-v0.0.16",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "7b97fcc46",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-autograph-q5qy2",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-autograph-q5qy2-7b97fcc46-g8mcx",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "14.867s"
+    },
+    {
+      "containers": [
+        {
+          "name": "ui",
+          "usage": {
+            "cpu": "321404n",
+            "memory": "16552Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "163347n",
+            "memory": "19156Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-core-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-core-ui",
+          "helm.sh/chart": "arangodb-core-ui-v1.5.0",
+          "pod-template-hash": "5756446486",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-core-ui",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-core-ui-5756446486-6xr2t",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:04Z",
+      "window": "19.835s"
+    },
+    {
+      "containers": [
+        {
+          "name": "api",
+          "usage": {
+            "cpu": "1369360n",
+            "memory": "56740Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "130683n",
+            "memory": "19340Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "api",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "68595cdc98",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-api-68595cdc98-wgjm5",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:59Z",
+      "window": "17.86s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "144592n",
+            "memory": "19348Ki"
+          }
+        },
+        {
+          "name": "orchestrator",
+          "usage": {
+            "cpu": "1527858n",
+            "memory": "57500Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "orchestrator",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "7df877d956",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-orchestrator-7df877d956-5vj9z",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:05Z",
+      "window": "19.51s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "156258n",
+            "memory": "19756Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1935194n",
+            "memory": "63536Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "64c9fbb446",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-default-64c9fbb446-4f68g",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:02Z",
+      "window": "14.721s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "2101827n",
+            "memory": "64468Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "564817n",
+            "memory": "19000Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "64c9fbb446",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-default-64c9fbb446-6j2tb",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:00Z",
+      "window": "16.207s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "168788n",
+            "memory": "19436Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1878524n",
+            "memory": "63948Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "64c9fbb446",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-default-64c9fbb446-b5fvw",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:04Z",
+      "window": "13.476s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "144966n",
+            "memory": "19672Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "2012526n",
+            "memory": "64176Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "64c9fbb446",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-default-64c9fbb446-fb64m",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:58Z",
+      "window": "14.609s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1964009n",
+            "memory": "64860Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "230883n",
+            "memory": "19884Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-default",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "64c9fbb446",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-default-64c9fbb446-t49gl",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:55Z",
+      "window": "13.47s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "113031n",
+            "memory": "19136Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1819973n",
+            "memory": "63728Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-2hfjt",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:59Z",
+      "window": "19.486s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1758573n",
+            "memory": "65204Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "137417n",
+            "memory": "19720Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-5ghd9",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "10.348s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1950393n",
+            "memory": "64396Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "240359n",
+            "memory": "19648Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-5kj4p",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "12.473s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "494460n",
+            "memory": "19048Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1795225n",
+            "memory": "64188Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-5z2nw",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:07Z",
+      "window": "12.316s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "163548n",
+            "memory": "19784Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1678071n",
+            "memory": "64712Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-8n58k",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:55Z",
+      "window": "19.028s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "203088n",
+            "memory": "19588Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1941195n",
+            "memory": "64452Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-ccf9x",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:05Z",
+      "window": "15.611s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1813093n",
+            "memory": "63304Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "200453n",
+            "memory": "19612Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-cfdxk",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:02Z",
+      "window": "12.362s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "185347n",
+            "memory": "20156Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1953771n",
+            "memory": "63972Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-cqkl2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:05Z",
+      "window": "14.926s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "722701n",
+            "memory": "19720Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1760692n",
+            "memory": "65332Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-dbpc9",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:04Z",
+      "window": "13.783s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "172746n",
+            "memory": "19448Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1999123n",
+            "memory": "64288Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-dk69s",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:06Z",
+      "window": "17.928s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "510429n",
+            "memory": "19212Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1809203n",
+            "memory": "64852Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-fptcc",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:03Z",
+      "window": "13.082s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "231127n",
+            "memory": "20044Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1868074n",
+            "memory": "63960Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-gf84b",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:08Z",
+      "window": "15.107s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1842182n",
+            "memory": "64972Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "216884n",
+            "memory": "19568Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-gh9b5",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:56Z",
+      "window": "14.676s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "588863n",
+            "memory": "19856Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1870944n",
+            "memory": "64248Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-gkfkd",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:04Z",
+      "window": "17.977s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1762906n",
+            "memory": "64236Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "211486n",
+            "memory": "19324Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-gkhv7",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "15.793s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "135391n",
+            "memory": "19584Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1890059n",
+            "memory": "64276Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-gzvhp",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "17.394s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "562157n",
+            "memory": "19800Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1827913n",
+            "memory": "64656Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-hv5sp",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:06Z",
+      "window": "12.424s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1821504n",
+            "memory": "63280Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "112112n",
+            "memory": "20164Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-kf5c7",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "16.528s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1896764n",
+            "memory": "64720Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "488028n",
+            "memory": "20128Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-m5hvl",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:11Z",
+      "window": "26.98s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1954322n",
+            "memory": "64296Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "223725n",
+            "memory": "20432Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-pbmsh",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:00Z",
+      "window": "11.38s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "228098n",
+            "memory": "19920Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1862894n",
+            "memory": "64088Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-psck6",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:00Z",
+      "window": "17.716s"
+    },
+    {
+      "containers": [
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1795221n",
+            "memory": "63920Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "259536n",
+            "memory": "19556Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-t25gb",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "18.752s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "714637n",
+            "memory": "19160Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1796661n",
+            "memory": "63952Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-tn6bd",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:11Z",
+      "window": "17.852s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "924280n",
+            "memory": "19544Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1842690n",
+            "memory": "64472Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-vmqls",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:05Z",
+      "window": "10.803s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "210381n",
+            "memory": "19708Ki"
+          }
+        },
+        {
+          "name": "worker",
+          "usage": {
+            "cpu": "1993049n",
+            "memory": "64148Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "component": "worker-pdf",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/shutdown": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f4b78bdbb",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-file-parser",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "arangodb-file-parser-worker-pdf-6f4b78bdbb-xqfdb",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:58Z",
+      "window": "13.669s"
+    },
+    {
+      "containers": [
+        {
+          "name": "otel-collector",
+          "usage": {
+            "cpu": "2157946n",
+            "memory": "39340Ki"
+          }
+        },
+        {
+          "name": "proxy-server",
+          "usage": {
+            "cpu": "53399n",
+            "memory": "11272Ki"
+          }
+        },
+        {
+          "name": "grpc-server",
+          "usage": {
+            "cpu": "524383n",
+            "memory": "348080Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "125967n",
+            "memory": "19712Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "66979d55cf",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-icnn5",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-icnn5-66979d55cf-z5s2p",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "11.276s"
+    },
+    {
+      "containers": [
+        {
+          "name": "grpc-server",
+          "usage": {
+            "cpu": "715619n",
+            "memory": "195952Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "837319n",
+            "memory": "19628Ki"
+          }
+        },
+        {
+          "name": "otel-collector",
+          "usage": {
+            "cpu": "1288974n",
+            "memory": "38560Ki"
+          }
+        },
+        {
+          "name": "proxy-server",
+          "usage": {
+            "cpu": "27061n",
+            "memory": "7400Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "7ccd9dc846",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-rcnr8",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-rcnr8-7ccd9dc846-8hhgz",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:03Z",
+      "window": "15.011s"
+    },
+    {
+      "containers": [
+        {
+          "name": "grpc-server",
+          "usage": {
+            "cpu": "756658n",
+            "memory": "515144Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "714082n",
+            "memory": "19960Ki"
+          }
+        },
+        {
+          "name": "otel-collector",
+          "usage": {
+            "cpu": "1913400n",
+            "memory": "37664Ki"
+          }
+        },
+        {
+          "name": "proxy-server",
+          "usage": {
+            "cpu": "26177n",
+            "memory": "12092Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "app.kubernetes.io/version": "v0.0.20-g1209f92",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "8cd8776bc",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-graphrag-retriever-rqngl",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-graphrag-retriever-rqngl-8cd8776bc-zqbdj",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "14.111s"
+    },
+    {
+      "containers": [
+        {
+          "name": "arangodb-mlflow",
+          "usage": {
+            "cpu": "173681n",
+            "memory": "752384Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "210167n",
+            "memory": "19112Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-mlflow",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-mlflow",
+          "apps.kubernetes.io/pod-index": "0",
+          "controller-revision-hash": "arangodb-mlflow-78f478784f",
+          "helm.sh/chart": "arangodb-mlflow-v0.1.10",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-mlflow",
+          "statefulset.kubernetes.io/pod-name": "arangodb-mlflow-0",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "statefulset"
+        },
+        "name": "arangodb-mlflow-0",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:07Z",
+      "window": "15.799s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "214134n",
+            "memory": "19244Ki"
+          }
+        },
+        {
+          "name": "ui",
+          "usage": {
+            "cpu": "288245n",
+            "memory": "16516Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui",
+          "helm.sh/chart": "arangodb-platform-ui-v1.5.1-39e3579",
+          "pod-template-hash": "595bc64f9c",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-platform-ui",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-platform-ui-595bc64f9c-vmwht",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:54Z",
+      "window": "16.368s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "118771n",
+            "memory": "19244Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "266203n",
+            "memory": "49440Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui-server",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui-server",
+          "helm.sh/chart": "arangodb-platform-ui-server-v1.5.1",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "pod-template-hash": "59b9bb65bc",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-platform-ui-server",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "arangodb-platform-ui-server-59b9bb65bc-lqkwv",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:56Z",
+      "window": "17.361s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "877335n",
+            "memory": "23912Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "8413762n",
+            "memory": "208964Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "AGNT-lvgxckvp",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "agent",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-agnt-lvgxckvp-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:58Z",
+      "window": "10.1s"
+    },
+    {
+      "containers": [
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "11169565n",
+            "memory": "208464Ki"
+          }
+        },
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "1192142n",
+            "memory": "24044Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "AGNT-ubzoakj2",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "agent",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-agnt-ubzoakj2-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:06Z",
+      "window": "10.487s"
+    },
+    {
+      "containers": [
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "17369037n",
+            "memory": "221080Ki"
+          }
+        },
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "197126n",
+            "memory": "23476Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/leader": "true",
+          "deployment.arangodb.com/member": "AGNT-uirc1h2y",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "agent",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-agnt-uirc1h2y-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:58Z",
+      "window": "16.814s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "162251n",
+            "memory": "26940Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "84691093n",
+            "memory": "203Mi"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "CRDN-ix08uoq3",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "coordinator",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-crdn-ix08uoq3-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:07Z",
+      "window": "12.647s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "1950652n",
+            "memory": "25268Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "62325019n",
+            "memory": "203604Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "CRDN-pqrm2x0c",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "coordinator",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-crdn-pqrm2x0c-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:03Z",
+      "window": "15.948s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "131222n",
+            "memory": "26600Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "59053458n",
+            "memory": "206396Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "CRDN-trrwfyqf",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "coordinator",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-crdn-trrwfyqf-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:58Z",
+      "window": "13.244s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "7492815n",
+            "memory": "45104Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "72988917n",
+            "memory": "132540Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "GWAY-cjgdgyxg",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "gateways",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-gway-cjgdgyxg-56e79a",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "10.377s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "7424883n",
+            "memory": "44624Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "72514705n",
+            "memory": "118996Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "GWAY-gobrau8k",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "gateways",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-gway-gobrau8k-56e79a",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "15.708s"
+    },
+    {
+      "containers": [
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "75968400n",
+            "memory": "115772Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "6838840n",
+            "memory": "44572Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "GWAY-ukjpsqnv",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "gateways",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-gway-ukjpsqnv-56e79a",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:56Z",
+      "window": "17.703s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "513382n",
+            "memory": "19604Ki"
+          }
+        },
+        {
+          "name": "ml-api",
+          "usage": {
+            "cpu": "1028055n",
+            "memory": "122672Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-ml-api",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-ml-api",
+          "apps.kubernetes.io/pod-index": "0",
+          "controller-revision-hash": "deployment-ml-9697fd55c",
+          "helm.sh/chart": "arangodb-ml-api-v1.0.16",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/sched": "v2",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "arangodb-ml-api",
+          "statefulset.kubernetes.io/pod-name": "deployment-ml-0",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "statefulset"
+        },
+        "name": "deployment-ml-0",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:04Z",
+      "window": "11.014s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "34249n",
+            "memory": "23636Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "371149170n",
+            "memory": "11918036Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "PRMR-4phvn6ha",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "dbserver",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-prmr-4phvn6ha-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:00Z",
+      "window": "10.19s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "132881n",
+            "memory": "23748Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "12713908n",
+            "memory": "1065108Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "PRMR-uypvvvkd",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "dbserver",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-prmr-uypvvvkd-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:00Z",
+      "window": "19.333s"
+    },
+    {
+      "containers": [
+        {
+          "name": "exporter",
+          "usage": {
+            "cpu": "222079n",
+            "memory": "24588Ki"
+          }
+        },
+        {
+          "name": "server",
+          "usage": {
+            "cpu": "22251744n",
+            "memory": "15404700Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app": "arangodb",
+          "arango_deployment": "deployment",
+          "arango_exporter": "yes",
+          "deployment.arangodb.com/active": "true",
+          "deployment.arangodb.com/member": "PRMR-vspmihs0",
+          "deployment.arangodb.com/scheduled": "1",
+          "deployment.arangodb.com/topology": "89a4e97d-2df9-4ae9-9d00-12588d13af12",
+          "deployment.arangodb.com/zone": "0",
+          "role": "dbserver",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "deployment-prmr-vspmihs0-2523f2",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:03Z",
+      "window": "11.694s"
+    },
+    {
+      "containers": [
+        {
+          "name": "file-manager",
+          "usage": {
+            "cpu": "1623304n",
+            "memory": "61492Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "621923n",
+            "memory": "20328Ki"
+          }
+        },
+        {
+          "name": "otel-collector",
+          "usage": {
+            "cpu": "1274201n",
+            "memory": "35740Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "file-manager",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "file-manager",
+          "app.kubernetes.io/version": "v0.0.22",
+          "helm.sh/chart": "file-manager-v0.0.22",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v1",
+          "integration.profiles.arangodb.com/meta": "v1",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "bd7c6c854",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "file-manager",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "file-manager-bd7c6c854-r9m4h",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:08:01Z",
+      "window": "15.928s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "242619n",
+            "memory": "19084Ki"
+          }
+        },
+        {
+          "name": "mlflow-artifact-repository",
+          "usage": {
+            "cpu": "932302n",
+            "memory": "47024Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "mlflow-artifact-repository",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "mlflow-artifact-repository",
+          "helm.sh/chart": "mlflow-artifact-repository-v0.0.14",
+          "integration.profiles.arangodb.com/authn": "v1",
+          "integration.profiles.arangodb.com/authz": "v0",
+          "integration.profiles.arangodb.com/storage": "v2",
+          "pod-template-hash": "6f54997d47",
+          "profiles.arangodb.com/deployment": "deployment",
+          "release": "mlflow-artifact-repository",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a",
+          "type": "deployment"
+        },
+        "name": "mlflow-artifact-repository-6f54997d47-v596j",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:56Z",
+      "window": "21.729s"
+    },
+    {
+      "containers": [
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "258413n",
+            "memory": "18800Ki"
+          }
+        },
+        {
+          "name": "grafana",
+          "usage": {
+            "cpu": "7515857n",
+            "memory": "164800Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/instance": "platform-monitoring-grafana",
+          "app.kubernetes.io/name": "platform-monitoring-grafana",
+          "app.kubernetes.io/version": "13.1.4",
+          "helm.sh/chart": "platform-monitoring-grafana-v0.0.8",
+          "pod-template-hash": "786774bd69",
+          "profiles.arangodb.com/deployment": "deployment",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "platform-monitoring-grafana-786774bd69-p5sxn",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "17.77s"
+    },
+    {
+      "containers": [
+        {
+          "name": "platform-monitoring-prometheus-server",
+          "usage": {
+            "cpu": "2304249n",
+            "memory": "105860Ki"
+          }
+        },
+        {
+          "name": "platform-monitoring-prometheus-server-configmap-reload",
+          "usage": {
+            "cpu": "97675n",
+            "memory": "10288Ki"
+          }
+        },
+        {
+          "name": "integration",
+          "usage": {
+            "cpu": "192537n",
+            "memory": "19664Ki"
+          }
+        }
+      ],
+      "metadata": {
+        "creationTimestamp": "2026-09-11T15:08:32Z",
+        "labels": {
+          "app.kubernetes.io/component": "server",
+          "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+          "app.kubernetes.io/name": "platform-monitoring-prometheus",
+          "app.kubernetes.io/part-of": "platform-monitoring-prometheus",
+          "app.kubernetes.io/version": "v3.14.0",
+          "helm.sh/chart": "platform-monitoring-prometheus-v0.0.8",
+          "pod-template-hash": "5d5b5bd86d",
+          "profiles.arangodb.com/deployment": "deployment",
+          "topology.kubernetes.io/region": "example-region",
+          "topology.kubernetes.io/zone": "example-zone-a"
+        },
+        "name": "platform-monitoring-prometheus-server-5d5b5bd86d-jgwcb",
+        "namespace": "example-platform"
+      },
+      "timestamp": "2026-09-11T15:07:57Z",
+      "window": "16.565s"
+    }
+  ],
+  "kind": "PodMetricsList",
+  "metadata": {}
+}

@@ -1,0 +1,272 @@
+{
+  "apiVersion": "apps/v1",
+  "items": [
+    {
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-mlflow",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:47+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-mlflow",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-mlflow",
+          "helm.sh/chart": "arangodb-mlflow-v0.1.10",
+          "release": "arangodb-mlflow",
+          "type": "statefulset"
+        },
+        "name": "arangodb-mlflow",
+        "namespace": "example-platform",
+        "resourceVersion": "3341182608",
+        "uid": "a6f6f0be-a1cb-4ed8-aa7d-b47fc09f35b0"
+      },
+      "spec": {
+        "persistentVolumeClaimRetentionPolicy": {
+          "whenDeleted": "Retain",
+          "whenScaled": "Retain"
+        },
+        "podManagementPolicy": "OrderedReady",
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-mlflow",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "arangodb-mlflow",
+            "release": "arangodb-mlflow",
+            "type": "statefulset"
+          }
+        },
+        "serviceName": "arangodb-mlflow",
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-mlflow",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-mlflow",
+              "helm.sh/chart": "arangodb-mlflow-v0.1.10",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-mlflow",
+              "type": "statefulset"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/arangodb-mlflow/service:v0.1.10",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "arangodb-mlflow",
+                "ports": [
+                  {
+                    "containerPort": 5000,
+                    "name": "mlflow-server",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 1000,
+              "runAsNonRoot": true,
+              "runAsUser": 1000,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "serviceAccount": "arangodb-mlflow",
+            "serviceAccountName": "arangodb-mlflow",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {},
+                "name": "tmp"
+              }
+            ]
+          }
+        },
+        "updateStrategy": {
+          "rollingUpdate": {
+            "partition": 0
+          },
+          "type": "RollingUpdate"
+        },
+        "volumeClaimTemplates": [
+          {
+            "apiVersion": "v1",
+            "kind": "PersistentVolumeClaim",
+            "metadata": {
+              "name": "mlflow-storage"
+            },
+            "spec": {
+              "accessModes": [
+                "ReadWriteOnce"
+              ],
+              "resources": {
+                "requests": {
+                  "storage": "10Gi"
+                }
+              },
+              "volumeMode": "Filesystem"
+            },
+            "status": {
+              "phase": "Pending"
+            }
+          }
+        ]
+      },
+      "status": {
+        "availableReplicas": 1,
+        "collisionCount": 0,
+        "currentReplicas": 1,
+        "currentRevision": "arangodb-mlflow-78f478784f",
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updateRevision": "arangodb-mlflow-78f478784f",
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-ml-api",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:47+00:00",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-ml-api",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-ml-api",
+          "helm.sh/chart": "arangodb-ml-api-v1.0.16",
+          "release": "arangodb-ml-api",
+          "type": "statefulset"
+        },
+        "name": "deployment-ml",
+        "namespace": "example-platform",
+        "resourceVersion": "3341170689",
+        "uid": "104571be-3e88-417c-809b-7adc1c890ae6"
+      },
+      "spec": {
+        "persistentVolumeClaimRetentionPolicy": {
+          "whenDeleted": "Retain",
+          "whenScaled": "Retain"
+        },
+        "podManagementPolicy": "OrderedReady",
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app.kubernetes.io/instance": "arangodb-ml-api",
+            "app.kubernetes.io/name": "arangodb-ml-api",
+            "type": "statefulset"
+          }
+        },
+        "serviceName": "deployment-ml",
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "arangodb-ml-api",
+              "app.kubernetes.io/managed-by": "Helm",
+              "app.kubernetes.io/name": "arangodb-ml-api",
+              "helm.sh/chart": "arangodb-ml-api-v1.0.16",
+              "integration.profiles.arangodb.com/authn": "v1",
+              "integration.profiles.arangodb.com/authz": "v0",
+              "integration.profiles.arangodb.com/sched": "v2",
+              "integration.profiles.arangodb.com/storage": "v2",
+              "profiles.arangodb.com/deployment": "deployment",
+              "release": "arangodb-ml-api",
+              "type": "statefulset"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "registry.example.com/ml-api/service:v1.0.16",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "ml-api",
+                "ports": [
+                  {
+                    "containerPort": 8502,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "limits": {
+                    "cpu": "2",
+                    "memory": "2Gi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "arangodb-ml-api",
+            "serviceAccountName": "arangodb-ml-api",
+            "terminationGracePeriodSeconds": 30
+          }
+        },
+        "updateStrategy": {
+          "rollingUpdate": {
+            "partition": 0
+          },
+          "type": "RollingUpdate"
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "collisionCount": 0,
+        "currentReplicas": 1,
+        "currentRevision": "deployment-ml-9697fd55c",
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "updateRevision": "deployment-ml-9697fd55c",
+        "updatedReplicas": 1
+      }
+    }
+  ],
+  "kind": "StatefulSetList",
+  "metadata": {
+    "resourceVersion": "3358149486"
+  }
+}

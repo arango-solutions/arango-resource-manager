@@ -1,0 +1,1277 @@
+{
+  "apiVersion": "platform.arangodb.com/v1beta1",
+  "items": [
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arango-control-plane",
+        "namespace": "example-platform",
+        "resourceVersion": "3323342085",
+        "uid": "d4143b48-5c33-49fa-8837-de6c07e73d1c"
+      },
+      "spec": {
+        "chart": {
+          "name": "arango-control-plane"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arango-control-plane",
+          "namespace": "example-platform",
+          "uid": "5ace1ae4-0898-49df-89fc-e67620f1afea"
+        },
+        "chartInfo": {
+          "checksum": "0550f03361e2f23d951a8eff8132cadeaefd29c5ba2e2a226299ddb404b406de",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arango-control-plane",
+            "version": "v0.0.23"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:36:49Z",
+            "lastUpdateTime": "2026-09-02T19:36:49Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "0550f03361e2f23d951a8eff8132cadeaefd29c5ba2e2a226299ddb404b406de",
+            "lastTransitionTime": "2026-09-02T19:29:31Z",
+            "lastUpdateTime": "2026-09-02T19:33:23Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:36:24Z",
+            "lastUpdateTime": "2026-09-02T19:36:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "adb5c8fce9ec19237dff81aa51cace8d4a6264584e628052b898d7481211ae90",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:40Z",
+            "last_deployed": "2026-09-02T19:34:47Z",
+            "status": "deployed"
+          },
+          "name": "arango-control-plane",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:30Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-core-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340070",
+        "uid": "5047108c-fbac-4529-bd02-d4c4bd06f7f0"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-core-ui"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-core-ui",
+          "namespace": "example-platform",
+          "uid": "c767f1bd-12bb-4b60-9e50-dee5fcca1f76"
+        },
+        "chartInfo": {
+          "checksum": "3c1e26d411e6165468f0bc0eb9ae6ac9463353338846cad9092796ffc63f4509",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-core-ui",
+            "version": "v1.5.0"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:32Z",
+            "lastUpdateTime": "2026-09-02T19:29:32Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:19Z",
+            "lastUpdateTime": "2026-09-02T19:35:19Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:36Z",
+            "lastUpdateTime": "2026-09-02T19:29:36Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "3c1e26d411e6165468f0bc0eb9ae6ac9463353338846cad9092796ffc63f4509",
+            "lastTransitionTime": "2026-09-02T19:29:51Z",
+            "lastUpdateTime": "2026-09-02T19:33:20Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:34:55Z",
+            "lastUpdateTime": "2026-09-02T19:34:55Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "76b19ddfb6120b8f92f28ac54a1eb2f872332cd6d54e601ca5ab37707dbaf205",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:30:18Z",
+            "last_deployed": "2026-09-02T19:33:51Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-core-ui",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 9,
+        "name": "arangodb-file-parser",
+        "namespace": "example-platform",
+        "resourceVersion": "3327008713",
+        "uid": "c41eee33-aa7c-4d6e-9d20-7f0e005e5803"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-file-parser"
+        },
+        "deployment": {
+          "name": "deployment"
+        },
+        "values": {
+          "workerDefault": {
+            "replicas": 5
+          },
+          "workerPdf": {
+            "replicas": 25
+          }
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-file-parser",
+          "namespace": "example-platform",
+          "uid": "a17bf19e-ab29-4103-8c67-c241ecad915e"
+        },
+        "chartInfo": {
+          "checksum": "a23fa2c7f72cd0245402f81077d8ea9d39fb47327e174b5afcf48ad51569dc6a",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-file-parser",
+            "version": "v0.1.3"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-03T17:37:55Z",
+            "lastUpdateTime": "2026-09-03T17:37:55Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "a23fa2c7f72cd0245402f81077d8ea9d39fb47327e174b5afcf48ad51569dc6a",
+            "lastTransitionTime": "2026-09-02T19:29:32Z",
+            "lastUpdateTime": "2026-09-02T19:33:22Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-03T17:37:25Z",
+            "lastUpdateTime": "2026-09-03T17:37:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "7b04df2930c0b1399c337da583ae6dfe878168c0c396461497ea588e6c847af8",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:41Z",
+            "last_deployed": "2026-09-03T17:35:29Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-file-parser",
+          "version": 9
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          },
+          "workerDefault": {
+            "replicas": 5
+          },
+          "workerPdf": {
+            "replicas": 25
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-07T10:48:00Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-graphrag-retriever",
+        "namespace": "example-platform",
+        "resourceVersion": "3338295032",
+        "uid": "d084b411-baca-4620-bc7f-258a37af0061"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-graphrag-retriever"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-graphrag-retriever",
+          "namespace": "example-platform",
+          "uid": "96425afe-a7dc-4dd7-9ca7-d0cb3c1f961f"
+        },
+        "chartInfo": {
+          "checksum": "64358f11bab9c26fdee9371b49174ee238abdcf07272e1942cb68ba243928bf3",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-graphrag-retriever",
+            "version": "v0.0.20-g1209f92"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-07T10:48:35Z",
+            "lastUpdateTime": "2026-09-07T10:48:35Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:48:36Z",
+            "lastUpdateTime": "2026-09-07T10:48:36Z",
+            "message": "Not ready",
+            "reason": "Not ready",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:48:53Z",
+            "lastUpdateTime": "2026-09-07T10:48:53Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "64358f11bab9c26fdee9371b49174ee238abdcf07272e1942cb68ba243928bf3",
+            "lastTransitionTime": "2026-09-07T10:49:28Z",
+            "lastUpdateTime": "2026-09-07T10:49:28Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:49:41Z",
+            "lastUpdateTime": "2026-09-07T10:49:41Z",
+            "message": "Not ready",
+            "reason": "Not ready",
+            "status": "False",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:27Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-ml-api",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340632",
+        "uid": "948504b7-113e-46ab-9e29-78825bef2a2f"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-ml-api"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-ml-api",
+          "namespace": "example-platform",
+          "uid": "d4b17297-9907-4771-9d89-b6d87469062a"
+        },
+        "chartInfo": {
+          "checksum": "96d561eee5365593f48388c15b794f424e5fac5102f0ba50f681bc820dfda1e3",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-ml-api",
+            "version": "v1.0.16"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:27Z",
+            "lastUpdateTime": "2026-09-02T19:29:27Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:42Z",
+            "lastUpdateTime": "2026-09-02T19:35:42Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "96d561eee5365593f48388c15b794f424e5fac5102f0ba50f681bc820dfda1e3",
+            "lastTransitionTime": "2026-09-02T19:29:29Z",
+            "lastUpdateTime": "2026-09-02T19:33:22Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:21Z",
+            "lastUpdateTime": "2026-09-02T19:35:21Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "76b80e0f41b42ce226b31f37fb5ec8ad82cfd46fc1f6a96a6de38854fe401bb0",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:37Z",
+            "last_deployed": "2026-09-02T19:34:05Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-ml-api",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:27Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-mlflow",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340551",
+        "uid": "d9d05213-3938-4c5a-ae1f-50dadeb70cb3"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-mlflow"
+        },
+        "deployment": {
+          "name": "deployment"
+        },
+        "values": {
+          "mlflow_artifact_target": "file-manager"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-mlflow",
+          "namespace": "example-platform",
+          "uid": "d1eb9fed-3655-430b-bd13-a289b7fb3ffe"
+        },
+        "chartInfo": {
+          "checksum": "6e45133119d054e33d661c7e8d569c59b5a13b983684eef9e3ca01c76bd646b4",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-mlflow",
+            "version": "v0.1.10"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:27Z",
+            "lastUpdateTime": "2026-09-02T19:29:27Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:39Z",
+            "lastUpdateTime": "2026-09-02T19:35:39Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "6e45133119d054e33d661c7e8d569c59b5a13b983684eef9e3ca01c76bd646b4",
+            "lastTransitionTime": "2026-09-02T19:29:29Z",
+            "lastUpdateTime": "2026-09-02T19:33:21Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:15Z",
+            "lastUpdateTime": "2026-09-02T19:35:15Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "d987ca7eb0aa36d7ecb2c4a885f997e565f99bd3abbe08dbb641985553a3dab5",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:38Z",
+            "last_deployed": "2026-09-02T19:33:56Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-mlflow",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          },
+          "mlflow_artifact_target": "file-manager"
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-platform-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340220",
+        "uid": "e8e8ddc3-58b3-4a42-8360-43510e662a8a"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-platform-ui"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-platform-ui",
+          "namespace": "example-platform",
+          "uid": "ca2e3e1d-1036-47e5-8803-f98f24502622"
+        },
+        "chartInfo": {
+          "checksum": "c6e6d583ae02198d5a9b368bbf28a3a776c4e2dc8ddcd05c11f9010ac616542e",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-platform-ui",
+            "version": "v1.5.1-39e3579"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:24Z",
+            "lastUpdateTime": "2026-09-02T19:35:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:29Z",
+            "lastUpdateTime": "2026-09-02T19:29:29Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "c6e6d583ae02198d5a9b368bbf28a3a776c4e2dc8ddcd05c11f9010ac616542e",
+            "lastTransitionTime": "2026-09-02T19:29:32Z",
+            "lastUpdateTime": "2026-09-02T19:33:21Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:09Z",
+            "lastUpdateTime": "2026-09-02T19:35:09Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "50f448e77271cd085a46de0c5c950dc05c24201f43b458612bf235d620b86817",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:41Z",
+            "last_deployed": "2026-09-02T19:33:51Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-platform-ui",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "arangodb-platform-ui-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3323339890",
+        "uid": "dc9c6dd5-90c0-4d43-9216-5b547fc91454"
+      },
+      "spec": {
+        "chart": {
+          "name": "arangodb-platform-ui-server"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "arangodb-platform-ui-server",
+          "namespace": "example-platform",
+          "uid": "b6604c79-e3dc-4830-851a-adfe24a833ef"
+        },
+        "chartInfo": {
+          "checksum": "0daa5c267d5ee0d87ac74a1b51375ef2272033e006059912cd8016bf941b6d00",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-platform-ui-server",
+            "version": "v1.5.1"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:10Z",
+            "lastUpdateTime": "2026-09-02T19:35:10Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:29Z",
+            "lastUpdateTime": "2026-09-02T19:29:29Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "0daa5c267d5ee0d87ac74a1b51375ef2272033e006059912cd8016bf941b6d00",
+            "lastTransitionTime": "2026-09-02T19:29:32Z",
+            "lastUpdateTime": "2026-09-02T19:33:11Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:34:53Z",
+            "lastUpdateTime": "2026-09-02T19:34:53Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "170f7cd53097b17fe36430b95bdea2092d6c49a1f9f28fdb6a4d68d8f3d2b324",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:41Z",
+            "last_deployed": "2026-09-02T19:33:48Z",
+            "status": "deployed"
+          },
+          "name": "arangodb-platform-ui-server",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "file-manager",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340376",
+        "uid": "53b6f43f-ffed-4824-9361-0300d13d95d8"
+      },
+      "spec": {
+        "chart": {
+          "name": "file-manager"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "file-manager",
+          "namespace": "example-platform",
+          "uid": "034214c8-8908-4c56-976c-3082f115e3e8"
+        },
+        "chartInfo": {
+          "checksum": "0d28b3ad2e40ddd55f1d82270166d11d09d183ce289e401f30a95e5d4caf0e5f",
+          "definition": "<stripped>",
+          "details": {
+            "name": "file-manager",
+            "version": "v0.0.22"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:30Z",
+            "lastUpdateTime": "2026-09-02T19:35:30Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "0d28b3ad2e40ddd55f1d82270166d11d09d183ce289e401f30a95e5d4caf0e5f",
+            "lastTransitionTime": "2026-09-02T19:29:32Z",
+            "lastUpdateTime": "2026-09-02T19:33:21Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:09Z",
+            "lastUpdateTime": "2026-09-02T19:35:09Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "9af89d846514e4d23d6f6da9a5d119826c3a4e4afc6fde03c270c27a0d542cca",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:29:41Z",
+            "last_deployed": "2026-09-02T19:33:54Z",
+            "status": "deployed"
+          },
+          "name": "file-manager",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:28Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "mlflow-artifact-repository",
+        "namespace": "example-platform",
+        "resourceVersion": "3323332971",
+        "uid": "d899609b-4c1b-4b15-9d1d-de013eea349a"
+      },
+      "spec": {
+        "chart": {
+          "name": "mlflow-artifact-repository"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "mlflow-artifact-repository",
+          "namespace": "example-platform",
+          "uid": "a106c7b2-180c-4fd8-92b5-27d40d104e0d"
+        },
+        "chartInfo": {
+          "checksum": "27476bcb3b4a13b33960832013865ab818d3ed92cebb2e24dac0581e84c0282d",
+          "definition": "<stripped>",
+          "details": {
+            "name": "mlflow-artifact-repository",
+            "version": "v0.0.14"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:22Z",
+            "lastUpdateTime": "2026-09-02T19:30:22Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:28Z",
+            "lastUpdateTime": "2026-09-02T19:29:28Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "27476bcb3b4a13b33960832013865ab818d3ed92cebb2e24dac0581e84c0282d",
+            "lastTransitionTime": "2026-09-02T19:29:31Z",
+            "lastUpdateTime": "2026-09-02T19:29:31Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:09Z",
+            "lastUpdateTime": "2026-09-02T19:30:09Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "4c2b37757c18f4428da4380aa9d25bd0c511f7666cb50f7b35b07a3a1e18ac15",
+          "info": {
+            "description": "Install complete",
+            "first_deployed": "2026-09-02T19:29:40Z",
+            "last_deployed": "2026-09-02T19:29:40Z",
+            "status": "deployed"
+          },
+          "name": "mlflow-artifact-repository",
+          "version": 1
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:30Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "platform-monitoring-grafana",
+        "namespace": "example-platform",
+        "resourceVersion": "3323341826",
+        "uid": "0f0a4b98-b51d-42d9-b594-da9198282b17"
+      },
+      "spec": {
+        "chart": {
+          "name": "platform-monitoring-grafana"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "platform-monitoring-grafana",
+          "namespace": "example-platform",
+          "uid": "e3a17ff2-61d7-48af-81e7-39fb5675657d"
+        },
+        "chartInfo": {
+          "checksum": "4b7dfc14b3a00b0bd56413b30966cf94542e0736f7218b856d75d41bad4a5856",
+          "definition": "<stripped>",
+          "details": {
+            "name": "platform-monitoring-grafana",
+            "version": "v0.0.8"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:33Z",
+            "lastUpdateTime": "2026-09-02T19:29:33Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:36:35Z",
+            "lastUpdateTime": "2026-09-02T19:36:35Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:36Z",
+            "lastUpdateTime": "2026-09-02T19:29:36Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "4b7dfc14b3a00b0bd56413b30966cf94542e0736f7218b856d75d41bad4a5856",
+            "lastTransitionTime": "2026-09-02T19:29:51Z",
+            "lastUpdateTime": "2026-09-02T19:33:23Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:36:11Z",
+            "lastUpdateTime": "2026-09-02T19:36:11Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "1bf80bff8a60fe7a11ac717a26c6567896e0f40c048b144c617769b7008c6bd6",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:30:29Z",
+            "last_deployed": "2026-09-02T19:34:41Z",
+            "status": "deployed"
+          },
+          "name": "platform-monitoring-grafana",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformService",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:29Z",
+        "finalizers": [
+          "arangoplatformservices.platform.arangodb.com/cleanup"
+        ],
+        "generation": 1,
+        "name": "platform-monitoring-prometheus",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340816",
+        "uid": "464fc088-8b73-4556-b7df-6ba12773fec7"
+      },
+      "spec": {
+        "chart": {
+          "name": "platform-monitoring-prometheus"
+        },
+        "deployment": {
+          "name": "deployment"
+        }
+      },
+      "status": {
+        "chart": {
+          "name": "platform-monitoring-prometheus",
+          "namespace": "example-platform",
+          "uid": "18bb86c6-110d-4f0d-aced-6143f1efb252"
+        },
+        "chartInfo": {
+          "checksum": "4e7ac5c7fd494570448456cfb4b93fbfce3cdfd9cb1dc8897493b572494b37ca",
+          "definition": "<stripped>",
+          "details": {
+            "name": "platform-monitoring-prometheus",
+            "version": "v0.0.8"
+          },
+          "valid": true
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:31Z",
+            "lastUpdateTime": "2026-09-02T19:29:31Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:51Z",
+            "lastUpdateTime": "2026-09-02T19:35:51Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:35Z",
+            "lastUpdateTime": "2026-09-02T19:29:35Z",
+            "message": "Deployment found",
+            "reason": "Deployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "4e7ac5c7fd494570448456cfb4b93fbfce3cdfd9cb1dc8897493b572494b37ca",
+            "lastTransitionTime": "2026-09-02T19:29:38Z",
+            "lastUpdateTime": "2026-09-02T19:33:20Z",
+            "message": "Chart found",
+            "reason": "Chart found",
+            "status": "True",
+            "type": "ChartFound"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:35:30Z",
+            "lastUpdateTime": "2026-09-02T19:35:30Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "ReleaseReady"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "release": {
+          "hash": "df5f4187fef0defc53ebded320f093a3675686f417eed9588c3ac8c3afe2f5d9",
+          "info": {
+            "description": "Upgrade complete",
+            "first_deployed": "2026-09-02T19:30:18Z",
+            "last_deployed": "2026-09-02T19:34:01Z",
+            "status": "deployed"
+          },
+          "name": "platform-monitoring-prometheus",
+          "version": 2
+        },
+        "values": {
+          "arangodb_platform": {
+            "deployment": {
+              "name": "deployment"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "kind": "ArangoPlatformServiceList",
+  "metadata": {
+    "continue": "",
+    "resourceVersion": "3358149529"
+  }
+}

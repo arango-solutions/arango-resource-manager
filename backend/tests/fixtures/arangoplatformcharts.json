@@ -1,0 +1,1242 @@
+{
+  "apiVersion": "platform.arangodb.com/v1beta1",
+  "items": [
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arango-control-plane",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337479",
+        "uid": "5ace1ae4-0898-49df-89fc-e67620f1afea"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "0550f03361e2f23d951a8eff8132cadeaefd29c5ba2e2a226299ddb404b406de",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arango-control-plane",
+            "version": "v0.0.23"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arango-cypher2aql",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337379",
+        "uid": "be238adf-fa55-48bb-b439-23ab7b8e946e"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:20Z",
+            "lastUpdateTime": "2026-09-02T19:33:20Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "77c5af51a761570783f61a8cfe4666ff3c313437752832a9b94e5b4c1e7487d6",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arango-cypher2aql",
+            "version": "v0.9.8"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arango-user-defined",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337448",
+        "uid": "e4fefaef-1cd4-4c53-a747-583209a45bd1"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:22Z",
+            "lastUpdateTime": "2026-09-02T19:33:22Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "65fb308ccdd53743b7dd3dff035a6bc358edb88370481e400fff84c6940154d7",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arango-user-defined",
+            "version": "v0.0.7"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arangodb-autograph",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337466",
+        "uid": "01e35a78-dd35-4467-9b16-dcb38d3353e4"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:24Z",
+            "lastUpdateTime": "2026-09-02T19:33:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "32abc3ab9cff13ec23853bc9ffc04cb82393acfec9ffee5efdea466f50ba71e0",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-autograph",
+            "version": "v0.0.16"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:23Z",
+        "generation": 2,
+        "name": "arangodb-core-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337409",
+        "uid": "c767f1bd-12bb-4b60-9e50-dee5fcca1f76"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:23Z",
+            "lastUpdateTime": "2026-09-02T19:29:23Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:21Z",
+            "lastUpdateTime": "2026-09-02T19:33:21Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "3c1e26d411e6165468f0bc0eb9ae6ac9463353338846cad9092796ffc63f4509",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-core-ui",
+            "version": "v1.5.0"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arangodb-featurization-cpu",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337498",
+        "uid": "a9a8db03-576e-4253-9842-84deefe1e04a"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:26Z",
+            "lastUpdateTime": "2026-09-02T19:33:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "3b1940939f96a9050fe2053999f39de770d7242bf0f08ba21c96981d9c9fada2",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-featurization-cpu",
+            "version": "v1.0.13"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arangodb-file-parser",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337491",
+        "uid": "a17bf19e-ab29-4103-8c67-c241ecad915e"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "a23fa2c7f72cd0245402f81077d8ea9d39fb47327e174b5afcf48ad51569dc6a",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-file-parser",
+            "version": "v0.1.3"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 2,
+        "name": "arangodb-gral",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337478",
+        "uid": "5c9f2677-a39a-4bf4-83c1-eb59e97d2d6a"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "502aba1ce127384ed305d8a65714fd4ba92db618cdb59d089e0682f100ef5b6d",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-gral",
+            "version": "v1.1.13"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:25Z",
+        "generation": 2,
+        "name": "arangodb-graph-rag",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337477",
+        "uid": "d7b26a3d-cdcd-4103-89ea-de7153cae14c"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:25Z",
+            "lastUpdateTime": "2026-09-02T19:29:25Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "ede178154601f8055c3252b1988dda051060d27704fe82f15d7f8b057feb4d26",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-graph-rag",
+            "version": "v0.0.17"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 2,
+        "name": "arangodb-graphrag-importer",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337505",
+        "uid": "19a88cb4-86d5-40a2-b4f1-f2f2332e379a"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:26Z",
+            "lastUpdateTime": "2026-09-02T19:33:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "ce548682a72af50eeaf2dd3126aa6ca3841c775e7b24eccb91d22dc2bc869634",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-graphrag-importer",
+            "version": "v0.0.34"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 3,
+        "name": "arangodb-graphrag-retriever",
+        "namespace": "example-platform",
+        "resourceVersion": "3338289803",
+        "uid": "96425afe-a7dc-4dd7-9ca7-d0cb3c1f961f"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:47:57Z",
+            "lastUpdateTime": "2026-09-07T10:47:57Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "64358f11bab9c26fdee9371b49174ee238abdcf07272e1942cb68ba243928bf3",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-graphrag-retriever",
+            "version": "v0.0.20-g1209f92"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 2,
+        "name": "arangodb-llm-host",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337517",
+        "uid": "5ed27dbf-e189-4f1a-8d05-429bc656668b"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:26Z",
+            "lastUpdateTime": "2026-09-02T19:33:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "065563cf6235bea4043b560e8d59981fd823c48ac1dcd59c061bbb75292f9ed8",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-llm-host",
+            "version": "v0.0.19"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:25Z",
+        "generation": 2,
+        "name": "arangodb-mcp-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337484",
+        "uid": "6be3bd7a-6b03-41e2-97f5-97c3a4186b42"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:25Z",
+            "lastUpdateTime": "2026-09-02T19:29:25Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "c4973f99586d14c40341d7d4768bce536dfd0efc3cde0d121d2c6ca63b0eecf9",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-mcp-server",
+            "version": "v0.0.12"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:23Z",
+        "generation": 2,
+        "name": "arangodb-ml-api",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337510",
+        "uid": "d4b17297-9907-4771-9d89-b6d87469062a"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:23Z",
+            "lastUpdateTime": "2026-09-02T19:29:23Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:26Z",
+            "lastUpdateTime": "2026-09-02T19:33:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "96d561eee5365593f48388c15b794f424e5fac5102f0ba50f681bc820dfda1e3",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-ml-api",
+            "version": "v1.0.16"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:25Z",
+        "generation": 2,
+        "name": "arangodb-mlflow",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337487",
+        "uid": "d1eb9fed-3655-430b-bd13-a289b7fb3ffe"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:25Z",
+            "lastUpdateTime": "2026-09-02T19:29:25Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "6e45133119d054e33d661c7e8d569c59b5a13b983684eef9e3ca01c76bd646b4",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-mlflow",
+            "version": "v0.1.10"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:25Z",
+        "generation": 2,
+        "name": "arangodb-notebook-images",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337398",
+        "uid": "2c2cda62-3eb7-4b0c-9738-3dd143088208"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:25Z",
+            "lastUpdateTime": "2026-09-02T19:29:25Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:21Z",
+            "lastUpdateTime": "2026-09-02T19:33:21Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "041de9fff50bdee1e5ee0536ce8766ba41a7f5eebc1cb036f9ced13a61016e2f",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-notebook-images",
+            "version": "v0.5.56"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "arangodb-platform-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337472",
+        "uid": "ca2e3e1d-1036-47e5-8803-f98f24502622"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:24Z",
+            "lastUpdateTime": "2026-09-02T19:33:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "c6e6d583ae02198d5a9b368bbf28a3a776c4e2dc8ddcd05c11f9010ac616542e",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-platform-ui",
+            "version": "v1.5.1-39e3579"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "arangodb-platform-ui-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337259",
+        "uid": "b6604c79-e3dc-4830-851a-adfe24a833ef"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:15Z",
+            "lastUpdateTime": "2026-09-02T19:33:15Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "0daa5c267d5ee0d87ac74a1b51375ef2272033e006059912cd8016bf941b6d00",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-platform-ui-server",
+            "version": "v1.5.1"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "arangodb-prediction-cpu",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337446",
+        "uid": "97e6a480-651a-4af1-a8a7-312ff012bf6f"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:22Z",
+            "lastUpdateTime": "2026-09-02T19:33:22Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "afab502ea55be63cb14f9e86ca274b8153b9920e0d52f9d9635cbcb7126d2867",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-prediction-cpu",
+            "version": "v1.0.15"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "arangodb-prediction-gpu",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337471",
+        "uid": "b33d5112-ed9f-4edf-bd7b-c5a1e50d4d47"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:24Z",
+            "lastUpdateTime": "2026-09-02T19:33:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "93338c47371c85ce15922e050ff034c59ac56f5b97c29ae4608bd7ce3f26adf8",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-prediction-gpu",
+            "version": "v1.0.15"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "arangodb-reasoner",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337501",
+        "uid": "fa88293f-3e69-4eca-9c43-6ca1d98baa64"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:26Z",
+            "lastUpdateTime": "2026-09-02T19:33:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "a6e12d9d2bb37dc2f68bc5600c8f64bdc54d61dbc50da907438f67fd0862d838",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-reasoner",
+            "version": "v0.0.10"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 2,
+        "name": "arangodb-training-cpu",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337465",
+        "uid": "6fb304f0-2f12-4996-b597-c2ffd23c294b"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:24Z",
+            "lastUpdateTime": "2026-09-02T19:33:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "94b66df72cdf92b010ac4ec5216233c823486ef08af97a632b3b1e3d37803509",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-training-cpu",
+            "version": "v1.0.12"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:25Z",
+        "generation": 2,
+        "name": "arangodb-training-gpu",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337490",
+        "uid": "ec8c3edc-a1a8-473c-be37-504eef90ef3c"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:25Z",
+            "lastUpdateTime": "2026-09-02T19:29:25Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:25Z",
+            "lastUpdateTime": "2026-09-02T19:33:25Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "ac5f7e148808cf60232140a2404f945a4fbe6c9a4451399ffc0e0be3f1c86e0d",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-training-gpu",
+            "version": "v1.0.12"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:22Z",
+        "generation": 1,
+        "name": "arangodb-virtual-graph",
+        "namespace": "example-platform",
+        "resourceVersion": "3323331379",
+        "uid": "82742db8-ca7d-4c39-a24a-793c2c741bbb"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:22Z",
+            "lastUpdateTime": "2026-09-02T19:29:22Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "d209ddc03808b1cbe32c488ae3f476d157f49c9e367fec3f854f3bb57a5b5a03",
+          "definition": "<stripped>",
+          "details": {
+            "name": "arangodb-virtual-graph",
+            "version": "v0.0.2-3afa825"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:24Z",
+        "generation": 2,
+        "name": "file-manager",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337473",
+        "uid": "034214c8-8908-4c56-976c-3082f115e3e8"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:24Z",
+            "lastUpdateTime": "2026-09-02T19:29:24Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:24Z",
+            "lastUpdateTime": "2026-09-02T19:33:24Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "0d28b3ad2e40ddd55f1d82270166d11d09d183ce289e401f30a95e5d4caf0e5f",
+          "definition": "<stripped>",
+          "details": {
+            "name": "file-manager",
+            "version": "v0.0.22"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 1,
+        "name": "mlflow-artifact-repository",
+        "namespace": "example-platform",
+        "resourceVersion": "3323331517",
+        "uid": "a106c7b2-180c-4fd8-92b5-27d40d104e0d"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "27476bcb3b4a13b33960832013865ab818d3ed92cebb2e24dac0581e84c0282d",
+          "definition": "<stripped>",
+          "details": {
+            "name": "mlflow-artifact-repository",
+            "version": "v0.0.14"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 2,
+        "name": "platform-monitoring-grafana",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337458",
+        "uid": "e3a17ff2-61d7-48af-81e7-39fb5675657d"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:23Z",
+            "lastUpdateTime": "2026-09-02T19:33:23Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "4b7dfc14b3a00b0bd56413b30966cf94542e0736f7218b856d75d41bad4a5856",
+          "definition": "<stripped>",
+          "details": {
+            "name": "platform-monitoring-grafana",
+            "version": "v0.0.8"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "apiVersion": "platform.arangodb.com/v1beta1",
+      "kind": "ArangoPlatformChart",
+      "metadata": {
+        "creationTimestamp": "2026-09-02T19:29:26Z",
+        "generation": 2,
+        "name": "platform-monitoring-prometheus",
+        "namespace": "example-platform",
+        "resourceVersion": "3323337425",
+        "uid": "18bb86c6-110d-4f0d-aced-6143f1efb252"
+      },
+      "spec": {
+        "definition": "<stripped>"
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:26Z",
+            "lastUpdateTime": "2026-09-02T19:29:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:33:22Z",
+            "lastUpdateTime": "2026-09-02T19:33:22Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "info": {
+          "checksum": "4e7ac5c7fd494570448456cfb4b93fbfce3cdfd9cb1dc8897493b572494b37ca",
+          "definition": "<stripped>",
+          "details": {
+            "name": "platform-monitoring-prometheus",
+            "version": "v0.0.8"
+          },
+          "valid": true
+        }
+      }
+    }
+  ],
+  "kind": "ArangoPlatformChartList",
+  "metadata": {
+    "continue": "",
+    "resourceVersion": "3358149541"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "arango_crs": [
+    "ArangoPlatformService",
+    "ArangoPlatformChart",
+    "ArangoRoute",
+    "ArangoDeployment"
+  ],
+  "arangodeployments_patch": true,
+  "degraded": [],
+  "deployments_list": true,
+  "deployments_patch": true,
+  "deployments_scale": true,
+  "events_list": true,
+  "limitrange_present": false,
+  "metrics_server": true,
+  "nodes_list": false,
+  "pods_delete": true,
+  "pods_list": true,
+  "pods_log": true,
+  "pvc_list": true,
+  "replicasets_list": true,
+  "resourcequota_present": false,
+  "resourcequotas_list": true,
+  "statefulsets_list": true,
+  "statefulsets_scale": true
+}

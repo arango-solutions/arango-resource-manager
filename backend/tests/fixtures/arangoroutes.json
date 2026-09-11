@@ -1,0 +1,2085 @@
+{
+  "apiVersion": "networking.arangodb.com/v1beta1",
+  "items": [
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arango-control-plane",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:00Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arango-control-plane",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arango-control-plane",
+          "helm.sh/chart": "arango-control-plane-v0.0.23",
+          "release": "arango-control-plane"
+        },
+        "name": "arango-control-plane",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340423",
+        "uid": "c0dd0296-f4b4-486c-b97b-46c3216861a5"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arango-control-plane",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/_platform/acp/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01Z",
+            "lastUpdateTime": "2026-09-02T19:30:01Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:12Z",
+            "lastUpdateTime": "2026-09-02T19:30:12Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:07Z",
+            "lastUpdateTime": "2026-09-02T19:30:07Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "3845b785681fd010f0523e0afd4149d25f211a171c6deb4f98909c1528b9c482",
+            "lastTransitionTime": "2026-09-02T19:30:10Z",
+            "lastUpdateTime": "2026-09-02T19:30:10Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arango-control-plane.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/_platform/acp/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arango-control-plane",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:00Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arango-control-plane",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arango-control-plane",
+          "helm.sh/chart": "arango-control-plane-v0.0.23",
+          "release": "arango-control-plane"
+        },
+        "name": "arango-control-plane-ai",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340355",
+        "uid": "b49bb2d5-07ec-4d81-b4d9-a3fb9697804d"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arango-control-plane",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/ai/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:02Z",
+            "lastUpdateTime": "2026-09-02T19:30:02Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:13Z",
+            "lastUpdateTime": "2026-09-02T19:30:13Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:08Z",
+            "lastUpdateTime": "2026-09-02T19:30:08Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "ad47181ce00363bcf16fe788a17ddd07fbcc582b5c0c6c2571be8b6552256afe",
+            "lastTransitionTime": "2026-09-02T19:30:10Z",
+            "lastUpdateTime": "2026-09-02T19:30:10Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arango-control-plane.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/ai/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arango-control-plane",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:00Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arango-control-plane",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arango-control-plane",
+          "helm.sh/chart": "arango-control-plane-v0.0.23",
+          "release": "arango-control-plane"
+        },
+        "name": "arango-control-plane-gen-ai",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340389",
+        "uid": "d882036b-d3f1-4749-9e16-cc337d76afb0"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arango-control-plane",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/gen-ai/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:01Z",
+            "lastUpdateTime": "2026-09-02T19:30:01Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:13Z",
+            "lastUpdateTime": "2026-09-02T19:30:13Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:08Z",
+            "lastUpdateTime": "2026-09-02T19:30:08Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "54598a04ad841d260b0313929b054ef54852bc164069abc465f96190369edbd4",
+            "lastTransitionTime": "2026-09-02T19:30:10Z",
+            "lastUpdateTime": "2026-09-02T19:30:10Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arango-control-plane.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/gen-ai/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-autograph-q5qy2",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T20:20:06Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-autograph-q5qy2",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-autograph",
+          "helm.sh/chart": "arangodb-autograph-v0.0.16",
+          "release": "arangodb-autograph-q5qy2"
+        },
+        "name": "arangodb-autograph-q5qy2",
+        "namespace": "example-platform",
+        "resourceVersion": "3323391372",
+        "uid": "3e8e59ef-2098-4f0b-a8bd-0d6790e29032"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-autograph-q5qy2",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/autograph/q5qy2/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T20:20:07Z",
+            "lastUpdateTime": "2026-09-02T20:20:07Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T20:20:16Z",
+            "lastUpdateTime": "2026-09-02T20:20:16Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T20:20:10Z",
+            "lastUpdateTime": "2026-09-02T20:20:10Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "1215ec73f0b46b04ca10ee472ee50546123c8c9d0f2144bbeb6a8ce940af17d7",
+            "lastTransitionTime": "2026-09-02T20:20:11Z",
+            "lastUpdateTime": "2026-09-02T20:20:11Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-autograph-q5qy2.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/autograph/q5qy2/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-core-ui",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:26Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-core-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-core-ui",
+          "helm.sh/chart": "arangodb-core-ui-v1.5.0",
+          "release": "arangodb-core-ui"
+        },
+        "name": "arangodb-core-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338329",
+        "uid": "b517352c-58f9-4a17-9b6b-b4e3e4415d89"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "path": "/_ui/core/",
+          "schema": "https",
+          "service": {
+            "name": "arangodb-core-ui",
+            "port": 443
+          }
+        },
+        "route": {
+          "path": "/_ui/core/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:26Z",
+            "lastUpdateTime": "2026-09-02T19:30:26Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:35Z",
+            "lastUpdateTime": "2026-09-02T19:30:35Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:30Z",
+            "lastUpdateTime": "2026-09-02T19:30:30Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "376eca1aea82433c6b9e3e902b8fbc5e28b809314847445d0da62550a4b73412",
+            "lastTransitionTime": "2026-09-02T19:30:32Z",
+            "lastUpdateTime": "2026-09-02T19:30:32Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-core-ui.example-platform.svc",
+              "port": 443
+            }
+          ],
+          "path": "/_ui/core/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/_ui/core/"
+          },
+          "timeout": "1m0s",
+          "tls": {
+            "insecure": false
+          },
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-file-parser",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:02Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-file-parser",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-file-parser",
+          "helm.sh/chart": "arangodb-file-parser-v0.1.3",
+          "release": "arangodb-file-parser"
+        },
+        "name": "arangodb-file-parser",
+        "namespace": "example-platform",
+        "resourceVersion": "3323339647",
+        "uid": "e45862d9-edee-46f3-8e60-457931b47dcf"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-file-parser-api",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/file-parser/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:05Z",
+            "lastUpdateTime": "2026-09-02T19:30:05Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:16Z",
+            "lastUpdateTime": "2026-09-02T19:30:16Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:09Z",
+            "lastUpdateTime": "2026-09-02T19:30:09Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "6874186745feb86e3548f7dc5e9f06c5ff73ffa2216f56f636d9de7ec803bd68",
+            "lastTransitionTime": "2026-09-02T19:30:11Z",
+            "lastUpdateTime": "2026-09-02T19:30:11Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-file-parser-api.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/file-parser/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-icnn5",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-08T23:50:52Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-icnn5"
+        },
+        "name": "arangodb-graphrag-retriever-icnn5",
+        "namespace": "example-platform",
+        "resourceVersion": "3345353731",
+        "uid": "c627245e-765d-47e0-807e-364b6f1f06f5"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-icnn5",
+            "port": 80
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever/icnn5/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "30bb995faec21d4fc5420c2b40639db37b7bf3c2b31ff3e25725280d8bbd1486",
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-icnn5.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever/icnn5/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-icnn5",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-08T23:50:52Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-icnn5",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-icnn5"
+        },
+        "name": "arangodb-graphrag-retriever-icnn5-files",
+        "namespace": "example-platform",
+        "resourceVersion": "3345353732",
+        "uid": "954f4ff6-dad6-485e-9f9c-f405d00bd2cd"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-icnn5",
+            "port": 8090
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever-files/icnn5/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "0180b31d58d2d129c1c2be13ccf315d7d788588ce36ed26c283719410fc128b4",
+            "lastTransitionTime": "2026-09-08T23:50:52Z",
+            "lastUpdateTime": "2026-09-08T23:50:52Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-icnn5.example-platform.svc",
+              "port": 8090
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever-files/icnn5/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rcnr8",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-09T15:23:16Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-rcnr8"
+        },
+        "name": "arangodb-graphrag-retriever-rcnr8",
+        "namespace": "example-platform",
+        "resourceVersion": "3348782264",
+        "uid": "fd4dbe97-8300-4949-8bab-ad5a52d4f36a"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-rcnr8",
+            "port": 80
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever/rcnr8/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "9b1ad2afd6dfdb84f5bd897a3553844d81bcaa14f4944a762eabe0ebec293098",
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-rcnr8.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever/rcnr8/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rcnr8",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-09T15:23:16Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rcnr8",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-rcnr8"
+        },
+        "name": "arangodb-graphrag-retriever-rcnr8-files",
+        "namespace": "example-platform",
+        "resourceVersion": "3348782263",
+        "uid": "a14f59f0-1253-46c4-a9b0-58fd76143a2a"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-rcnr8",
+            "port": 8090
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever-files/rcnr8/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "cc08b60e2507f19610f368493a6c4cb19638ad6c0ceccdc6c7168474491a04be",
+            "lastTransitionTime": "2026-09-09T15:23:16Z",
+            "lastUpdateTime": "2026-09-09T15:23:16Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-rcnr8.example-platform.svc",
+              "port": 8090
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever-files/rcnr8/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rqngl",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-07T10:48:48Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-rqngl"
+        },
+        "name": "arangodb-graphrag-retriever-rqngl",
+        "namespace": "example-platform",
+        "resourceVersion": "3338293293",
+        "uid": "416e6257-5b60-4318-ac92-91b0741784b8"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-rqngl",
+            "port": 80
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever/rqngl/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-07T10:48:52Z",
+            "lastUpdateTime": "2026-09-07T10:48:52Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:49:06Z",
+            "lastUpdateTime": "2026-09-07T10:49:06Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:48:58Z",
+            "lastUpdateTime": "2026-09-07T10:48:58Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "4edda8229b437ba6b7d438f73a05d789411cb84c47b19a6fb19081e6630742c2",
+            "lastTransitionTime": "2026-09-07T10:49:03Z",
+            "lastUpdateTime": "2026-09-07T10:49:03Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-rqngl.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever/rqngl/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-graphrag-retriever-rqngl",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-07T10:48:48Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-graphrag-retriever-rqngl",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-graphrag-retriever",
+          "helm.sh/chart": "arangodb-graphrag-retriever-v0.0.20-g1209f92",
+          "release": "arangodb-graphrag-retriever-rqngl"
+        },
+        "name": "arangodb-graphrag-retriever-rqngl-files",
+        "namespace": "example-platform",
+        "resourceVersion": "3338293292",
+        "uid": "6f564a85-1de9-4677-92a8-31bcf935e74a"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-graphrag-retriever-rqngl",
+            "port": 8090
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/graphrag/retriever-files/rqngl/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-07T10:48:52Z",
+            "lastUpdateTime": "2026-09-07T10:48:52Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:49:06Z",
+            "lastUpdateTime": "2026-09-07T10:49:06Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-07T10:48:58Z",
+            "lastUpdateTime": "2026-09-07T10:48:58Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "f2cfacb6c1301ccb10b2783ece6b568385e9a7e514d6d46f4a717c6e10189d85",
+            "lastTransitionTime": "2026-09-07T10:49:03Z",
+            "lastUpdateTime": "2026-09-07T10:49:03Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-graphrag-retriever-rqngl.example-platform.svc",
+              "port": 8090
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/graphrag/retriever-files/rqngl/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-mlflow",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:48Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-mlflow",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-mlflow",
+          "helm.sh/chart": "arangodb-mlflow-v0.1.10",
+          "release": "arangodb-mlflow"
+        },
+        "name": "arangodb-mlflow",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338806",
+        "uid": "f0807ba9-8139-4518-9a7f-748968624e03"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-mlflow",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/mlflow/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:48Z",
+            "lastUpdateTime": "2026-09-02T19:29:48Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:59Z",
+            "lastUpdateTime": "2026-09-02T19:29:59Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:54Z",
+            "lastUpdateTime": "2026-09-02T19:29:54Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "d215c4cb34e503a0e1d157a98dc56a82790be1ca7d50a75df02d3c3562160a45",
+            "lastTransitionTime": "2026-09-02T19:29:56Z",
+            "lastUpdateTime": "2026-09-02T19:29:56Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "override",
+            "type": "optional"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-mlflow.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/mlflow/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-platform-ui",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:48Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui",
+          "helm.sh/chart": "arangodb-platform-ui-v1.5.1-39e3579",
+          "release": "arangodb-platform-ui"
+        },
+        "name": "arangodb-platform-ui",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338344",
+        "uid": "a74951ce-968f-40e5-8137-308d045c3988"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "path": "/ui/",
+          "schema": "https",
+          "service": {
+            "name": "arangodb-platform-ui",
+            "port": 443
+          }
+        },
+        "route": {
+          "path": "/ui/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:49Z",
+            "lastUpdateTime": "2026-09-02T19:29:49Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:00Z",
+            "lastUpdateTime": "2026-09-02T19:30:00Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:54Z",
+            "lastUpdateTime": "2026-09-02T19:29:54Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "d8dd81eef478e963970f7180b403085b992f13e979ef6e9fe2fce956736a41ea",
+            "lastTransitionTime": "2026-09-02T19:29:56Z",
+            "lastUpdateTime": "2026-09-02T19:29:56Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-platform-ui.example-platform.svc",
+              "port": 443
+            }
+          ],
+          "path": "/ui/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/ui/"
+          },
+          "timeout": "1m0s",
+          "tls": {
+            "insecure": false
+          },
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-platform-ui-server",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:48Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-platform-ui-server",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-platform-ui-server",
+          "helm.sh/chart": "arangodb-platform-ui-server-v1.5.1",
+          "release": "arangodb-platform-ui-server"
+        },
+        "name": "arangodb-platform-ui-server-api",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338237",
+        "uid": "e62365fe-d263-4ec0-8d5a-484e0fa44326"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/_ui/api/",
+          "schema": "http",
+          "service": {
+            "name": "arangodb-platform-ui-server",
+            "port": 80
+          },
+          "timeout": "10m"
+        },
+        "route": {
+          "path": "/_ui/api/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:49Z",
+            "lastUpdateTime": "2026-09-02T19:29:49Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:00Z",
+            "lastUpdateTime": "2026-09-02T19:30:00Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:54Z",
+            "lastUpdateTime": "2026-09-02T19:29:54Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "8d161d895c9edd58fe98e27a598404e8e2e52a94f0a194c18486afd6b6c59721",
+            "lastTransitionTime": "2026-09-02T19:29:56Z",
+            "lastUpdateTime": "2026-09-02T19:29:56Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "arangodb-platform-ui-server.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/_ui/api/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/_ui/api/"
+          },
+          "timeout": "10m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "arangodb-ml-api",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:47Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "arangodb-ml-api",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "arangodb-ml-api",
+          "helm.sh/chart": "arangodb-ml-api-v1.0.16",
+          "release": "arangodb-ml-api",
+          "type": "deployment"
+        },
+        "name": "deployment",
+        "namespace": "example-platform",
+        "resourceVersion": "3323339004",
+        "uid": "5a4a6267-0d81-4526-8043-a677bcd84433"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "protocol": "http1",
+          "schema": "http",
+          "service": {
+            "name": "deployment-ml",
+            "port": 8502
+          },
+          "tls": {
+            "insecure": true
+          }
+        },
+        "route": {
+          "path": "/ml-api/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:48Z",
+            "lastUpdateTime": "2026-09-02T19:29:48Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:59Z",
+            "lastUpdateTime": "2026-09-02T19:29:59Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:53Z",
+            "lastUpdateTime": "2026-09-02T19:29:53Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "2112edb7ff822aadfd7ccc9b3d6344022349ea2fa64706ee7b2cad8d63404215",
+            "lastTransitionTime": "2026-09-02T19:29:55Z",
+            "lastUpdateTime": "2026-09-02T19:29:55Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "deployment-ml.example-platform.svc",
+              "port": 8502
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/ml-api/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "file-manager",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:51Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "file-manager",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "file-manager",
+          "helm.sh/chart": "file-manager-v0.0.22",
+          "release": "file-manager"
+        },
+        "name": "file-manager",
+        "namespace": "example-platform",
+        "resourceVersion": "3323338568",
+        "uid": "0a2b4d0a-0bc4-4566-8ffa-aca617bd0ffb"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "file-manager",
+            "port": 80
+          },
+          "timeout": "15m0s"
+        },
+        "route": {
+          "path": "/_platform/filemanager/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:51Z",
+            "lastUpdateTime": "2026-09-02T19:29:51Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:02Z",
+            "lastUpdateTime": "2026-09-02T19:30:02Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:56Z",
+            "lastUpdateTime": "2026-09-02T19:29:56Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "69e4eba185ff292addf268ba94f6fc7d0c2956d648a58623ccd227042bbe2a5a",
+            "lastTransitionTime": "2026-09-02T19:29:59Z",
+            "lastUpdateTime": "2026-09-02T19:29:59Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "file-manager.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/_platform/filemanager/"
+          },
+          "timeout": "15m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "mlflow-artifact-repository",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:29:47Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "mlflow-artifact-repository",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "mlflow-artifact-repository",
+          "helm.sh/chart": "mlflow-artifact-repository-v0.0.14",
+          "release": "mlflow-artifact-repository"
+        },
+        "name": "mlflow-artifact-repository",
+        "namespace": "example-platform",
+        "resourceVersion": "3323332408",
+        "uid": "cf776f27-13b9-4849-aa81-d43160f6af02"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "path": "/",
+          "schema": "http",
+          "service": {
+            "name": "mlflow-artifact-repository",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/mlflow-artifact-repository/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:29:47Z",
+            "lastUpdateTime": "2026-09-02T19:29:47Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:58Z",
+            "lastUpdateTime": "2026-09-02T19:29:58Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:29:52Z",
+            "lastUpdateTime": "2026-09-02T19:29:52Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "3ff92de1e8ab321254c2d12bf7b481c855d45358e7f5dc195c55ef26cf3d8cdc",
+            "lastTransitionTime": "2026-09-02T19:29:55Z",
+            "lastUpdateTime": "2026-09-02T19:29:55Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "required"
+          },
+          "destinations": [
+            {
+              "host": "mlflow-artifact-repository.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/mlflow-artifact-repository/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "platform-monitoring-grafana",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:51Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "platform-monitoring-grafana",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-grafana",
+          "helm.sh/chart": "platform-monitoring-grafana-v0.0.8",
+          "release": "platform-monitoring-grafana"
+        },
+        "name": "platform-monitoring-grafana",
+        "namespace": "example-platform",
+        "resourceVersion": "3323340191",
+        "uid": "aadcbceb-0ae0-40cd-8585-301a1845404c"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "path": "/grafana/",
+          "schema": "http",
+          "service": {
+            "name": "platform-monitoring-grafana",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/grafana/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:51Z",
+            "lastUpdateTime": "2026-09-02T19:30:51Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:31:01Z",
+            "lastUpdateTime": "2026-09-02T19:31:01Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:57Z",
+            "lastUpdateTime": "2026-09-02T19:30:57Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "759239875de91262d3a377175a58a7c94638a8ccd67c80b737c137f7e5bcd80e",
+            "lastTransitionTime": "2026-09-02T19:31:00Z",
+            "lastUpdateTime": "2026-09-02T19:31:00Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "destinations": [
+            {
+              "host": "platform-monitoring-grafana.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/grafana/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/grafana/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.arangodb.com/v1beta1",
+      "kind": "ArangoRoute",
+      "metadata": {
+        "annotations": {
+          "meta.helm.sh/release-name": "platform-monitoring-prometheus",
+          "meta.helm.sh/release-namespace": "example-platform"
+        },
+        "creationTimestamp": "2026-09-02T19:30:34Z",
+        "generation": 1,
+        "labels": {
+          "app.kubernetes.io/instance": "platform-monitoring-prometheus",
+          "app.kubernetes.io/managed-by": "Helm",
+          "app.kubernetes.io/name": "platform-monitoring-prometheus-server",
+          "helm.sh/chart": "platform-monitoring-prometheus-v0.0.8",
+          "release": "platform-monitoring-prometheus"
+        },
+        "name": "platform-monitoring-prometheus-server",
+        "namespace": "example-platform",
+        "resourceVersion": "3323339080",
+        "uid": "7a7d1518-d925-4c0c-a1d4-a1f9e00ff470"
+      },
+      "spec": {
+        "deployment": "deployment",
+        "destination": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "path": "/prometheus/",
+          "schema": "http",
+          "service": {
+            "name": "platform-monitoring-prometheus-server",
+            "port": 80
+          }
+        },
+        "route": {
+          "path": "/prometheus/"
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-09-02T19:30:35Z",
+            "lastUpdateTime": "2026-09-02T19:30:35Z",
+            "message": "Spec is valid",
+            "reason": "Spec is valid",
+            "status": "True",
+            "type": "SpecValid"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:43Z",
+            "lastUpdateTime": "2026-09-02T19:30:43Z",
+            "message": "Ready",
+            "reason": "Ready",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastTransitionTime": "2026-09-02T19:30:39Z",
+            "lastUpdateTime": "2026-09-02T19:30:39Z",
+            "message": "ArangoDeployment found",
+            "reason": "ArangoDeployment found",
+            "status": "True",
+            "type": "DeploymentFound"
+          },
+          {
+            "hash": "30fe000d029e202ccc090293ff5f675efa0b4f191b0be2590a60a46d1fbc10e1",
+            "lastTransitionTime": "2026-09-02T19:30:40Z",
+            "lastUpdateTime": "2026-09-02T19:30:40Z",
+            "message": "Destination Found",
+            "reason": "Destination Found",
+            "status": "True",
+            "type": "DestinationValid"
+          }
+        ],
+        "deployment": {
+          "name": "deployment",
+          "namespace": "example-platform",
+          "uid": "f34b2fe0-d36a-410d-8c20-4d3e1a77e438"
+        },
+        "target": {
+          "authentication": {
+            "passMode": "pass",
+            "type": "optional"
+          },
+          "destinations": [
+            {
+              "host": "platform-monitoring-prometheus-server.example-platform.svc",
+              "port": 80
+            }
+          ],
+          "path": "/prometheus/",
+          "protocol": "http1",
+          "redirect": {},
+          "route": {
+            "path": "/prometheus/"
+          },
+          "timeout": "1m0s",
+          "type": "service"
+        }
+      }
+    }
+  ],
+  "kind": "ArangoRouteList",
+  "metadata": {
+    "continue": "",
+    "resourceVersion": "3358149561"
+  }
+}
