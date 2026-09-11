@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import ProtectedBadge from '@/components/actions/ProtectedBadge'
+import RestoreBanner from '@/components/actions/RestoreBanner'
+import WorkloadActions from '@/components/actions/WorkloadActions'
 import EventFeed from '@/components/events/EventFeed'
 import PodDrawer from '@/components/pods/PodDrawer'
 import PodTable from '@/components/pods/PodTable'
@@ -12,7 +14,7 @@ import Badge from '@/components/ui/Badge'
 import Card from '@/components/ui/Card'
 import ErrorPanel from '@/components/ui/ErrorPanel'
 import Spinner from '@/components/ui/Spinner'
-import { fetchService } from '@/lib/api'
+import { fetchClusterInfo, fetchService, fetchStopped } from '@/lib/api'
 import { formatCpu, formatMemory } from '@/lib/format'
 import type { Workload } from '@/lib/schemas'
 
@@ -24,6 +26,9 @@ export default function ServiceDetail() {
     queryFn: () => fetchService(name),
     refetchInterval: 10_000,
   })
+  const info = useQuery({ queryKey: ['cluster', 'info'], queryFn: fetchClusterInfo })
+  const stopped = useQuery({ queryKey: ['actions', 'stopped'], queryFn: fetchStopped })
+  const readOnly = info.data?.safety.read_only ?? true
 
   if (isPending) return <Spinner label={`Reading ${name}…`} />
   if (error) return <ErrorPanel title={`Could not read ${name}`} error={error} />
@@ -84,12 +89,25 @@ export default function ServiceDetail() {
         <h3 className="mb-2 text-sm font-semibold text-body">
           Workloads <span className="text-xs font-normal text-muted">{data.workload_count}</span>
         </h3>
+        {data.workloads
+          .filter((w) => w.desired_replicas === 0 && w.protection.level !== 'protected')
+          .map((w) => (
+            <div key={`restore-${w.name}`} className="mb-2">
+              <RestoreBanner
+                kind={w.kind}
+                name={w.name}
+                record={stopped.data?.[`${w.kind}/${w.name}`]}
+                readOnly={readOnly}
+              />
+            </div>
+          ))}
+
         {data.workloads.length === 0 ? (
           <p className="rounded-lg border border-dashed border-line bg-panel/60 px-4 py-6 text-center text-xs text-muted">
             This service is declared but nothing is running under it — see the warnings above.
           </p>
         ) : (
-          <WorkloadTable workloads={data.workloads} />
+          <WorkloadTable workloads={data.workloads} readOnly={readOnly} />
         )}
       </section>
 
@@ -114,7 +132,13 @@ export default function ServiceDetail() {
   )
 }
 
-function WorkloadTable({ workloads }: { workloads: Workload[] }) {
+function WorkloadTable({
+  workloads,
+  readOnly,
+}: {
+  workloads: Workload[]
+  readOnly: boolean
+}) {
   return (
     <div className="overflow-x-auto rounded-lg border border-line">
       <table className="w-full min-w-[44rem] border-collapse bg-cream text-sm">
@@ -125,11 +149,15 @@ function WorkloadTable({ workloads }: { workloads: Workload[] }) {
             <th className="px-3 py-2 font-medium">Replicas</th>
             <th className="px-3 py-2 text-right font-medium">CPU used / reserved</th>
             <th className="px-3 py-2 text-right font-medium">Memory used / reserved</th>
+            <th className="px-3 py-2 text-right font-medium">Actions</th>
           </tr>
         </thead>
         <tbody>
           {workloads.map((workload) => (
-            <tr key={`${workload.kind}-${workload.name}`} className="border-b border-line/60 last:border-0">
+            <tr
+              key={`${workload.kind}-${workload.name}`}
+              className="border-b border-line/60 last:border-0"
+            >
               <td className="px-3 py-2">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs break-all text-body">{workload.name}</span>
@@ -161,6 +189,11 @@ function WorkloadTable({ workloads }: { workloads: Workload[] }) {
                   {' '}
                   / {formatMemory(workload.resources.requests.memory_bytes)}
                 </span>
+              </td>
+              <td className="px-3 py-2">
+                <div className="flex justify-end">
+                  <WorkloadActions workload={workload} readOnly={readOnly} />
+                </div>
               </td>
             </tr>
           ))}

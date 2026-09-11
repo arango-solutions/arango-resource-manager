@@ -206,6 +206,83 @@ export const unboundedSchema = z.object({
   memory_usage: z.number().nullable(),
 })
 
+const resourcesOnlySchema = z.object({
+  cpu_cores: z.number().nullable(),
+  memory_bytes: z.number().nullable(),
+})
+
+export const actionPlanSchema = z.object({
+  action: z.string(),
+  kind: z.string(),
+  name: z.string(),
+  namespace: z.string(),
+  current_replicas: z.number().nullable(),
+  target_replicas: z.number().nullable(),
+  pods_terminating: z.array(
+    z.object({ name: z.string(), age_seconds: z.number().nullable() }),
+  ),
+  frees: resourcesOnlySchema,
+  restore_to: z.number().nullable(),
+  protection: protectionSchema,
+  server_dry_run: z.string().nullable(),
+  requires_typed_confirmation: z.boolean(),
+  warning: z.string().nullable(),
+})
+
+export const actionResultSchema = z.object({
+  executed: z.boolean(),
+  dry_run: z.boolean(),
+  plan: actionPlanSchema.nullable(),
+  blocked_reason: z.string().nullable(),
+  detail: z.string().nullable(),
+  remediation: z.string().nullable(),
+})
+
+export const actionRecordSchema = z.object({
+  ts: z.string(),
+  action: z.string(),
+  kind: z.string().nullable(),
+  name: z.string().nullable(),
+  from_replicas: z.number().nullable(),
+  to_replicas: z.number().nullable(),
+  dry_run: z.boolean(),
+  result: z.string(),
+  detail: z.string().nullable(),
+})
+
+export const tierSchema = z.object({
+  name: z.string(),
+  count: z.number(),
+  ready: z.number(),
+  policy: z.string(),
+  scalable: z.boolean(),
+  note: z.string(),
+})
+
+export const databaseStatusSchema = z.object({
+  name: z.string(),
+  mode: z.string().nullable(),
+  ready: z.boolean().nullable(),
+  scaling_enabled: z.boolean(),
+  tiers: z.array(tierSchema),
+  conditions: z.array(conditionSchema),
+})
+
+export const stoppedSchema = z.record(
+  z.string(),
+  z.object({
+    previous_replicas: z.number(),
+    stopped_at: z.string(),
+    actor: z.string(),
+  }),
+)
+
+export type ActionPlan = z.infer<typeof actionPlanSchema>
+export type ActionResult = z.infer<typeof actionResultSchema>
+export type ActionRecord = z.infer<typeof actionRecordSchema>
+export type Tier = z.infer<typeof tierSchema>
+export type DatabaseStatus = z.infer<typeof databaseStatusSchema>
+export type Stopped = z.infer<typeof stoppedSchema>
 export type Budget = z.infer<typeof budgetSchema>
 export type ResourceReport = z.infer<typeof resourceReportSchema>
 export type Overview = z.infer<typeof overviewSchema>

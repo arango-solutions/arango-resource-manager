@@ -6,8 +6,9 @@ import TopBar from './components/layout/TopBar'
 import { fetchClusterInfo } from './lib/api'
 import { capabilityChips } from './lib/capability'
 import Overview from './pages/Overview'
-import Placeholder from './pages/Placeholder'
+import Activity from './pages/Activity'
 import Capacity from './pages/Capacity'
+import Database from './pages/Database'
 import Pods from './pages/Pods'
 import ServiceDetail from './pages/ServiceDetail'
 import SettingsPage from './pages/Settings'
@@ -40,23 +41,8 @@ export default function App() {
             <Route path="/services/:name" element={<ServiceDetail />} />
             <Route path="/pods" element={<Pods />} />
             <Route path="/capacity" element={<Capacity />} />
-            <Route
-              path="/database"
-              element={
-                <Placeholder title="Database" phase="Phase 4">
-                  The ArangoDeployment tiers. Coordinators and gateways scale freely, dbservers
-                  require draining, and agents are never scalable.
-                </Placeholder>
-              }
-            />
-            <Route
-              path="/activity"
-              element={
-                <Placeholder title="Activity" phase="Phase 4">
-                  An append-only log of every scale, stop, restart and delete this tool performed.
-                </Placeholder>
-              }
-            />
+            <Route path="/database" element={<Database />} />
+            <Route path="/activity" element={<Activity />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>

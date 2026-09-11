@@ -2,8 +2,12 @@ import axios from 'axios'
 import type { ZodType } from 'zod'
 
 import {
+  actionRecordSchema,
+  actionResultSchema,
   clusterInfoSchema,
+  databaseStatusSchema,
   eventSchema,
+  stoppedSchema,
   overviewSchema,
   resourceReportSchema,
   unboundedSchema,
@@ -103,4 +107,70 @@ export async function fetchPodLogs(name: string, query: LogQuery = {}): Promise<
     transformResponse: (value) => value,
   })
   return String(data)
+}
+
+// -- actions ---------------------------------------------------------------
+
+/**
+ * A refusal is a normal outcome here, not an exception: the backend returns a
+ * structured reason and a remediation with a 4xx status. Unwrapping it means
+ * the UI can explain why rather than showing "request failed".
+ */
+async function post<T>(path: string, body: unknown, schema: ZodType<T>): Promise<T> {
+  try {
+    const { data } = await http.post(path, body)
+    return schema.parse(data)
+  } catch (error) {
+    const payload = (error as { response?: { data?: unknown } })?.response?.data
+    const parsed = schema.safeParse(payload)
+    if (parsed.success) return parsed.data
+    throw error
+  }
+}
+
+export interface ScaleArgs {
+  kind: string
+  name: string
+  replicas: number
+  dryRun: boolean
+}
+
+export function scaleWorkload({ kind, name, replicas, dryRun }: ScaleArgs) {
+  return post('/actions/scale', { kind, name, replicas, dry_run: dryRun }, actionResultSchema)
+}
+
+export function stopWorkload(kind: string, name: string, dryRun: boolean) {
+  return post('/actions/stop', { kind, name, dry_run: dryRun }, actionResultSchema)
+}
+
+export function restoreWorkload(kind: string, name: string, dryRun: boolean) {
+  return post('/actions/restore', { kind, name, dry_run: dryRun }, actionResultSchema)
+}
+
+export function restartWorkload(kind: string, name: string, dryRun: boolean) {
+  return post('/actions/restart', { kind, name, dry_run: dryRun }, actionResultSchema)
+}
+
+export function deletePod(name: string, dryRun: boolean) {
+  return post(
+    `/actions/pods/${encodeURIComponent(name)}/delete`,
+    { dry_run: dryRun },
+    actionResultSchema,
+  )
+}
+
+export function fetchStopped() {
+  return get('/actions/stopped', stoppedSchema)
+}
+
+export function fetchHistory(limit = 100) {
+  return get('/actions/history', z.array(actionRecordSchema), { limit })
+}
+
+export function fetchDatabase() {
+  return get('/database', databaseStatusSchema)
+}
+
+export function scaleDatabase(tier: string, count: number, dryRun: boolean) {
+  return post('/database/scale', { tier, count, dry_run: dryRun }, actionResultSchema)
 }
