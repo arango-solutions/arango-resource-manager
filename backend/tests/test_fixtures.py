@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from app.services.genai import ENV_KEYS
+
 
 def _walk(node: Any) -> list[dict[str, Any]]:
     if isinstance(node, list):
@@ -19,13 +21,17 @@ def test_pod_fixtures_carry_resources(pods: list[dict[str, Any]]) -> None:
     assert any(c.get("resources", {}).get("requests") for c in containers)
 
 
-def test_fixtures_never_carry_env_or_managed_fields(pods: list[dict[str, Any]]) -> None:
-    # Fixtures are committed. Environment variables can hold credentials, and
-    # managedFields is pure bulk; the probe strips both.
+def test_fixtures_carry_only_allowlisted_env(pods: list[dict[str, Any]]) -> None:
+    # Fixtures are committed, and an environment variable can hold a credential.
+    # The probe keeps only the allowlisted names that identify a GenAI project,
+    # and only where the value is literal - never a secret or field reference.
     for node in _walk(pods):
-        assert "env" not in node
         assert "envFrom" not in node
         assert "managedFields" not in node
+        for entry in node.get("env") or []:
+            assert entry.get("name") in ENV_KEYS
+            assert entry.get("valueFrom") is None
+            assert entry.get("value") is not None
 
 
 def test_arango_deployment_exposes_tier_counts(arango_deployment: dict[str, Any]) -> None:

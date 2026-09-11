@@ -7,6 +7,7 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from app.models.common import Protection, ResourceTriple, WorkloadRef
+from app.models.genai import GenAiProject
 
 
 class Condition(BaseModel):
@@ -141,6 +142,11 @@ class InventorySnapshot(BaseModel):
     resource_quotas: list[dict[str, Any]] = Field(default_factory=list)
     """Raw ResourceQuotas, kept so the budget can prefer a real ceiling when
     one exists. Empty in namespaces without one, as here."""
+
+    genai_projects: list[GenAiProject] = Field(default_factory=list)
+    """AutoGraph projects paired with the retrievers running for them. Built in
+    the same pass, because the pairing key lives in the raw pod spec that the
+    workload summaries deliberately drop."""
 
     service_warnings: dict[str, list[EventSummary]] = Field(default_factory=dict)
     """Recent warnings per service, capped. The group carries only a count and

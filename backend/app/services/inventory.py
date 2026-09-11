@@ -34,7 +34,7 @@ from app.models.inventory import (
     ServiceGroup,
     WorkloadSummary,
 )
-from app.services import metrics
+from app.services import genai, metrics
 from app.services.cache import TTLCache
 from app.services.grouping import (
     ARANGO_CLUSTER_KEY,
@@ -425,6 +425,10 @@ def assemble(
         workloads, pod_summaries, platform_services, routes, catalog, service_of, warnings
     )
 
+    # Built here rather than in a route: the pairing key is an environment value
+    # on the raw pod spec, which only this function still has in hand.
+    genai_projects = genai.build_projects(kinded, workloads, pod_summaries, routes, warnings)
+
     return InventorySnapshot(
         namespace=namespace,
         captured_at=now.isoformat(),
@@ -432,6 +436,7 @@ def assemble(
         workloads=sorted(workloads, key=lambda w: (w.service or "", w.name)),
         pods=sorted(pod_summaries, key=lambda p: p.name),
         resource_quotas=raw.get("resourcequotas", []),
+        genai_projects=genai_projects,
         service_warnings=service_warnings,
         degraded=degraded or [],
     )

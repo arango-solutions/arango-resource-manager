@@ -24,11 +24,11 @@ from app.k8s.client import (
     get_clients,
     probe_capabilities,
 )
+from app.services.genai import ENV_KEYS
 
 # Fields stripped before a fixture is written: noisy, large, or potentially sensitive.
 _DROP_ANNOTATIONS = {"kubectl.kubernetes.io/last-applied-configuration"}
 _DROP_CONTAINER_FIELDS = (
-    "env",
     "envFrom",
     "volumeMounts",
     "args",
@@ -45,9 +45,10 @@ def _scrub(node: Any) -> Any:
 
     Fixtures are committed, so they must carry structure without carrying values.
     Container entries are reduced to the fields this app reads (name, image,
-    resources); environment variables, mounts, args and probes are dropped so
-    no literal secret is ever committed. Helm chart payloads and managedFields
-    go too - nothing here reads them and they dominate the size.
+    resources, and the allowlisted environment names that identify a GenAI
+    project); every other environment entry, along with mounts, args and probes,
+    is dropped so no literal secret is ever committed. Helm chart payloads and
+    managedFields go too - nothing here reads them and they dominate the size.
     """
     if isinstance(node, list):
         return [_scrub(item) for item in node]
@@ -64,14 +65,38 @@ def _scrub(node: Any) -> Any:
         for key in _DROP_ANNOTATIONS:
             annotations.pop(key, None)
 
-    # A container entry: keep only what the app reads. Environment variables are
-    # dropped rather than redacted - they can carry credentials and nothing here
-    # consumes them - along with mounts, args and probes, which are pure bulk.
+    # A container entry: keep only what the app reads. Mounts, args and probes
+    # are pure bulk, and every environment variable outside the GenAI allowlist
+    # is dropped rather than redacted, because it may carry a credential and
+    # nothing here consumes it.
     if "resources" in node and "image" in node:
         for key in _DROP_CONTAINER_FIELDS:
             node.pop(key, None)
+        env = _allowlisted_env(node.get("env"))
+        if env:
+            node["env"] = env
+        else:
+            node.pop("env", None)
 
     return {key: _scrub(value) for key, value in node.items()}
+
+
+def _allowlisted_env(env: Any) -> list[dict[str, Any]]:
+    """The allowlisted environment entries, and only those with a literal value.
+
+    An entry sourced from a secret or a field reference is dropped whole: its
+    name alone would say nothing, and the app never resolves one either.
+    """
+    if not isinstance(env, list):
+        return []
+    return [
+        {"name": entry["name"], "value": entry["value"]}
+        for entry in env
+        if isinstance(entry, dict)
+        and entry.get("name") in ENV_KEYS
+        and entry.get("valueFrom") is None
+        and entry.get("value") is not None
+    ]
 
 
 FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures"

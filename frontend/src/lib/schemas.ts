@@ -133,6 +133,38 @@ export const serviceDetailSchema = serviceSchema.extend({
   events: z.array(eventSchema),
 })
 
+export const genAiComponentSchema = z.object({
+  role: z.enum(['project', 'retriever', 'importer']),
+  kind: z.string(),
+  name: z.string(),
+  service: z.string().nullable(),
+  route_path: z.string().nullable(),
+  chart_version: z.string().nullable(),
+  desired_replicas: z.number(),
+  ready_replicas: z.number(),
+  pod_count: z.number(),
+  ready_pods: z.number(),
+  age_seconds: z.number().nullable(),
+  restart_count: z.number(),
+  chat_model: z.string().nullable(),
+  embedding_model: z.string().nullable(),
+  protection: protectionSchema,
+  resources: resourceTripleSchema,
+  warning_count: z.number(),
+})
+
+export const genAiProjectSchema = z.object({
+  key: z.string(),
+  project_name: z.string().nullable(),
+  db_name: z.string().nullable(),
+  status: z.enum(['paired', 'project_only', 'retriever_only', 'unidentified']),
+  project: genAiComponentSchema.nullable(),
+  retrievers: z.array(genAiComponentSchema),
+  others: z.array(genAiComponentSchema),
+  resources: resourceTripleSchema,
+  warning_count: z.number(),
+})
+
 export const budgetSchema = z.object({
   cpu_cores: z.number().nullable(),
   memory_bytes: z.number().nullable(),
@@ -293,6 +325,8 @@ export type Protection = z.infer<typeof protectionSchema>
 export type ResourceTriple = z.infer<typeof resourceTripleSchema>
 export type Condition = z.infer<typeof conditionSchema>
 export type EventItem = z.infer<typeof eventSchema>
+export type GenAiComponent = z.infer<typeof genAiComponentSchema>
+export type GenAiProject = z.infer<typeof genAiProjectSchema>
 export type Pod = z.infer<typeof podSchema>
 export type PodDetail = z.infer<typeof podDetailSchema>
 export type Workload = z.infer<typeof workloadSchema>

@@ -6,12 +6,14 @@ import {
   Gauge,
   LayoutDashboard,
   Settings,
+  Sparkles,
 } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 const ITEMS = [
   { to: '/', label: 'Overview', icon: LayoutDashboard, end: true },
   { to: '/services', label: 'Services', icon: Boxes },
+  { to: '/genai', label: 'GenAI', icon: Sparkles },
   { to: '/pods', label: 'Pods', icon: Container },
   { to: '/capacity', label: 'Capacity', icon: Gauge },
   { to: '/database', label: 'Database', icon: Database },

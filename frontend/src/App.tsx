@@ -9,6 +9,7 @@ import Overview from './pages/Overview'
 import Activity from './pages/Activity'
 import Capacity from './pages/Capacity'
 import Database from './pages/Database'
+import GenAi from './pages/GenAi'
 import Pods from './pages/Pods'
 import ServiceDetail from './pages/ServiceDetail'
 import SettingsPage from './pages/Settings'
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/" element={<Overview />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:name" element={<ServiceDetail />} />
+            <Route path="/genai" element={<GenAi />} />
             <Route path="/pods" element={<Pods />} />
             <Route path="/capacity" element={<Capacity />} />
             <Route path="/database" element={<Database />} />

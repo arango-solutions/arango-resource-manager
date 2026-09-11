@@ -7,6 +7,7 @@ import {
   clusterInfoSchema,
   databaseStatusSchema,
   eventSchema,
+  genAiProjectSchema,
   stoppedSchema,
   overviewSchema,
   resourceReportSchema,
@@ -18,6 +19,7 @@ import {
   serviceSchema,
   workloadSchema,
   type ClusterInfo,
+  type GenAiProject,
   type Pod,
   type PodDetail,
   type Overview,
@@ -67,6 +69,10 @@ export function fetchPods(params?: PodQuery): Promise<Pod[]> {
 
 export function fetchPod(name: string): Promise<PodDetail> {
   return get(`/pods/${encodeURIComponent(name)}`, podDetailSchema)
+}
+
+export function fetchGenAiProjects(): Promise<GenAiProject[]> {
+  return get('/genai/projects', z.array(genAiProjectSchema))
 }
 
 export function fetchOverview(): Promise<Overview> {
