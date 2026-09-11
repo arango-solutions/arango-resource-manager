@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import os
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
@@ -203,9 +205,18 @@ def probe_capabilities() -> Capabilities:
     """Discover what this credential can do. Cached for the process lifetime."""
     clients = get_clients()
     caps = Capabilities()
+    started = time.monotonic()
 
-    for label, (group, resource, verb, subresource) in _ACCESS_CHECKS.items():
-        caps.access[label] = _can_i(clients, group, resource, verb, subresource)
+    # Fourteen access reviews, each a round trip. Run sequentially against a
+    # distant API server they add several seconds to the first page load, which
+    # is exactly when the user is waiting on an empty screen.
+    with ThreadPoolExecutor(max_workers=len(_ACCESS_CHECKS), thread_name_prefix="can-i") as pool:
+        futures = {
+            pool.submit(_can_i, clients, group, resource, verb, subresource): label
+            for label, (group, resource, verb, subresource) in _ACCESS_CHECKS.items()
+        }
+        for future in as_completed(futures):
+            caps.access[futures[future]] = future.result()
 
     # metrics-server: an access review is not enough, the API has to actually serve.
     try:
@@ -254,6 +265,7 @@ def probe_capabilities() -> Capabilities:
 
     log.info(
         "kube.capabilities.probed",
+        ms=round((time.monotonic() - started) * 1000),
         metrics=caps.metrics_server,
         crs=len(caps.arango_crs),
         degraded=caps.degraded,

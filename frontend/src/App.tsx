@@ -7,6 +7,9 @@ import { fetchClusterInfo } from './lib/api'
 import { capabilityChips } from './lib/capability'
 import Overview from './pages/Overview'
 import Placeholder from './pages/Placeholder'
+import Pods from './pages/Pods'
+import ServiceDetail from './pages/ServiceDetail'
+import Services from './pages/Services'
 
 export default function App() {
   const { data, error, isPending } = useQuery({
@@ -31,25 +34,9 @@ export default function App() {
         <main className="min-h-0 flex-1 overflow-y-auto px-6 py-6">
           <Routes>
             <Route path="/" element={<Overview info={data} error={error as Error | null} />} />
-            <Route
-              path="/services"
-              element={
-                <Placeholder title="Services" phase="Phase 1">
-                  Platform services, grouped from ArangoPlatformService and the
-                  app.kubernetes.io/instance label, with health drawn from the real status
-                  conditions.
-                </Placeholder>
-              }
-            />
-            <Route
-              path="/pods"
-              element={
-                <Placeholder title="Pods" phase="Phase 1">
-                  Every pod with its uptime, restart count, and live CPU and memory against what it
-                  reserved.
-                </Placeholder>
-              }
-            />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/:name" element={<ServiceDetail />} />
+            <Route path="/pods" element={<Pods />} />
             <Route
               path="/capacity"
               element={
