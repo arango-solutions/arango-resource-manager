@@ -133,6 +133,84 @@ export const serviceDetailSchema = serviceSchema.extend({
   events: z.array(eventSchema),
 })
 
+export const budgetSchema = z.object({
+  cpu_cores: z.number().nullable(),
+  memory_bytes: z.number().nullable(),
+  source: z.enum(['quota', 'configured', 'derived']),
+  label: z.string(),
+  is_policy: z.boolean(),
+})
+
+export const resourceReportSchema = z.object({
+  scope: z.string(),
+  name: z.string(),
+  title: z.string().nullable(),
+  resources: resourceTripleSchema,
+  cpu_efficiency: z.number().nullable(),
+  memory_efficiency: z.number().nullable(),
+  cpu_overcommit: z.number().nullable(),
+  reclaimable_cpu_cores: z.number().nullable(),
+  reclaimable_memory_bytes: z.number().nullable(),
+  pod_count: z.number(),
+  replicas: z.number(),
+  unset_limit_containers: z.number(),
+  unset_request_containers: z.number(),
+})
+
+export const overviewSchema = z.object({
+  namespace: z.string(),
+  captured_at: z.string(),
+  metrics_available: z.boolean(),
+  totals: resourceReportSchema,
+  budget: budgetSchema,
+  cpu_budget_used: z.number().nullable(),
+  memory_budget_used: z.number().nullable(),
+  service_count: z.number(),
+  services_not_ready: z.number(),
+  workload_count: z.number(),
+  deployment_count: z.number(),
+  statefulset_count: z.number(),
+  pod_count: z.number(),
+  ready_pods: z.number(),
+  pods_without_limits: z.number(),
+  pods_without_limits_actionable: z.number(),
+  pods_with_recent_restarts: z.number(),
+  warning_services: z.array(z.string()),
+  reclaimable_cost_per_day: z.number().nullable(),
+  degraded: z.array(z.string()),
+})
+
+export const wasteSchema = z.object({
+  kind: z.string(),
+  name: z.string(),
+  service: z.string().nullable(),
+  protection: protectionSchema,
+  replicas: z.number(),
+  pod_count: z.number(),
+  resources: resourceTripleSchema,
+  cpu_efficiency: z.number().nullable(),
+  memory_efficiency: z.number().nullable(),
+  reclaimable_cpu_cores: z.number(),
+  reclaimable_memory_bytes: z.number(),
+  cost_per_day: z.number().nullable(),
+})
+
+export const unboundedSchema = z.object({
+  name: z.string(),
+  service: z.string().nullable(),
+  workload: z.string().nullable(),
+  protection: protectionSchema,
+  unset_limit_containers: z.number(),
+  container_count: z.number(),
+  cpu_usage: z.number().nullable(),
+  memory_usage: z.number().nullable(),
+})
+
+export type Budget = z.infer<typeof budgetSchema>
+export type ResourceReport = z.infer<typeof resourceReportSchema>
+export type Overview = z.infer<typeof overviewSchema>
+export type Waste = z.infer<typeof wasteSchema>
+export type Unbounded = z.infer<typeof unboundedSchema>
 export type ClusterInfo = z.infer<typeof clusterInfoSchema>
 export type Protection = z.infer<typeof protectionSchema>
 export type ResourceTriple = z.infer<typeof resourceTripleSchema>

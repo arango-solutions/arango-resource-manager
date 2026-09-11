@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 from app.models.common import Protection, ResourceTriple, WorkloadRef
@@ -136,6 +138,10 @@ class InventorySnapshot(BaseModel):
     services: list[ServiceGroup] = Field(default_factory=list)
     workloads: list[WorkloadSummary] = Field(default_factory=list)
     pods: list[PodSummary] = Field(default_factory=list)
+    resource_quotas: list[dict[str, Any]] = Field(default_factory=list)
+    """Raw ResourceQuotas, kept so the budget can prefer a real ceiling when
+    one exists. Empty in namespaces without one, as here."""
+
     service_warnings: dict[str, list[EventSummary]] = Field(default_factory=dict)
     """Recent warnings per service, capped. The group carries only a count and
     the latest message; the detail view needs the list, and re-reading events

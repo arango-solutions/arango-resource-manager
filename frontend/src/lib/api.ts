@@ -3,6 +3,10 @@ import type { ZodType } from 'zod'
 
 import {
   clusterInfoSchema,
+  overviewSchema,
+  resourceReportSchema,
+  unboundedSchema,
+  wasteSchema,
   podDetailSchema,
   podSchema,
   serviceDetailSchema,
@@ -11,8 +15,12 @@ import {
   type ClusterInfo,
   type Pod,
   type PodDetail,
+  type Overview,
+  type ResourceReport,
   type Service,
   type ServiceDetail,
+  type Unbounded,
+  type Waste,
   type Workload,
 } from './schemas'
 import { z } from 'zod'
@@ -54,4 +62,20 @@ export function fetchPods(params?: PodQuery): Promise<Pod[]> {
 
 export function fetchPod(name: string): Promise<PodDetail> {
   return get(`/pods/${encodeURIComponent(name)}`, podDetailSchema)
+}
+
+export function fetchOverview(): Promise<Overview> {
+  return get('/namespace/overview', overviewSchema)
+}
+
+export function fetchWaste(limit = 20): Promise<Waste[]> {
+  return get('/resources/waste', z.array(wasteSchema), { limit })
+}
+
+export function fetchUnbounded(): Promise<Unbounded[]> {
+  return get('/resources/unbounded', z.array(unboundedSchema))
+}
+
+export function fetchRollup(scope: 'namespace' | 'service' | 'workload'): Promise<ResourceReport[]> {
+  return get('/resources/rollup', z.array(resourceReportSchema), { scope })
 }

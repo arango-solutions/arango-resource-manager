@@ -34,6 +34,7 @@ from app.models.inventory import (
     ServiceGroup,
     WorkloadSummary,
 )
+from app.services import metrics
 from app.services.cache import TTLCache
 from app.services.grouping import (
     ARANGO_CLUSTER_KEY,
@@ -107,10 +108,12 @@ def container_resources(container: dict[str, Any]) -> ResourceTriple:
     )
 
 
-def _pod_resources(pod: dict[str, Any]) -> ResourceTriple:
+def _pod_resources(pod: dict[str, Any], usage: Resources | None = None) -> ResourceTriple:
     total = ResourceTriple()
     for container in pod.get("spec", {}).get("containers", []) or []:
         total = total + container_resources(container)
+    if usage is not None:
+        total.usage = usage
     return total
 
 
@@ -131,6 +134,7 @@ def build_pod_summary(
     settings: Settings,
     service: str | None = None,
     workload: WorkloadRef | None = None,
+    usage: Resources | None = None,
 ) -> PodSummary:
     metadata = pod.get("metadata", {})
     status = pod.get("status", {}) or {}
@@ -166,7 +170,7 @@ def build_pod_summary(
         containers=[
             str(c.get("name", "")) for c in pod.get("spec", {}).get("containers", []) or []
         ],
-        resources=_pod_resources(pod),
+        resources=_pod_resources(pod, usage),
     )
 
 
@@ -262,6 +266,13 @@ def _fetch(clients: KubeClients, degraded: list[str]) -> dict[str, list[dict[str
         "events": lambda: core_list(
             lambda: clients.core.list_namespaced_event(namespace, _request_timeout=_TIMEOUT)
         ),
+        # Absent in this namespace, but when one exists it is the only real
+        # ceiling available and the budget must prefer it.
+        "resourcequotas": lambda: core_list(
+            lambda: clients.core.list_namespaced_resource_quota(
+                namespace, _request_timeout=_TIMEOUT
+            )
+        ),
         "platform_services": lambda: cr_list("ArangoPlatformService"),
         "charts": lambda: cr_list("ArangoPlatformChart"),
         "routes": lambda: cr_list("ArangoRoute"),
@@ -299,10 +310,16 @@ def assemble(
     settings: Settings,
     now: datetime | None = None,
     degraded: list[str] | None = None,
+    usage: dict[str, Resources] | None = None,
 ) -> InventorySnapshot:
-    """Turn raw API objects into the snapshot. Pure: no cluster access."""
+    """Turn raw API objects into the snapshot. Pure: no cluster access.
+
+    `usage` maps pod name to live consumption. A pod absent from it keeps
+    usage unset, which renders as an em dash rather than as zero.
+    """
     now = now or datetime.now(UTC)
     protected_kinds = set(settings.protected_owner_kind_list)
+    usage = usage or {}
 
     pods = raw.get("pods", [])
     # Carry the kind alongside each object; comparing dicts to work out which
@@ -334,7 +351,9 @@ def assemble(
         ref = WorkloadRef(kind=kind, name=workload_name)
 
         for pod in members:
-            summary = build_pod_summary(pod, now, settings, service=service, workload=ref)
+            summary = build_pod_summary(
+                pod, now, settings, service=service, workload=ref, usage=usage.get(name_of(pod))
+            )
             pod_summaries.append(summary)
             resources = resources + summary.resources
 
@@ -367,7 +386,12 @@ def assemble(
 
         for pod in members:
             summary = build_pod_summary(
-                pod, now, settings, service=ARANGO_CLUSTER_KEY, workload=ref
+                pod,
+                now,
+                settings,
+                service=ARANGO_CLUSTER_KEY,
+                workload=ref,
+                usage=usage.get(name_of(pod)),
             )
             pod_summaries.append(summary)
             resources = resources + summary.resources
@@ -391,7 +415,11 @@ def assemble(
 
     # --- Pods with no controller ----------------------------------------
     for pod in standalone:
-        pod_summaries.append(build_pod_summary(pod, now, settings, service=None, workload=None))
+        pod_summaries.append(
+            build_pod_summary(
+                pod, now, settings, service=None, workload=None, usage=usage.get(name_of(pod))
+            )
+        )
 
     services, service_warnings = _assemble_services(
         workloads, pod_summaries, platform_services, routes, catalog, service_of, warnings
@@ -403,6 +431,7 @@ def assemble(
         services=sorted(services, key=lambda s: s.name),
         workloads=sorted(workloads, key=lambda w: (w.service or "", w.name)),
         pods=sorted(pod_summaries, key=lambda p: p.name),
+        resource_quotas=raw.get("resourcequotas", []),
         service_warnings=service_warnings,
         degraded=degraded or [],
     )
@@ -587,7 +616,12 @@ def get_snapshot(clients: KubeClients | None = None) -> InventorySnapshot:
         settings = get_settings()
         degraded: list[str] = []
         raw = _fetch(active, degraded)
-        return assemble(raw, active.namespace, settings, degraded=degraded)
+        # Usage has its own TTL and its own failure handling: a metrics-server
+        # blip must never blank the inventory around it.
+        usage = metrics.get_usage(active)
+        if not metrics.is_available():
+            degraded.append("metrics.k8s.io")
+        return assemble(raw, active.namespace, settings, degraded=degraded, usage=usage)
 
     return _cache.get(load)
 

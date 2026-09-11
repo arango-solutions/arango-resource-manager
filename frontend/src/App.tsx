@@ -7,8 +7,10 @@ import { fetchClusterInfo } from './lib/api'
 import { capabilityChips } from './lib/capability'
 import Overview from './pages/Overview'
 import Placeholder from './pages/Placeholder'
+import Capacity from './pages/Capacity'
 import Pods from './pages/Pods'
 import ServiceDetail from './pages/ServiceDetail'
+import SettingsPage from './pages/Settings'
 import Services from './pages/Services'
 
 export default function App() {
@@ -33,19 +35,11 @@ export default function App() {
 
         <main className="min-h-0 flex-1 overflow-y-auto px-6 py-6">
           <Routes>
-            <Route path="/" element={<Overview info={data} error={error as Error | null} />} />
+            <Route path="/" element={<Overview />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:name" element={<ServiceDetail />} />
             <Route path="/pods" element={<Pods />} />
-            <Route
-              path="/capacity"
-              element={
-                <Placeholder title="Capacity" phase="Phase 2">
-                  Used versus reserved versus limits, the overcommit ratio, the pods with no limits
-                  set, and the waste leaderboard ranked by reclaimable cores.
-                </Placeholder>
-              }
-            />
+            <Route path="/capacity" element={<Capacity />} />
             <Route
               path="/database"
               element={
@@ -63,15 +57,7 @@ export default function App() {
                 </Placeholder>
               }
             />
-            <Route
-              path="/settings"
-              element={
-                <Placeholder title="Settings" phase="Phase 2">
-                  The namespace budget, the cost rates, and a readout of which capabilities this
-                  credential actually has.
-                </Placeholder>
-              }
-            />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
       </div>
