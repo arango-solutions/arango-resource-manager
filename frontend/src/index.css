@@ -4,7 +4,13 @@
 /* The avocado palette: skin, a flesh ramp from core to pale, pit brown, cream. */
 @theme {
   --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'Courier New', ui-monospace, monospace;
+  /* Every identifier and figure in this app is monospace — pod names, release
+     suffixes, core counts — so this stack does most of the reading. Courier New
+     was doing it: a thin, wide typewriter face with weak letterform contrast,
+     which is the worst case for telling `lsoej` from `ls0ej` at 11px. The
+     system face (SF Mono on macOS, Consolas on Windows) is hinted for screen
+     at small sizes and ships with the OS, so it costs no download. */
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
   --color-skin: #1b2a1d;
   --color-skin-soft: #2f4530;
@@ -31,6 +37,14 @@ html,
 body,
 #root {
   height: 100%;
+}
+
+/* The interface is dense and its smallest text is 11px, which is below
+   comfortable reading for most people. Scaling the root lifts every rem-based
+   size together — type, padding and gaps stay in proportion — rather than
+   bumping font sizes and leaving the spacing behind. */
+html {
+  font-size: 110%;
 }
 
 body {
