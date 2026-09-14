@@ -163,17 +163,43 @@ export default function Overview() {
         </header>
         {waste.data && waste.data.length > 0 ? (
           <ul className="divide-y divide-line overflow-hidden rounded-lg border border-line bg-cream">
-            {waste.data.map((item) => (
-              <li key={item.name} className="flex items-center gap-3 px-3 py-2 text-sm">
-                <span className="min-w-0 flex-1 truncate font-mono text-xs text-body">
-                  {item.name}
-                </span>
-                <span className="text-[11px] text-muted">{item.replicas}×</span>
-                <span className="font-mono text-xs text-pit">
-                  {formatCpu(item.reclaimable_cpu_cores)} cores
-                </span>
-              </li>
-            ))}
+            {waste.data.map((item) => {
+              // The row names a workload; the page that can act on it is its
+              // service. Anything the grouping could not claim has no service
+              // to open, so it stays inert rather than offering a dead link.
+              const row = (
+                <>
+                  <span className="min-w-0 flex-1 truncate font-mono text-xs text-body">
+                    {item.name}
+                  </span>
+                  <span className="text-[11px] text-muted">{item.replicas}×</span>
+                  {item.cpu_efficiency !== null && (
+                    <span className="text-[11px] text-muted">
+                      {(item.cpu_efficiency * 100).toFixed(1)}% used
+                    </span>
+                  )}
+                  <span className="font-mono text-xs text-pit">
+                    {formatCpu(item.reclaimable_cpu_cores)} cores
+                  </span>
+                </>
+              )
+
+              return (
+                <li key={`${item.kind}/${item.name}`} className="text-sm">
+                  {item.service ? (
+                    <Link
+                      to={`/services/${encodeURIComponent(item.service)}`}
+                      title={`Open ${item.service}`}
+                      className="flex items-center gap-3 px-3 py-2 transition-colors hover:bg-flesh-pale/40"
+                    >
+                      {row}
+                    </Link>
+                  ) : (
+                    <span className="flex items-center gap-3 px-3 py-2">{row}</span>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         ) : (
           <p className="text-xs text-muted">Nothing is over-reserved.</p>
