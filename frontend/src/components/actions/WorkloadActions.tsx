@@ -1,14 +1,14 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { Minus, Plus, Power, RotateCw } from 'lucide-react'
+import { Minus, Plus, Power, RotateCw, Undo2 } from 'lucide-react'
 import { useState } from 'react'
 
 import ActionDialog from '@/components/actions/ActionDialog'
 import Tooltip from '@/components/ui/Tooltip'
-import { restartWorkload, scaleWorkload, stopWorkload } from '@/lib/api'
+import { restartWorkload, restoreWorkload, scaleWorkload, stopWorkload } from '@/lib/api'
 import { formatCpu, formatMemory } from '@/lib/format'
 import type { Workload } from '@/lib/schemas'
 
-type Open = 'scale' | 'stop' | 'restart' | null
+type Open = 'scale' | 'stop' | 'restart' | 'restore' | null
 
 interface Props {
   workload: Workload
@@ -33,7 +33,7 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
     workload.resources.requests.memory_bytes
   )}`
   const alreadyStopped = workload.desired_replicas === 0
-  const stopHint = hint ?? (alreadyStopped ? 'Already at 0 replicas.' : `Scale to 0 — frees ${frees}`)
+  const stopHint = hint ?? `Scale to 0 — frees ${frees}`
 
   function done() {
     setOpen(null)
@@ -73,14 +73,24 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
         disabled={disabled}
         onClick={() => setOpen('restart')}
       />
-      <IconButton
-        icon={<Power size={12} />}
-        label="Stop"
-        title={stopHint}
-        disabled={disabled || alreadyStopped}
-        danger
-        onClick={() => setOpen('stop')}
-      />
+      {alreadyStopped ? (
+        <IconButton
+          icon={<Undo2 size={12} />}
+          label="Restore"
+          title={hint ?? 'Scale back up — returns it to the replica count recorded when it stopped'}
+          disabled={disabled}
+          onClick={() => setOpen('restore')}
+        />
+      ) : (
+        <IconButton
+          icon={<Power size={12} />}
+          label="Stop"
+          title={stopHint}
+          disabled={disabled}
+          danger
+          onClick={() => setOpen('stop')}
+        />
+      )}
 
       {open === 'scale' && (
         <ActionDialog
@@ -104,6 +114,16 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
           title={`Restart ${workload.name}`}
           confirmLabel="Restart"
           run={(dryRun) => restartWorkload(workload.kind, workload.name, dryRun)}
+          onDone={done}
+          onClose={() => setOpen(null)}
+        />
+      )}
+
+      {open === 'restore' && (
+        <ActionDialog
+          title={`Restore ${workload.name}`}
+          confirmLabel="Restore"
+          run={(dryRun) => restoreWorkload(workload.kind, workload.name, dryRun)}
           onDone={done}
           onClose={() => setOpen(null)}
         />

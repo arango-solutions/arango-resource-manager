@@ -6,13 +6,34 @@ import Badge from '@/components/ui/Badge'
 import { formatCpu, formatMemory } from '@/lib/format'
 import type { Service } from '@/lib/schemas'
 
-function readyTone(service: Service) {
-  if (service.ready === false) return 'bad' as const
-  if (service.ready === null) return 'neutral' as const
-  return 'good' as const
+/**
+ * Stopped and broken are not the same state, and they used to render the same.
+ *
+ * A service someone scaled to zero reports `ready: null` and no pods - which is
+ * exactly what an unreachable or half-installed service reports. The difference
+ * is already on the card: a deliberate stop sets `desired_replicas` to 0, while
+ * a broken service still wants replicas and has none running. Nothing had to be
+ * fetched to tell them apart; the card just had to look.
+ */
+function status(service: Service) {
+  if (service.desired_replicas === 0) {
+    return { label: 'stopped', tone: 'neutral' as const, title: 'Scaled to 0 replicas on purpose' }
+  }
+  if (service.ready === false || (service.pod_count === 0 && service.desired_replicas > 0)) {
+    return {
+      label: 'not ready',
+      tone: 'bad' as const,
+      title: `Wants ${service.desired_replicas} replica(s); ${service.ready_pods} ready`,
+    }
+  }
+  if (service.ready === null) {
+    return { label: 'unknown', tone: 'neutral' as const, title: 'No readiness signal reported' }
+  }
+  return { label: 'ready', tone: 'good' as const, title: undefined }
 }
 
 export default function ServiceCard({ service }: { service: Service }) {
+  const state = status(service)
   const reservedCpu = service.resources.requests.cpu_cores
   const usedCpu = service.resources.usage.cpu_cores
 
@@ -25,8 +46,8 @@ export default function ServiceCard({ service }: { service: Service }) {
         <h3 className="min-w-0 flex-1 text-sm font-semibold break-words text-body">
           {service.title}
         </h3>
-        <Badge tone={readyTone(service)}>
-          {service.ready === null ? 'unknown' : service.ready ? 'ready' : 'not ready'}
+        <Badge tone={state.tone} title={state.title}>
+          {state.label}
         </Badge>
       </div>
 

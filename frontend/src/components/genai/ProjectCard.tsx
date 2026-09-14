@@ -122,6 +122,19 @@ function ComponentRow({
         ) : (
           <span className="font-mono text-xs break-all text-body">{name}</span>
         )}
+        {workload?.desired_replicas === 0 && (
+          <Badge tone="neutral" title="Scaled to 0 replicas on purpose">
+            stopped
+          </Badge>
+        )}
+        {workload && workload.desired_replicas > 0 && workload.ready_replicas === 0 && (
+          <Badge
+            tone="bad"
+            title={`Wants ${workload.desired_replicas} replica(s); none are ready`}
+          >
+            not ready
+          </Badge>
+        )}
         {component.chart_version && (
           <Badge tone="neutral" mono>
             {component.chart_version}
