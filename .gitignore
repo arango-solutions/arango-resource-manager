@@ -20,3 +20,6 @@ dist/
 
 # TypeScript build artifacts
 *.tsbuildinfo
+
+# Background process logs and pidfiles from `make start`
+logs/
