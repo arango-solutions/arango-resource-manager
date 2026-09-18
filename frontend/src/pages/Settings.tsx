@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { Check, Minus } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 import Badge from '@/components/ui/Badge'
 import Card from '@/components/ui/Card'
@@ -28,6 +29,12 @@ export default function Settings() {
 
   return (
     <div className="max-w-3xl space-y-5">
+      <p className="text-xs text-muted">
+        <Link to="/howto" className="text-arango hover:underline">
+          How to use this tool
+        </Link>
+      </p>
+
       <Card className="p-4">
         <h2 className="text-sm font-semibold text-body">Budget</h2>
         <p className="mt-1 text-xs text-muted">

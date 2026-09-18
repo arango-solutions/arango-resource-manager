@@ -1,5 +1,6 @@
 import {
   Activity,
+  BookOpen,
   Boxes,
   Container,
   Database,
@@ -21,6 +22,8 @@ const ITEMS = [
   { to: '/settings', label: 'Settings', icon: Settings },
 ]
 
+const REFERENCE = { to: '/howto', label: 'How-to', icon: BookOpen }
+
 interface Props {
   healthy: boolean | null
 }
@@ -31,31 +34,13 @@ export default function SideMenu({ healthy }: Props) {
       <img src="/avocado.svg" alt="Arango Resource Manager" className="mb-4 h-7 w-7" />
 
       <ul className="flex w-full flex-1 flex-col items-center gap-1">
-        {ITEMS.map(({ to, label, icon: Icon, end }) => (
-          <li key={to} className="w-full px-1.5">
-            <NavLink
-              to={to}
-              end={end}
-              className={({ isActive }) =>
-                [
-                  'relative flex flex-col items-center gap-1 rounded-md py-2',
-                  'text-[10px] leading-none text-flesh-pale transition-colors',
-                  isActive ? 'bg-skin-soft' : 'hover:bg-skin-soft/70',
-                ].join(' ')
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && (
-                    <span className="absolute top-1 bottom-1 -left-1.5 w-[3px] rounded-r bg-flesh" />
-                  )}
-                  <Icon size={18} strokeWidth={1.75} aria-hidden />
-                  <span>{label}</span>
-                </>
-              )}
-            </NavLink>
-          </li>
+        {ITEMS.map((item) => (
+          <Item key={item.to} {...item} />
         ))}
+      </ul>
+
+      <ul className="mb-1 w-full">
+        <Item {...REFERENCE} />
       </ul>
 
       <span
@@ -73,5 +58,43 @@ export default function SideMenu({ healthy }: Props) {
         }
       />
     </nav>
+  )
+}
+
+function Item({
+  to,
+  label,
+  icon: Icon,
+  end,
+}: {
+  to: string
+  label: string
+  icon: typeof BookOpen
+  end?: boolean
+}) {
+  return (
+    <li className="w-full px-1.5">
+      <NavLink
+        to={to}
+        end={end}
+        className={({ isActive }) =>
+          [
+            'relative flex flex-col items-center gap-1 rounded-md py-2',
+            'text-[10px] leading-none text-flesh-pale transition-colors',
+            isActive ? 'bg-skin-soft' : 'hover:bg-skin-soft/70',
+          ].join(' ')
+        }
+      >
+        {({ isActive }) => (
+          <>
+            {isActive && (
+              <span className="absolute top-1 bottom-1 -left-1.5 w-[3px] rounded-r bg-flesh" />
+            )}
+            <Icon size={18} strokeWidth={1.75} aria-hidden />
+            <span>{label}</span>
+          </>
+        )}
+      </NavLink>
+    </li>
   )
 }

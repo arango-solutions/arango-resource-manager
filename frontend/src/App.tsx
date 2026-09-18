@@ -10,6 +10,7 @@ import Activity from './pages/Activity'
 import Capacity from './pages/Capacity'
 import Database from './pages/Database'
 import GenAi from './pages/GenAi'
+import HowTo from './pages/HowTo'
 import Pods from './pages/Pods'
 import ServiceDetail from './pages/ServiceDetail'
 import SettingsPage from './pages/Settings'
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/capacity" element={<Capacity />} />
             <Route path="/database" element={<Database />} />
             <Route path="/activity" element={<Activity />} />
+            <Route path="/howto" element={<HowTo />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
