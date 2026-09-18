@@ -48,3 +48,6 @@ ignore_errors = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+markers = [
+    "live: talks to a real cluster; skipped unless ARM_LIVE_TESTS=1",
+]

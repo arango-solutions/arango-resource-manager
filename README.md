@@ -32,8 +32,14 @@ make backend                            # http://localhost:8000/docs
 make frontend                           # http://localhost:5173
 ```
 
-`make check` runs ruff, mypy, pytest and the frontend typecheck. The test suite
-runs entirely against recorded fixtures, so it needs no cluster.
+`make check` runs ruff, mypy, pytest, the frontend typecheck and the frontend
+tests. The default suite runs entirely against recorded fixtures, so it needs
+no cluster. HTTP integration tests walk the routes each page actually calls,
+including kill/stop/restore through a recording fake client.
+
+To exercise a real cluster, create a throwaway Deployment (never the database)
+with `ARM_LIVE_TESTS=1 ARM_READ_ONLY=false` and run
+`cd backend && uv run pytest -m live`.
 
 ## Layout
 
@@ -96,9 +102,6 @@ dry-run modes — every gate refuses correctly, and the server-side dry runs are
 accepted by the API server. The **execute path has not yet been exercised
 against a real cluster**; it is covered by unit tests against a fake client
 that records what it was asked to do. `ARM_READ_ONLY` remains `true`.
-
-Later: Prometheus history and sparklines, idle-workload detection, right-sizing
-recommendations, a PVC panel, and bulk operations.
 
 ## License
 

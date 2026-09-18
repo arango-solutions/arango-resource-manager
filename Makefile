@@ -16,7 +16,7 @@ install:  ## Install backend (uv) and frontend (npm) dependencies
 
 check:  ## Run every gate: ruff, mypy, pytest, and the frontend typecheck
 	cd backend && $(MAKE) check
-	cd frontend && npm run typecheck
+	cd frontend && npm run typecheck && npm test
 
 backend:  ## Serve the API in the foreground on http://localhost:8000
 	cd backend && $(MAKE) run

@@ -54,8 +54,18 @@ def arango_deployment() -> dict[str, Any]:
     return items[0]
 
 
+def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:  # noqa: ARG001
+    """Live tests talk to a real cluster. Skip them unless explicitly asked."""
+    if os.environ.get("ARM_LIVE_TESTS") == "1":
+        return
+    skip = pytest.mark.skip(reason="set ARM_LIVE_TESTS=1 to run against a real cluster")
+    for item in items:
+        if item.get_closest_marker("live"):
+            item.add_marker(skip)
+
+
 @pytest.fixture(autouse=True)
-def _ignore_developer_env(monkeypatch: pytest.MonkeyPatch) -> None:
+def _ignore_developer_env(request: pytest.FixtureRequest, monkeypatch: pytest.MonkeyPatch) -> None:
     """Tests must not inherit the developer's `.env`.
 
     `Settings` reads `.env` by default, so a local file setting
@@ -64,7 +74,12 @@ def _ignore_developer_env(monkeypatch: pytest.MonkeyPatch) -> None:
     assertions about your laptop. CI has no `.env`, so the suite stays green
     there and the coverage quietly disappears for whoever is actually using
     the tool. Pinning it off makes the suite say the same thing everywhere.
+
+    Live tests are the exception: they need the real kube context.
     """
+    if request.node.get_closest_marker("live"):
+        yield
+        return
     monkeypatch.setitem(Settings.model_config, "env_file", None)
     for key in list(os.environ):
         if key.startswith("ARM_"):
