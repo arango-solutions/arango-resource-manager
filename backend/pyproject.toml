@@ -49,5 +49,6 @@ ignore_errors = true
 testpaths = ["tests"]
 pythonpath = ["."]
 markers = [
+    "integration: HTTP tests against fixture replay; no cluster needed",
     "live: talks to a real cluster; skipped unless ARM_LIVE_TESTS=1",
 ]

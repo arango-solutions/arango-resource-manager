@@ -92,17 +92,6 @@ spec. Coordinators and gateways scale freely; shrinking dbservers warns that
 the operator must drain shards first; **agents are never scalable** — the
 agency is a RAFT quorum and changing its size after creation risks the cluster.
 
-## Status
-
-Phases 0–4 are complete: cluster connection, inventory, live usage and the
-capacity model, events and logs, and the actions layer.
-
-The actions have been verified against the live cluster in read-only and
-dry-run modes — every gate refuses correctly, and the server-side dry runs are
-accepted by the API server. The **execute path has not yet been exercised
-against a real cluster**; it is covered by unit tests against a fake client
-that records what it was asked to do. `ARM_READ_ONLY` remains `true`.
-
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).

@@ -17,6 +17,8 @@ from app.services import inventory as inventory_service
 from app.services import metrics
 from tests.fakes import FakeClients, mount_app
 
+pytestmark = pytest.mark.integration
+
 FILE_PARSER = "arangodb-file-parser"
 WORKER = "arangodb-file-parser-worker-default"
 

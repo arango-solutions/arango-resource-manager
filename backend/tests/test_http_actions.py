@@ -21,6 +21,8 @@ from app.services import metrics
 from app.store.state import StateStore
 from tests.fakes import FakeClients, mount_app
 
+pytestmark = pytest.mark.integration
+
 WORKER = "arangodb-file-parser-worker-default"
 FILE_PARSER = "arangodb-file-parser"
 

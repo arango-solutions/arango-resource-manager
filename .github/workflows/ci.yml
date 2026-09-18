@@ -26,6 +26,8 @@ jobs:
         run: make test
       - name: Smoke test
         run: make smoke
+      - name: Integration tests
+        run: make integration
 
   frontend:
     runs-on: ubuntu-latest

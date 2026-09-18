@@ -1,4 +1,4 @@
-.PHONY: help install lint format typecheck test smoke check run probe probe-dump
+.PHONY: help install lint format typecheck test smoke integration check run probe probe-dump
 .DEFAULT_GOAL := help
 
 # Self-documenting: every target with a `##` comment shows up in `make help`.
@@ -25,6 +25,9 @@ test:  ## Run the test suite (fixtures only, no cluster needed)
 # The assembled app, served from fixtures: boots, routes answer, data is real.
 smoke:  ## Boot the assembled app against fixtures and check the routes answer
 	uv run pytest tests/test_smoke.py -q
+
+integration:  ## HTTP integration tests against fixture replay
+	uv run pytest -m integration -q
 
 check: lint typecheck test smoke  ## Run lint, typecheck, test and smoke
 

@@ -10,6 +10,8 @@ from app.services import inventory as inventory_service
 from app.services import metrics
 from tests.fakes import FakeClients, fake_capabilities, mount_app
 
+pytestmark = pytest.mark.integration
+
 
 @pytest.fixture
 def kube() -> FakeClients:
