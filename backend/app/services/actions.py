@@ -345,8 +345,7 @@ def plan_kill(snapshot: InventorySnapshot, settings: Settings, kind: str, name: 
             "The service will stop serving requests until it is restored."
             if running
             else (
-                "These leftover pods are force-deleted immediately. "
-                "The replica count is already 0."
+                "These leftover pods are force-deleted immediately. The replica count is already 0."
             )
         ),
         force=True,
