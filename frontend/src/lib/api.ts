@@ -157,9 +157,26 @@ export function restartWorkload(kind: string, name: string, dryRun: boolean) {
   return post('/actions/restart', { kind, name, dry_run: dryRun }, actionResultSchema)
 }
 
-export function deletePod(name: string, dryRun: boolean) {
+export interface DeletePodArgs {
+  force?: boolean
+  container?: string
+}
+
+export function deletePod(name: string, dryRun: boolean, args: DeletePodArgs = {}) {
   return post(
     `/actions/pods/${encodeURIComponent(name)}/delete`,
+    { dry_run: dryRun, force: args.force ?? true, container: args.container },
+    actionResultSchema,
+  )
+}
+
+export function killWorkload(kind: string, name: string, dryRun: boolean) {
+  return post('/actions/kill', { kind, name, dry_run: dryRun }, actionResultSchema)
+}
+
+export function killService(name: string, dryRun: boolean) {
+  return post(
+    `/actions/services/${encodeURIComponent(name)}/kill`,
     { dry_run: dryRun },
     actionResultSchema,
   )

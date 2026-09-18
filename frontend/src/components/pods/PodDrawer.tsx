@@ -2,11 +2,12 @@ import { useQuery } from '@tanstack/react-query'
 import { AlertTriangle, X } from 'lucide-react'
 import { useState } from 'react'
 
+import PodKillButton from '@/components/actions/PodKillButton'
 import ProtectedBadge from '@/components/actions/ProtectedBadge'
 import Badge from '@/components/ui/Badge'
 import ErrorPanel from '@/components/ui/ErrorPanel'
 import Spinner from '@/components/ui/Spinner'
-import { fetchPod, fetchPodLogs } from '@/lib/api'
+import { fetchClusterInfo, fetchPod, fetchPodLogs } from '@/lib/api'
 import { formatCpu, formatMemory } from '@/lib/format'
 import { formatUptime } from '@/lib/uptime'
 import type { PodDetail } from '@/lib/schemas'
@@ -22,6 +23,8 @@ export default function PodDrawer({ name, onClose }: Props) {
     queryFn: () => fetchPod(name),
     refetchInterval: 10_000,
   })
+  const info = useQuery({ queryKey: ['cluster', 'info'], queryFn: fetchClusterInfo })
+  const readOnly = info.data?.safety.read_only ?? true
 
   return (
     <div className="fixed inset-0 z-40 flex justify-end">
@@ -54,14 +57,14 @@ export default function PodDrawer({ name, onClose }: Props) {
         <div className="flex-1 space-y-5 px-5 py-4">
           {isPending && <Spinner label="Reading pod…" />}
           {error && <ErrorPanel title="Could not read this pod" error={error} />}
-          {data && <Body pod={data} />}
+          {data && <Body pod={data} readOnly={readOnly} />}
         </div>
       </aside>
     </div>
   )
 }
 
-function Body({ pod }: { pod: PodDetail }) {
+function Body({ pod, readOnly }: { pod: PodDetail; readOnly: boolean }) {
   const [container, setContainer] = useState(pod.containers[0] ?? '')
   const [previous, setPrevious] = useState(false)
 
@@ -82,6 +85,9 @@ function Body({ pod }: { pod: PodDetail }) {
           {pod.ready_containers} ready
         </Badge>
         <ProtectedBadge protection={pod.protection} />
+        <span className="ml-auto">
+          <PodKillButton name={pod.name} protection={pod.protection} readOnly={readOnly} />
+        </span>
       </section>
 
       {pod.protection.reason && (
@@ -105,6 +111,15 @@ function Body({ pod }: { pod: PodDetail }) {
                     {c.last_terminated_reason && ` · ${c.last_terminated_reason}`}
                   </Badge>
                 )}
+                <span className="ml-auto">
+                  <PodKillButton
+                    name={pod.name}
+                    protection={pod.protection}
+                    readOnly={readOnly}
+                    container={c.name}
+                    compact
+                  />
+                </span>
               </div>
               <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-[11px] sm:grid-cols-3">
                 <Pair

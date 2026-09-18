@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+import PodKillButton from '@/components/actions/PodKillButton'
 import ProtectedBadge from '@/components/actions/ProtectedBadge'
 import type { PodQuery } from '@/lib/api'
 import { formatCpu, formatMemory } from '@/lib/format'
@@ -18,6 +19,7 @@ interface Props {
   order: 'asc' | 'desc'
   onSort: (key: SortKey) => void
   showService?: boolean
+  readOnly?: boolean
 }
 
 const HEADERS: { key: SortKey | null; label: string; align?: string }[] = [
@@ -28,6 +30,7 @@ const HEADERS: { key: SortKey | null; label: string; align?: string }[] = [
   { key: 'restarts', label: 'Restarts' },
   { key: 'cpu', label: 'CPU used / reserved', align: 'text-right' },
   { key: 'memory', label: 'Memory used / reserved', align: 'text-right' },
+  { key: null, label: 'Actions', align: 'text-right' },
 ]
 
 export default function PodTable({
@@ -37,6 +40,7 @@ export default function PodTable({
   onSort,
   showService = true,
   onSelect,
+  readOnly = true,
 }: Props) {
   return (
     // Wide tables scroll inside their own container; the page never scrolls
@@ -122,6 +126,16 @@ export default function PodTable({
                   {' '}
                   / {formatMemory(pod.resources.requests.memory_bytes)}
                 </span>
+              </td>
+              <td className="px-3 py-2 text-right" onClick={(event) => event.stopPropagation()}>
+                <div className="flex justify-end">
+                  <PodKillButton
+                    name={pod.name}
+                    protection={pod.protection}
+                    readOnly={readOnly}
+                    compact
+                  />
+                </div>
               </td>
             </tr>
           ))}

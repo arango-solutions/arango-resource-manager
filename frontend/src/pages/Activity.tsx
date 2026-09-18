@@ -12,6 +12,8 @@ const LABELS: Record<string, string> = {
   restore: 'Restored',
   restart: 'Restarted',
   delete_pod: 'Deleted pod',
+  kill: 'Killed',
+  kill_service: 'Killed service',
   database_scale: 'Resized database',
 }
 

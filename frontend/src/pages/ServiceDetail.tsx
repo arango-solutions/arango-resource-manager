@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 
 import ProtectedBadge from '@/components/actions/ProtectedBadge'
 import RestoreBanner from '@/components/actions/RestoreBanner'
+import ServiceActions from '@/components/actions/ServiceActions'
 import WorkloadActions from '@/components/actions/WorkloadActions'
 import EventFeed from '@/components/events/EventFeed'
 import PodDrawer from '@/components/pods/PodDrawer'
@@ -65,6 +66,9 @@ export default function ServiceDetail() {
             {data.route_path}
           </a>
         )}
+        <span className="ml-auto">
+          <ServiceActions service={data} readOnly={readOnly} />
+        </span>
       </header>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -123,6 +127,7 @@ export default function ServiceDetail() {
             onSort={() => undefined}
             showService={false}
             onSelect={setSelectedPod}
+            readOnly={readOnly}
           />
         </section>
       )}

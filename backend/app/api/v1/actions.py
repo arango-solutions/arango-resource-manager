@@ -17,6 +17,7 @@ from app.models.actions import (
     ActionType,
     PodDeleteRequest,
     ScaleRequest,
+    ServiceKillRequest,
     WorkloadRequest,
 )
 from app.services import actions as action_service
@@ -107,7 +108,33 @@ def delete_pod(  # noqa: ANN201
 ):
     try:
         snapshot = inventory_service.get_snapshot(clients)
-        plan = action_service.plan_delete_pod(snapshot, settings, name)
+        plan = action_service.plan_delete_pod(
+            snapshot, settings, name, force=request.force, container=request.container
+        )
+        return _run(clients, settings, plan, request.dry_run)
+    except action_service.ActionBlocked as exc:
+        return _blocked(exc, request.dry_run)
+
+
+@router.post("/kill", response_model=ActionResult)
+def kill(request: WorkloadRequest, clients: ClientsDep, settings: SettingsDep):  # noqa: ANN201
+    """Scale to 0 and force-delete current pods, so the service dies immediately."""
+    try:
+        snapshot = inventory_service.get_snapshot(clients)
+        plan = action_service.plan_kill(snapshot, settings, request.kind, request.name)
+        return _run(clients, settings, plan, request.dry_run)
+    except action_service.ActionBlocked as exc:
+        return _blocked(exc, request.dry_run)
+
+
+@router.post("/services/{name}/kill", response_model=ActionResult)
+def kill_service(  # noqa: ANN201
+    name: str, request: ServiceKillRequest, clients: ClientsDep, settings: SettingsDep
+):
+    """Kill every actionable workload under a service group."""
+    try:
+        snapshot = inventory_service.get_snapshot(clients)
+        plan = action_service.plan_kill_service(snapshot, settings, name)
         return _run(clients, settings, plan, request.dry_run)
     except action_service.ActionBlocked as exc:
         return _blocked(exc, request.dry_run)

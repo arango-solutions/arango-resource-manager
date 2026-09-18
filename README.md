@@ -56,20 +56,24 @@ which is the correct path, and it still refuses to touch the agents: agency
 quorum means changing the agent count after creation is unsupported.
 
 "Stopping" a service means scaling it to 0 replicas and remembering the previous
-count so it can be restored. Deleting a pod is offered too, but it does not stop
+count so it can be restored. **Killing** a service does the same, then
+force-deletes the current pods so they die immediately instead of waiting out a
+graceful shutdown. Deleting a pod is offered too, but it does not stop
 anything — the ReplicaSet replaces it within a second, and the UI says so at the
-point of decision.
+point of decision. Kubernetes cannot stop one container on its own; a container
+kill deletes the pod.
 
 ## Actions
 
-Four actions, each planned before it runs:
+Each action is planned before it runs:
 
 | | |
 |---|---|
 | **Scale** | set the replica count |
 | **Stop** | scale to 0, recording the previous count first so it can be restored |
+| **Kill** | scale to 0 and force-delete the current pods, so the service dies now |
 | **Restart** | a rolling replacement, via the pod template annotation |
-| **Delete pod** | evict one replica — which stops nothing, and the UI says so |
+| **Delete pod** | force-delete one replica — which stops nothing, and the UI says so |
 
 Confirming anything that takes a service to zero requires typing the workload
 name. Before any dialog appears, the action runs as a **server-side dry run**:

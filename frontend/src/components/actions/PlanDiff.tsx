@@ -28,6 +28,15 @@ export default function PlanDiff({ plan }: { plan: ActionPlan }) {
         </p>
       )}
 
+      {plan.targets.length > 1 && (
+        <p className="text-xs text-muted">
+          {plan.targets.length} workloads:{' '}
+          <span className="font-mono text-body">
+            {plan.targets.map((target) => target.name).join(', ')}
+          </span>
+        </p>
+      )}
+
       {plan.pods_terminating.length > 0 && (
         <div>
           <p className="mb-1 text-xs text-muted">

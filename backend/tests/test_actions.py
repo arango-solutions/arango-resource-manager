@@ -12,7 +12,7 @@ from typing import Any
 import pytest
 
 from app.config import Settings
-from app.models.actions import ActionType, BlockedReason
+from app.models.actions import ActionType, BlockedReason, WorkloadTarget
 from app.models.inventory import InventorySnapshot
 from app.services import actions
 from app.services.actions import ActionBlocked
@@ -189,8 +189,69 @@ def test_deleting_a_pod_says_it_frees_nothing(snapshot: InventorySnapshot) -> No
     plan = actions.plan_delete_pod(snapshot, ENABLED, pod.name)
     assert plan.warning is not None
     assert "frees nothing" in plan.warning
-    assert "scale it to 0" in plan.warning
+    assert "kill it instead" in plan.warning
     assert plan.frees.cpu_cores is None
+    assert plan.force is False
+
+
+def test_force_deleting_a_pod_says_so(snapshot: InventorySnapshot) -> None:
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    plan = actions.plan_delete_pod(snapshot, ENABLED, pod.name, force=True)
+    assert plan.force is True
+    assert plan.warning and "force-deleted" in plan.warning
+
+
+def test_killing_a_named_container_still_deletes_the_pod(snapshot: InventorySnapshot) -> None:
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    container = pod.containers[0]
+    plan = actions.plan_delete_pod(snapshot, ENABLED, pod.name, force=True, container=container)
+    assert container in (plan.warning or "")
+    assert "cannot stop container" in (plan.warning or "")
+
+
+def test_unknown_container_is_a_clean_404(snapshot: InventorySnapshot) -> None:
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    with pytest.raises(ActionBlocked) as caught:
+        actions.plan_delete_pod(snapshot, ENABLED, pod.name, container="no-such-container")
+    assert caught.value.reason is BlockedReason.NOT_FOUND
+
+
+def test_kill_scales_to_zero_and_names_every_pod(snapshot: InventorySnapshot) -> None:
+    plan = actions.plan_kill(snapshot, ENABLED, "Deployment", WORKER)
+    assert plan.action is ActionType.KILL
+    assert plan.target_replicas == 0
+    assert plan.restore_to == 5
+    assert plan.force is True
+    assert plan.requires_typed_confirmation is True
+    assert len(plan.pods_terminating) == 5
+    assert plan.targets == [WorkloadTarget(kind="Deployment", name=WORKER, current_replicas=5)]
+    assert plan.warning and "force-deleted" in plan.warning
+
+
+def test_kill_service_covers_every_actionable_workload(snapshot: InventorySnapshot) -> None:
+    plan = actions.plan_kill_service(snapshot, ENABLED, "arangodb-file-parser")
+    assert plan.action is ActionType.KILL_SERVICE
+    assert plan.target_replicas == 0
+    assert plan.requires_typed_confirmation is True
+    assert {t.name for t in plan.targets} == {
+        "arangodb-file-parser-api",
+        "arangodb-file-parser-orchestrator",
+        "arangodb-file-parser-worker-default",
+        "arangodb-file-parser-worker-pdf",
+    }
+    assert len(plan.pods_terminating) == 32
+
+
+def test_kill_service_refuses_the_database(snapshot: InventorySnapshot) -> None:
+    with pytest.raises(ActionBlocked) as caught:
+        actions.plan_kill_service(snapshot, ENABLED, "arangodb-cluster")
+    assert caught.value.reason is BlockedReason.PROTECTED
+
+
+def test_kill_guarded_workload_needs_the_flag(snapshot: InventorySnapshot) -> None:
+    with pytest.raises(ActionBlocked) as caught:
+        actions.plan_kill(snapshot, ENABLED, "Deployment", OPERATOR)
+    assert caught.value.reason is BlockedReason.GUARDED
 
 
 def test_restart_replaces_pods_without_changing_the_count(
@@ -313,3 +374,82 @@ def test_statefulsets_use_the_statefulset_endpoint(
     clients = FakeClients()
     actions.execute(clients, ENABLED, store, plan, dry_run=False)  # type: ignore[arg-type]
     assert clients.calls[0][0] == "scale_sts"
+
+
+def test_delete_pod_uses_graceful_period_unless_forced(
+    snapshot: InventorySnapshot, store: StateStore
+) -> None:
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    clients = FakeClients()
+    actions.execute(
+        clients,
+        ENABLED,
+        store,
+        actions.plan_delete_pod(snapshot, ENABLED, pod.name),
+        dry_run=False,
+    )  # type: ignore[arg-type]
+    assert clients.calls[0][0] == "delete_pod"
+    assert clients.calls[0][1]["grace_period_seconds"] == 30
+    assert "dry_run" not in clients.calls[0][1]
+
+
+def test_force_delete_pod_uses_grace_zero(snapshot: InventorySnapshot, store: StateStore) -> None:
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    clients = FakeClients()
+    actions.execute(
+        clients,
+        ENABLED,
+        store,
+        actions.plan_delete_pod(snapshot, ENABLED, pod.name, force=True),
+        dry_run=False,
+    )  # type: ignore[arg-type]
+    assert clients.calls[0][1]["grace_period_seconds"] == 0
+
+
+def test_kill_records_the_count_then_force_deletes_pods(
+    snapshot: InventorySnapshot, store: StateStore
+) -> None:
+    plan = actions.plan_kill(snapshot, ENABLED, "Deployment", WORKER)
+    clients = FakeClients()
+    actions.execute(clients, ENABLED, store, plan, dry_run=False)  # type: ignore[arg-type]
+
+    kinds = [call for call, _ in clients.calls]
+    assert kinds[0] == "scale_deployment"
+    deletes = [kwargs for call, kwargs in clients.calls if call == "delete_pod"]
+    assert len(deletes) == 5
+    assert all(item["grace_period_seconds"] == 0 for item in deletes)
+    assert clients.calls[0][1]["body"] == {"spec": {"replicas": 0}}
+
+    record = store.get_stop("test-ns", "Deployment", WORKER)
+    assert record is not None
+    assert record["previous_replicas"] == 5
+
+
+def test_dry_run_kill_records_nothing_and_marks_every_call(
+    snapshot: InventorySnapshot, store: StateStore
+) -> None:
+    plan = actions.plan_kill(snapshot, ENABLED, "Deployment", WORKER)
+    clients = FakeClients()
+    result = actions.execute(clients, ENABLED, store, plan, dry_run=True)  # type: ignore[arg-type]
+
+    assert result.executed is False
+    assert result.plan and result.plan.server_dry_run == "accepted"
+    assert all(kwargs.get("dry_run") == "All" for _, kwargs in clients.calls)
+    assert store.get_stop("test-ns", "Deployment", WORKER) is None
+    assert store.history() == []
+
+
+def test_kill_service_scales_each_workload_then_deletes_pods(
+    snapshot: InventorySnapshot, store: StateStore
+) -> None:
+    plan = actions.plan_kill_service(snapshot, ENABLED, "arangodb-file-parser")
+    clients = FakeClients()
+    actions.execute(clients, ENABLED, store, plan, dry_run=False)  # type: ignore[arg-type]
+
+    scales = [kwargs for call, kwargs in clients.calls if call == "scale_deployment"]
+    deletes = [kwargs for call, kwargs in clients.calls if call == "delete_pod"]
+    assert len(scales) == 4
+    assert len(deletes) == 32
+    assert all(item["body"] == {"spec": {"replicas": 0}} for item in scales)
+    assert store.get_stop("test-ns", "Deployment", PDF_WORKER) is not None
+    assert store.get_stop("test-ns", "Deployment", WORKER) is not None

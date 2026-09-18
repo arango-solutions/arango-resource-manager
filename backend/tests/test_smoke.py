@@ -169,3 +169,22 @@ def test_stop_refuses_while_read_only(client: Any) -> None:
     body = response.json()
     assert body["executed"] is False
     assert body["blocked_reason"]
+
+
+def test_kill_refuses_while_read_only(client: Any) -> None:
+    name = "arangodb-graphrag-retriever-icnn5"
+    response = client.post(
+        "/api/v1/actions/kill",
+        json={"kind": "Deployment", "name": name, "dry_run": True},
+    )
+    assert response.status_code == 403, f"expected a read-only refusal, got {response.text[:200]}"
+    assert response.json()["executed"] is False
+
+
+def test_kill_service_refuses_while_read_only(client: Any) -> None:
+    response = client.post(
+        "/api/v1/actions/services/arangodb-file-parser/kill",
+        json={"dry_run": True},
+    )
+    assert response.status_code == 403, f"expected a read-only refusal, got {response.text[:200]}"
+    assert response.json()["executed"] is False

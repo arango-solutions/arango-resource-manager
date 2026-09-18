@@ -1,14 +1,20 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { Minus, Plus, Power, RotateCw, Undo2 } from 'lucide-react'
+import { Minus, Plus, Power, RotateCw, Undo2, XCircle } from 'lucide-react'
 import { useState } from 'react'
 
 import ActionDialog from '@/components/actions/ActionDialog'
 import Tooltip from '@/components/ui/Tooltip'
-import { restartWorkload, restoreWorkload, scaleWorkload, stopWorkload } from '@/lib/api'
+import {
+  killWorkload,
+  restartWorkload,
+  restoreWorkload,
+  scaleWorkload,
+  stopWorkload,
+} from '@/lib/api'
 import { formatCpu, formatMemory } from '@/lib/format'
 import type { Workload } from '@/lib/schemas'
 
-type Open = 'scale' | 'stop' | 'restart' | 'restore' | null
+type Open = 'scale' | 'stop' | 'restart' | 'restore' | 'kill' | null
 
 interface Props {
   workload: Workload
@@ -33,7 +39,11 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
     workload.resources.requests.memory_bytes
   )}`
   const alreadyStopped = workload.desired_replicas === 0
+  const canKill = workload.desired_replicas > 0 || workload.pod_count > 0
   const stopHint = hint ?? `Scale to 0 — frees ${frees}`
+  const killHint =
+    hint ??
+    'Force-delete pods and scale to 0 — the service dies immediately, not after a graceful shutdown'
 
   function done() {
     setOpen(null)
@@ -91,6 +101,16 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
           onClick={() => setOpen('stop')}
         />
       )}
+      {canKill && (
+        <IconButton
+          icon={<XCircle size={12} />}
+          label="Kill"
+          title={killHint}
+          disabled={disabled}
+          danger
+          onClick={() => setOpen('kill')}
+        />
+      )}
 
       {open === 'scale' && (
         <ActionDialog
@@ -135,6 +155,17 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
           confirmLabel="Stop the service"
           destructive
           run={(dryRun) => stopWorkload(workload.kind, workload.name, dryRun)}
+          onDone={done}
+          onClose={() => setOpen(null)}
+        />
+      )}
+
+      {open === 'kill' && (
+        <ActionDialog
+          title={`Kill ${workload.name}`}
+          confirmLabel="Kill the service"
+          destructive
+          run={(dryRun) => killWorkload(workload.kind, workload.name, dryRun)}
           onDone={done}
           onClose={() => setOpen(null)}
         />

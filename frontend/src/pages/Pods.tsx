@@ -6,7 +6,7 @@ import PodTable from '@/components/pods/PodTable'
 import EmptyState from '@/components/ui/EmptyState'
 import ErrorPanel from '@/components/ui/ErrorPanel'
 import Spinner from '@/components/ui/Spinner'
-import { fetchPods, type PodQuery } from '@/lib/api'
+import { fetchClusterInfo, fetchPods, type PodQuery } from '@/lib/api'
 
 type SortKey = NonNullable<PodQuery['sort']>
 
@@ -20,6 +20,8 @@ export default function Pods() {
     queryFn: () => fetchPods({ sort, order }),
     refetchInterval: 10_000,
   })
+  const info = useQuery({ queryKey: ['cluster', 'info'], queryFn: fetchClusterInfo })
+  const readOnly = info.data?.safety.read_only ?? true
 
   function handleSort(key: SortKey) {
     if (key === sort) {
@@ -56,6 +58,7 @@ export default function Pods() {
           order={order}
           onSort={handleSort}
           onSelect={setSelected}
+          readOnly={readOnly}
         />
       )}
 

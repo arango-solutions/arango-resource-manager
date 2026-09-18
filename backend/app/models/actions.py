@@ -15,6 +15,8 @@ class ActionType(StrEnum):
     RESTORE = "restore"
     RESTART = "restart"
     DELETE_POD = "delete_pod"
+    KILL = "kill"
+    KILL_SERVICE = "kill_service"
     DATABASE_SCALE = "database_scale"
 
 
@@ -31,6 +33,14 @@ class BlockedReason(StrEnum):
 class TerminatingPod(BaseModel):
     name: str
     age_seconds: int | None = None
+
+
+class WorkloadTarget(BaseModel):
+    """One workload a multi-target action (kill, kill-service) will touch."""
+
+    kind: str
+    name: str
+    current_replicas: int = 0
 
 
 class ActionPlan(BaseModel):
@@ -56,6 +66,10 @@ class ActionPlan(BaseModel):
 
     requires_typed_confirmation: bool = False
     warning: str | None = None
+    force: bool = False
+    """True when pods are deleted with gracePeriodSeconds=0."""
+    targets: list[WorkloadTarget] = Field(default_factory=list)
+    """Workloads a kill/kill-service plan will scale. Empty for single-object actions."""
 
 
 class ActionResult(BaseModel):
@@ -81,6 +95,14 @@ class WorkloadRequest(BaseModel):
 
 
 class PodDeleteRequest(BaseModel):
+    dry_run: bool = True
+    force: bool = False
+    container: str | None = None
+    """Named only so the plan can say which container the user pointed at.
+    Kubernetes cannot stop one container; the pod is what gets deleted."""
+
+
+class ServiceKillRequest(BaseModel):
     dry_run: bool = True
 
 

@@ -42,9 +42,10 @@ from app.models.actions import (
     ActionType,
     BlockedReason,
     TerminatingPod,
+    WorkloadTarget,
 )
 from app.models.common import ProtectionLevel, Resources
-from app.models.inventory import InventorySnapshot, PodSummary, WorkloadSummary
+from app.models.inventory import InventorySnapshot, PodSummary, ServiceGroup, WorkloadSummary
 from app.services import inventory as inventory_service
 from app.services.quantities import add_optional
 from app.store.state import StateStore
@@ -105,6 +106,13 @@ def find_workload(snapshot: InventorySnapshot, kind: str, name: str) -> Workload
     if workload is None:
         raise ActionBlocked(BlockedReason.NOT_FOUND, f"No {kind} named {name!r}.")
     return workload
+
+
+def find_service(snapshot: InventorySnapshot, name: str) -> ServiceGroup:
+    service = next((s for s in snapshot.services if s.name == name), None)
+    if service is None:
+        raise ActionBlocked(BlockedReason.NOT_FOUND, f"No service named {name!r}.")
+    return service
 
 
 def _pods_of(snapshot: InventorySnapshot, workload: WorkloadSummary) -> list[PodSummary]:
@@ -243,11 +251,7 @@ def plan_restart(
     )
 
 
-def plan_delete_pod(snapshot: InventorySnapshot, settings: Settings, pod_name: str) -> ActionPlan:
-    pod = next((p for p in snapshot.pods if p.name == pod_name), None)
-    if pod is None:
-        raise ActionBlocked(BlockedReason.NOT_FOUND, f"No pod named {pod_name!r}.")
-
+def _check_pod_protection(pod: PodSummary, settings: Settings) -> None:
     if pod.protection.level is ProtectionLevel.PROTECTED:
         raise ActionBlocked(
             BlockedReason.PROTECTED,
@@ -261,7 +265,41 @@ def plan_delete_pod(snapshot: InventorySnapshot, settings: Settings, pod_name: s
             "Set ARM_ALLOW_GUARDED_ACTIONS=true to act on it.",
         )
 
+
+def plan_delete_pod(
+    snapshot: InventorySnapshot,
+    settings: Settings,
+    pod_name: str,
+    force: bool = False,
+    container: str | None = None,
+) -> ActionPlan:
+    pod = next((p for p in snapshot.pods if p.name == pod_name), None)
+    if pod is None:
+        raise ActionBlocked(BlockedReason.NOT_FOUND, f"No pod named {pod_name!r}.")
+    if container and container not in pod.containers:
+        raise ActionBlocked(
+            BlockedReason.NOT_FOUND,
+            f"Pod {pod_name!r} has no container named {container!r}.",
+        )
+
+    _check_pod_protection(pod, settings)
+
     controlled = pod.workload is not None
+    how = "force-deleted immediately (no graceful shutdown)" if force else "deleted"
+    if pod.workload:
+        warning = (
+            f"This {how}. It frees nothing. {pod.workload.kind} "
+            f"{pod.workload.name} will replace this pod within seconds. "
+            "To actually stop the service, kill it instead."
+        )
+    else:
+        warning = f"This pod is {how}, and it has no controller, so it will not come back."
+    if container:
+        warning = (
+            f"Kubernetes cannot stop container {container!r} on its own — "
+            f"the whole pod is what gets deleted. {warning}"
+        )
+
     return ActionPlan(
         action=ActionType.DELETE_POD,
         kind="Pod",
@@ -270,14 +308,113 @@ def plan_delete_pod(snapshot: InventorySnapshot, settings: Settings, pod_name: s
         pods_terminating=[TerminatingPod(name=pod.name, age_seconds=pod.age_seconds)],
         frees=_freed_by([pod]) if not controlled else Resources(),
         protection=pod.protection,
+        warning=warning,
+        force=force,
+    )
+
+
+def plan_kill(snapshot: InventorySnapshot, settings: Settings, kind: str, name: str) -> ActionPlan:
+    """Scale to 0 and force-delete the current pods, so the service dies now."""
+    workload = find_workload(snapshot, kind, name)
+    _check_protection(workload, settings)
+    pods = _pods_of(snapshot, workload)
+
+    if workload.desired_replicas == 0 and not pods:
+        raise ActionBlocked(
+            BlockedReason.INVALID,
+            "Nothing to kill — already at 0 replicas and no pods remain.",
+        )
+
+    running = workload.desired_replicas > 0
+    return ActionPlan(
+        action=ActionType.KILL,
+        kind=kind,
+        name=name,
+        namespace=snapshot.namespace,
+        current_replicas=workload.desired_replicas,
+        target_replicas=0,
+        pods_terminating=[
+            TerminatingPod(name=pod.name, age_seconds=pod.age_seconds) for pod in pods
+        ],
+        frees=_freed_by(pods),
+        restore_to=workload.desired_replicas if running else None,
+        protection=workload.protection,
+        requires_typed_confirmation=running,
         warning=(
-            # The single most common misunderstanding this tool has to correct.
-            f"This frees nothing. {pod.workload.kind} "
-            f"{pod.workload.name} will replace this pod within seconds. "
-            "To actually stop the service, scale it to 0 instead."
-            if pod.workload
-            else "This pod has no controller, so deleting it is permanent."
+            "Pods are force-deleted immediately — no graceful shutdown. "
+            "The service will stop serving requests until it is restored."
+            if running
+            else (
+                "These leftover pods are force-deleted immediately. "
+                "The replica count is already 0."
+            )
         ),
+        force=True,
+        targets=[WorkloadTarget(kind=kind, name=name, current_replicas=workload.desired_replicas)],
+    )
+
+
+def plan_kill_service(snapshot: InventorySnapshot, settings: Settings, name: str) -> ActionPlan:
+    """Kill every actionable workload under a service group."""
+    service = find_service(snapshot, name)
+    members = [w for w in snapshot.workloads if w.service == name]
+    if not members:
+        raise ActionBlocked(BlockedReason.NOT_FOUND, f"No workloads under {name!r}.")
+
+    skipped: list[str] = []
+    targets: list[WorkloadSummary] = []
+    for workload in members:
+        level = workload.protection.level
+        if level is ProtectionLevel.PROTECTED:
+            skipped.append(workload.name)
+            continue
+        if level is ProtectionLevel.GUARDED and not settings.allow_guarded_actions:
+            skipped.append(workload.name)
+            continue
+        if workload.desired_replicas == 0 and not _pods_of(snapshot, workload):
+            continue
+        targets.append(workload)
+
+    if not targets:
+        if skipped:
+            raise ActionBlocked(
+                BlockedReason.PROTECTED,
+                f"Every workload under {name!r} is operator-managed or guarded.",
+                service.protection.remediation,
+            )
+        raise ActionBlocked(
+            BlockedReason.INVALID,
+            f"Nothing to kill under {name!r} — already stopped and no pods remain.",
+        )
+
+    pods = [pod for workload in targets for pod in _pods_of(snapshot, workload)]
+    current = sum(w.desired_replicas for w in targets)
+    warning = (
+        f"Pods are force-deleted immediately — no graceful shutdown. "
+        f"{len(targets)} workload(s) will scale to 0 and can be restored."
+    )
+    if skipped:
+        warning += f" Left alone: {', '.join(skipped)}."
+
+    return ActionPlan(
+        action=ActionType.KILL_SERVICE,
+        kind=service.source,
+        name=name,
+        namespace=snapshot.namespace,
+        current_replicas=current,
+        target_replicas=0,
+        pods_terminating=[
+            TerminatingPod(name=pod.name, age_seconds=pod.age_seconds) for pod in pods
+        ],
+        frees=_freed_by(pods),
+        protection=service.protection,
+        requires_typed_confirmation=current > 0,
+        warning=warning,
+        force=True,
+        targets=[
+            WorkloadTarget(kind=w.kind, name=w.name, current_replicas=w.desired_replicas)
+            for w in targets
+        ],
     )
 
 
@@ -322,11 +459,32 @@ def _restart(clients: KubeClients, kind: str, name: str, dry_run: bool) -> None:
         clients.apps.patch_namespaced_deployment(name, clients.namespace, body, **kwargs)
 
 
-def _delete_pod(clients: KubeClients, name: str, dry_run: bool) -> None:
-    kwargs: dict[str, Any] = {"grace_period_seconds": 30, "_request_timeout": _TIMEOUT}
+def _delete_pod(clients: KubeClients, name: str, dry_run: bool, force: bool = False) -> None:
+    kwargs: dict[str, Any] = {
+        "grace_period_seconds": 0 if force else 30,
+        "_request_timeout": _TIMEOUT,
+    }
     if dry_run:
         kwargs["dry_run"] = "All"
     clients.core.delete_namespaced_pod(name, clients.namespace, **kwargs)
+
+
+def _kill_targets(
+    clients: KubeClients,
+    store: StateStore,
+    plan: ActionPlan,
+    dry_run: bool,
+) -> None:
+    """Scale each target to 0, then force-delete the pods the user confirmed."""
+    for target in plan.targets:
+        if target.current_replicas > 0:
+            if not dry_run:
+                store.record_stop(
+                    plan.namespace, target.kind, target.name, target.current_replicas, ACTOR
+                )
+            _scale(clients, target.kind, target.name, 0, dry_run)
+    for pod in plan.pods_terminating:
+        _delete_pod(clients, pod.name, dry_run, force=True)
 
 
 def execute(
@@ -354,7 +512,10 @@ def execute(
             _restart(clients, plan.kind, plan.name, dry_run)
 
         elif plan.action is ActionType.DELETE_POD:
-            _delete_pod(clients, plan.name, dry_run)
+            _delete_pod(clients, plan.name, dry_run, force=plan.force)
+
+        elif plan.action in (ActionType.KILL, ActionType.KILL_SERVICE):
+            _kill_targets(clients, store, plan, dry_run)
 
     except ApiException as exc:
         detail = f"The API server rejected this: {exc.status} {exc.reason}."
