@@ -34,6 +34,17 @@ describe('WorkloadActions', () => {
     expect(screen.getByRole('button', { name: 'Stop' })).toBeDisabled()
   })
 
+  it('still offers kill after the workload is scaled to zero', () => {
+    mount(
+      <WorkloadActions
+        workload={{ ...normalWorkload, desired_replicas: 0, ready_replicas: 0, pod_count: 2 }}
+        readOnly={false}
+      />,
+    )
+    expect(screen.getByRole('button', { name: 'Restore' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Kill' })).toBeEnabled()
+  })
+
   it('opens the kill dialog from the kill button', async () => {
     const user = userEvent.setup()
     mount(<WorkloadActions workload={normalWorkload} readOnly={false} />)

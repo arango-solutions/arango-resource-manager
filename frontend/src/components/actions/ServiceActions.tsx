@@ -18,11 +18,13 @@ export default function ServiceActions({ service, readOnly }: Props) {
 
   if (service.protection.level === 'protected') return null
 
-  const canKill = service.workloads.some(
-    (workload) =>
-      workload.protection.level !== 'protected' &&
-      (workload.desired_replicas > 0 || workload.pod_count > 0),
-  )
+  const canKill =
+    service.pod_count > 0 ||
+    service.workloads.some(
+      (workload) =>
+        workload.protection.level !== 'protected' &&
+        (workload.desired_replicas > 0 || workload.pod_count > 0),
+    )
   if (!canKill) return null
 
   const hint = readOnly

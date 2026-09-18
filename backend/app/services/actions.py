@@ -194,6 +194,8 @@ def plan_scale(
             if replicas == 0 and current > 0
             else None
         ),
+        force=False,
+        targets=[],
     )
 
 
@@ -226,6 +228,8 @@ def plan_restore(
         restore_to=target,
         protection=workload.protection,
         warning=warning,
+        force=False,
+        targets=[],
     )
 
 
@@ -248,6 +252,8 @@ def plan_restart(
         ],
         protection=workload.protection,
         warning="Pods are replaced gradually; the rollout strategy decides how many at a time.",
+        force=False,
+        targets=[],
     )
 
 
@@ -284,9 +290,24 @@ def plan_delete_pod(
 
     _check_pod_protection(pod, settings)
 
-    controlled = pod.workload is not None
-    how = "force-deleted immediately (no graceful shutdown)" if force else "deleted"
+    parent = None
     if pod.workload:
+        parent = next(
+            (
+                workload
+                for workload in snapshot.workloads
+                if workload.kind == pod.workload.kind and workload.name == pod.workload.name
+            ),
+            None,
+        )
+    scaled_to_zero = parent is not None and parent.desired_replicas == 0
+    how = "force-deleted immediately (no graceful shutdown)" if force else "deleted"
+    if scaled_to_zero and pod.workload:
+        warning = (
+            f"This {how}. {pod.workload.kind} {pod.workload.name} is already at "
+            "0 replicas, so the pod will not be replaced."
+        )
+    elif pod.workload:
         warning = (
             f"This {how}. It frees nothing. {pod.workload.kind} "
             f"{pod.workload.name} will replace this pod within seconds. "
@@ -306,10 +327,12 @@ def plan_delete_pod(
         name=pod_name,
         namespace=snapshot.namespace,
         pods_terminating=[TerminatingPod(name=pod.name, age_seconds=pod.age_seconds)],
-        frees=_freed_by([pod]) if not controlled else Resources(),
+        # A replacement would occupy the reservation again. At zero it will not.
+        frees=_freed_by([pod]) if (not pod.workload or scaled_to_zero) else Resources(),
         protection=pod.protection,
         warning=warning,
         force=force,
+        targets=[],
     )
 
 

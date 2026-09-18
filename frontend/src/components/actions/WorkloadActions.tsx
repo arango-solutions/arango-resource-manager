@@ -39,11 +39,12 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
     workload.resources.requests.memory_bytes
   )}`
   const alreadyStopped = workload.desired_replicas === 0
-  const canKill = workload.desired_replicas > 0 || workload.pod_count > 0
   const stopHint = hint ?? `Scale to 0 — frees ${frees}`
   const killHint =
     hint ??
-    'Force-delete pods and scale to 0 — the service dies immediately, not after a graceful shutdown'
+    (alreadyStopped
+      ? 'Force-delete leftover pods immediately. The replica count is already 0, so nothing comes back.'
+      : 'Force-delete pods and scale to 0 — the service dies immediately, not after a graceful shutdown')
 
   function done() {
     setOpen(null)
@@ -101,16 +102,14 @@ export default function WorkloadActions({ workload, readOnly }: Props) {
           onClick={() => setOpen('stop')}
         />
       )}
-      {canKill && (
-        <IconButton
-          icon={<XCircle size={12} />}
-          label="Kill"
-          title={killHint}
-          disabled={disabled}
-          danger
-          onClick={() => setOpen('kill')}
-        />
-      )}
+      <IconButton
+        icon={<XCircle size={12} />}
+        label="Kill"
+        title={killHint}
+        disabled={disabled}
+        danger
+        onClick={() => setOpen('kill')}
+      />
 
       {open === 'scale' && (
         <ActionDialog

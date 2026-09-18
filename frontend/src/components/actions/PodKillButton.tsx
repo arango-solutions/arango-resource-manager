@@ -34,8 +34,8 @@ export default function PodKillButton({
   const hint = readOnly
     ? 'Read-only mode is on (ARM_READ_ONLY). No action will run.'
     : container
-      ? `Kill container ${container} — deletes the whole pod; the controller replaces it`
-      : 'Kill this pod immediately. If a controller owns it, a replacement starts within seconds.'
+      ? `Kill container ${container} — deletes the whole pod. If the workload is at 0 replicas, it will not come back.`
+      : 'Kill this pod immediately. If the workload is at 0 replicas, nothing replaces it.'
 
   const title = container ? `Kill container ${container}` : `Kill pod ${name}`
 

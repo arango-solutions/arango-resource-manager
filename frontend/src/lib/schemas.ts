@@ -259,14 +259,18 @@ export const actionPlanSchema = z.object({
   server_dry_run: z.string().nullable(),
   requires_typed_confirmation: z.boolean(),
   warning: z.string().nullable(),
-  force: z.boolean(),
-  targets: z.array(
-    z.object({
-      kind: z.string(),
-      name: z.string(),
-      current_replicas: z.number(),
-    }),
-  ),
+  // Scale/stop/delete never set these; kill does. Defaulted so an older
+  // backend (or a plan that left them unset) still renders.
+  force: z.boolean().default(false),
+  targets: z
+    .array(
+      z.object({
+        kind: z.string(),
+        name: z.string(),
+        current_replicas: z.number(),
+      }),
+    )
+    .default([]),
 })
 
 export const actionResultSchema = z.object({

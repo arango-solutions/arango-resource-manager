@@ -175,6 +175,8 @@ def test_stopping_requires_typed_confirmation_and_records_the_way_back(
     assert plan.requires_typed_confirmation is True
     assert plan.warning and "stop serving" in plan.warning
     assert len(plan.pods_terminating) == 25
+    assert plan.force is False
+    assert plan.targets == []
 
 
 def test_scaling_up_terminates_nothing(snapshot: InventorySnapshot) -> None:
@@ -192,6 +194,7 @@ def test_deleting_a_pod_says_it_frees_nothing(snapshot: InventorySnapshot) -> No
     assert "kill it instead" in plan.warning
     assert plan.frees.cpu_cores is None
     assert plan.force is False
+    assert plan.targets == []
 
 
 def test_force_deleting_a_pod_says_so(snapshot: InventorySnapshot) -> None:
@@ -246,6 +249,31 @@ def test_kill_service_refuses_the_database(snapshot: InventorySnapshot) -> None:
     with pytest.raises(ActionBlocked) as caught:
         actions.plan_kill_service(snapshot, ENABLED, "arangodb-cluster")
     assert caught.value.reason is BlockedReason.PROTECTED
+
+
+def test_kill_after_scale_to_zero_still_deletes_leftover_pods(
+    snapshot: InventorySnapshot,
+) -> None:
+    workload = next(w for w in snapshot.workloads if w.name == WORKER)
+    workload.desired_replicas = 0
+    plan = actions.plan_kill(snapshot, ENABLED, "Deployment", WORKER)
+    assert plan.restore_to is None
+    assert plan.requires_typed_confirmation is False
+    assert len(plan.pods_terminating) == 5
+    assert plan.warning and "already 0" in plan.warning
+
+
+def test_deleting_a_leftover_pod_after_scale_to_zero_is_permanent(
+    snapshot: InventorySnapshot,
+) -> None:
+    workload = next(w for w in snapshot.workloads if w.name == WORKER)
+    workload.desired_replicas = 0
+    pod = next(p for p in snapshot.pods if p.workload and p.workload.name == WORKER)
+    plan = actions.plan_delete_pod(snapshot, ENABLED, pod.name, force=True)
+    assert plan.warning is not None
+    assert "will not be replaced" in plan.warning
+    assert "frees nothing" not in plan.warning
+    assert plan.frees.cpu_cores is not None
 
 
 def test_kill_guarded_workload_needs_the_flag(snapshot: InventorySnapshot) -> None:

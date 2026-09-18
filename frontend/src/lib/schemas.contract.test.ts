@@ -88,11 +88,13 @@ describe('API contract', () => {
     })
   })
 
-  it('rejects an action plan that dropped force or targets', () => {
-    const broken = { ...killPlan } as Record<string, unknown>
-    delete broken.force
-    delete broken.targets
-    expect(() => actionResultSchema.parse(okResult(broken as typeof killPlan, true))).toThrow()
+  it('defaults force and targets when a plan omitted them', () => {
+    const stripped = { ...killPlan } as Record<string, unknown>
+    delete stripped.force
+    delete stripped.targets
+    const parsed = actionResultSchema.parse(okResult(stripped as typeof killPlan, true))
+    expect(parsed.plan?.force).toBe(false)
+    expect(parsed.plan?.targets).toEqual([])
   })
 
   it('accepts pod and service detail envelopes', () => {

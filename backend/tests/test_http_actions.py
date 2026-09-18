@@ -114,11 +114,13 @@ def test_kill_then_restore_through_http(client: Any, kube: FakeClients, store: S
 
 
 def test_stop_records_the_count_without_deleting_pods(client: Any, kube: FakeClients) -> None:
-    _action(
+    body = _action(
         client,
         "/api/v1/actions/stop",
         {"kind": "Deployment", "name": WORKER, "dry_run": False},
     )
+    assert body["plan"]["force"] is False
+    assert body["plan"]["targets"] == []
     assert [call for call, _ in kube.calls] == ["scale_deployment"]
     assert kube.calls[0][1]["body"] == {"spec": {"replicas": 0}}
 
@@ -136,6 +138,7 @@ def test_delete_pod_warns_that_it_frees_nothing(client: Any, kube: FakeClients) 
     )
     assert body["executed"] is False
     assert body["plan"]["force"] is True
+    assert body["plan"]["targets"] == []
     warning = body["plan"]["warning"] or ""
     assert "frees nothing" in warning
     assert kube.calls[0][0] == "delete_pod"

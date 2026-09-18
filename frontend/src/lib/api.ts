@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { ZodType } from 'zod'
+import { z, type ZodType } from 'zod'
 
 import {
   actionRecordSchema,
@@ -30,11 +30,14 @@ import {
   type Waste,
   type Workload,
 } from './schemas'
-import { z } from 'zod'
 
 export const http = axios.create({ baseURL: '/api/v1', timeout: 30_000 })
 
-async function get<T>(path: string, schema: ZodType<T>, params?: object): Promise<T> {
+// Input is `unknown` so T stays the *parsed* type. Otherwise `.default()`
+// fields become `T | undefined` and ActionDialog cannot accept the result.
+type ParsedSchema<T> = ZodType<T, z.ZodTypeDef, unknown>
+
+async function get<T>(path: string, schema: ParsedSchema<T>, params?: object): Promise<T> {
   const { data } = await http.get(path, { params })
   return schema.parse(data)
 }
@@ -122,16 +125,34 @@ export async function fetchPodLogs(name: string, query: LogQuery = {}): Promise<
  * structured reason and a remediation with a 4xx status. Unwrapping it means
  * the UI can explain why rather than showing "request failed".
  */
-async function post<T>(path: string, body: unknown, schema: ZodType<T>): Promise<T> {
+async function post<T>(path: string, body: unknown, schema: ParsedSchema<T>): Promise<T> {
   try {
     const { data } = await http.post(path, body)
     return schema.parse(data)
   } catch (error) {
-    const payload = (error as { response?: { data?: unknown } })?.response?.data
+    const payload = axiosResponseData(error)
     const parsed = schema.safeParse(payload)
     if (parsed.success) return parsed.data
-    throw error
+    throw new Error(apiErrorMessage(error))
   }
+}
+
+function axiosResponseData(error: unknown): unknown {
+  return (error as { response?: { data?: unknown } })?.response?.data
+}
+
+/**
+ * Prefer the API's own explanation (FastAPI `detail`, or a blocked action's
+ * `detail`) over Axios's "Request failed with status code 404".
+ */
+export function apiErrorMessage(error: unknown): string {
+  const payload = axiosResponseData(error)
+  if (typeof payload === 'string' && payload.trim()) return payload.trim()
+  if (payload && typeof payload === 'object') {
+    const detail = (payload as { detail?: unknown }).detail
+    if (typeof detail === 'string' && detail.trim()) return detail.trim()
+  }
+  return error instanceof Error ? error.message : String(error)
 }
 
 export interface ScaleArgs {

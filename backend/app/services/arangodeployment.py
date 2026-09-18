@@ -181,6 +181,8 @@ def plan_scale(clients: KubeClients, settings: Settings, tier: str, count: int) 
             if shrinking and tier == "dbservers"
             else ("Removing a stateless member." if shrinking else None)
         ),
+        force=False,
+        targets=[],
     )
 
 
